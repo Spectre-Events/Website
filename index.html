@@ -1,39 +1,30 @@
 <!DOCTYPE html>
 <html lang="fr">
-<!--
-  INDEX.HTML : le CONTENU de la page (textes, titres, formulaire).
-  Le fichier css/style.css gère l'apparence, js/script.js gère le formulaire.
-  Une balise s'écrit <balise>contenu</balise>. Les "class" et "id" servent
-  à les repérer depuis le CSS ou depuis les liens (#contact, etc.).
--->
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="DJ événementiel : mariages, anniversaires, soirées d'entreprise.">
-<!-- Le titre affiché dans l'onglet du navigateur et sur Google -->
 <title>Spectre Events</title>
-<!-- Polices Google Fonts (nécessite internet) -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:wght@400;500;700&display=swap">
-<!-- Lien vers votre fichier d'apparence -->
 <link rel="stylesheet" href="css/style.css">
 <link rel="apple-touch-icon" href="images/logo1.png">
 <link rel="icon" href="images/logo1.png" sizes="32x32" type="image/png">
 </head>
 <body>
 
-<!-- EN-TÊTE : votre nom et le menu. Chaque lien href="#xxx" mène à la section qui porte id="xxx". -->
+
 <header class="top"><div class="wrap"><b>Spectre Events</b><div><a href="#sonorisation">Sonorisation</a><a href="#photographie">Photographie</a><a href="#location">Location</a><a href="#avis">Avis</a><a href="#contact">Contact</a></div></div></header>
 
-<!-- <main> contient tout le contenu principal. Chaque <section> est un bloc de la page. -->
+
 <main>
-<!-- ACCROCHE : la première chose que voit le visiteur. Modifiez le <h1> (titre) et le <p> (texte). -->
+
 <div class="hero"><div class="wrap">
 <h1>L'excellence événementielle sur mesure : du cocktail à la dernière danse.</h1>
 <p>Mariages, séminaires, rallyes ou soirées privées : nous offrons une flexibilité totale pour sublimer tous vos événements. Grâce à une expérience éprouvée, nos DJ livrent une prestation haut de gamme, alliée à des installations élégantes et performantes pour une ambiance sur mesure.</p>
 <a class="btn" href="#contact">Demander un devis</a>
 </div></div>
 
-<!-- ÉVÉNEMENTS : une "carte" (div class="evt") par type d'événement. Copiez-collez une carte pour en ajouter. -->
+
 <section id="sonorisation"><div class="wrap">
 <h2>Nos prestations son et lumières</h2>
 <p class="lead">Matériel de sonorisation et d'éclairage haut de gamme, installation soignée, disponible partout en France. </p>
@@ -42,15 +33,15 @@
 <div class="evt"><h3>Soirées</h3><p>Mariages, séminaires d'entreprise, rallyes, soirées privées. Une installation complète pour créer une ambiance unique. </p><span class="tag"></span></div>
 <div class="evt"><h3>Evènements sur mesure</h3><p>Un projet en tête ? Nous sommes là pour vous aider à en faire une réussite. </p><span class="tag"></span></div>
 </div>
-<!-- OPTIONS : une ligne (div class="opt") par option avec son prix dans <em>. -->
 <div class="opts" id="options">
 <h3>Pour aller plus loin...</h3>
 <div class="opt"><div><b>Bar à vinyles</b><span>Une sélection de disques jazz/variété/house que vos invités viennent sélectionner. Disponible pour tous les événements.</span></div><em></em></div>
 <div class='opt'><div><b>Effets scéniques</b><span>Etincelles froides, machine à fumée lourde, idéal pour renforcer l'impact de vos moments forts. </span></div>
 </div>
-</div></section>
+</div>
+</section>
 
-<!-- PACKS MARIAGE : modifiez ici les noms, prix (class="prix") et les puces <li>. -->
+
 <section id="photographie"><div class="wrap">
 <h2>Photographie</h2>
 <p class="lead">Une envie d'immortaliser vos souvenirs ? </p>
@@ -58,10 +49,10 @@
 <div class="pack"><h3>Borne photo</h3><p class="prix">A partir de 400€</p><ul><li>Look vintage élégant</li><li>Cadres personnalisés</li><li>Impressions illimités sur papier photo</li><li>Galerie photo numérique </li></ul></div>
 <div class="pack"><h3>Photographe</h3><p class="prix">Devis sur demande</p><ul><li>Couverture continue</li><li>Post-production incluse</li><li>Rendu rapide</li></ul></div>
 </div>
+</div>
+</section>
 
-</div></section>
 
-<!-- DÉROULÉ : liste numérotée <ol>, un <li> par étape. -->
 <section id="location"><div class="wrap">
 <h2>Location de matériel</h2>
 <p class="lead">Livraison possible dans toute l'Ile-de-France. Tarif à titre indicatif.</p>
@@ -71,28 +62,30 @@
 <li><b>Lumières sobres</b><span>2 Lyres Wash electroconcept, synchronisés avec le son. Totems disponibles en plus. </span><em>60€</em></li>
 <li><b>Lumières immersives</b><span>2 Lyres Wash sur totems, 8 pars led sur batterie, console de commande Wolfmix.</span><em>150€</em></li>
 </ol>
-</div></section>
+</div>
+</section>
 
-<!-- AVIS : remplacez par de vrais avis de clients (avec leur accord). -->
+
 <section id="avis"><div class="wrap">
 <h2>Avis</h2>
 <p class="lead">Plus de 250 événements animés.</p>
 <div class="avis">
-<blockquote>« Du grand-père de 82 ans aux copains de fac, tout le monde dansait à 4 h du matin. »<footer>Camille et Julien, mariage à Chantilly</footer></blockquote>
-<blockquote>« Une soirée de fin d'année réussie : les équipes ont dansé, la direction aussi. »<footer>Sophie M., responsable RH, soirée d'entreprise</footer></blockquote>
-<blockquote>« Il a lu la salle comme personne pour mes 40 ans. Aucun faux pas musical. »<footer>Karim B., anniversaire</footer></blockquote>
-<blockquote>« Notre rallye a rempli la piste dès 22 h, et elle ne s'est pas vidée. »<footer>Bureau des élèves, rallye de promo</footer></blockquote>
+<blockquote>« Merci encore pour cette superbe soirée, on a eu que des compliments sur la musique ! »<footer>Heidi et Auguste, mariage à Valenciennes</footer></blockquote>
+<blockquote>« C'était vraiment top, notre DJ a été excellent ! »<footer>Albéric et Marie Liesse, mariage à Angers</footer></blockquote>
+<blockquote>« DJ très sympathique et pro. Matériel de qualité. Bon rapport qualité prix. Je recommande ! »<footer>Astrid, anniversaire à Paris</footer></blockquote>
+<blockquote>« Grâce à votre implication, cet événement a été un véritable succès ! »<footer>Emma, soirée corporate</footer></blockquote>
 </div>
-</div></section>
+</div>
+</section>
 
-<!-- CONTACT : coordonnées + formulaire. Le formulaire est géré par js/script.js (id="f"). -->
+
 <section id="contact" class="contact"><div class="wrap">
 <div>
 <h2>Contact</h2>
 <p class="lead">Indiquez-moi le type d'événement, la date et le lieu. Je vérifie ma disponibilité et je vous réponds sous 24 h avec un devis.</p>
 <p>+33 6 81 33 42 83<br>contact@spectre-events.fr</p>
 </div>
-<!-- Chaque champ <input>/<select>/<textarea> a un "name" : c'est ce nom que lit le JavaScript. "required" = champ obligatoire. -->
+
 <form id="f">
 <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
 <label>Votre nom<input name="nom" required autocomplete="name"></label>
@@ -112,13 +105,14 @@
 <div class="full"><button class="btn" type="submit">Envoyer ma demande</button></div>
 <p class="ok full" id="ok" role="status"></p>
 </form>
-</div></section>
+</div>
+</section>
 </main>
 
-<!-- PIED DE PAGE : ajoutez ici vos liens Mentions légales et Confidentialité. -->
+
 <footer class="f">© 2026 Spectre Events · Agence événementielle · Île-de-France</footer>
 
-<!-- Le JavaScript se charge en dernier, une fois la page affichée -->
+
 <script src="js/header.js"></script>
 <script src="js/script.js"></script>
 </body>
