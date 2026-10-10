@@ -92,6 +92,7 @@
 </div>
 <!-- Chaque champ <input>/<select>/<textarea> a un "name" : c'est ce nom que lit le JavaScript. "required" = champ obligatoire. -->
 <form id="f">
+<input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
 <label>Votre nom<input name="nom" required autocomplete="name"></label>
 <label>Votre e-mail<input name="mail" type="email" required autocomplete="email"></label>
 <label>Votre numéro de téléphone<input name="tel" type="tel" autocomplete="tel"></label>
@@ -102,7 +103,8 @@
 <fieldset class="full"><legend>Options</legend>
 <label><input type="checkbox" name="opt" value="Photobooth"> Photobooth</label>
 <label><input type="checkbox" name="opt" value="Bar à vinyles"> Bar à vinyles</label>
-<label><input type="checkbox" name="opt" value="Sonorisation de la messe"> Sonorisation de la messe</label>
+<label><input type="checkbox" name="opt" value="Autre" id="opt-autre"> Autre</label>
+<input type="text" name="opt-autre-texte" id="opt-autre-texte" placeholder="Précisez votre besoin" hidden>
 </fieldset>
 <label class="full">Votre message<textarea name="msg"></textarea></label>
 <div class="full"><button class="btn" type="submit">Envoyer ma demande</button></div>
@@ -116,5 +118,6 @@
 
 <!-- Le JavaScript se charge en dernier, une fois la page affichée -->
 <script src="js/header.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>

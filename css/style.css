@@ -74,8 +74,8 @@ input,select,textarea{font:inherit;padding:12px 14px;border:1px solid var(--line
 textarea{min-height:110px;resize:vertical}
 fieldset{border:1px solid var(--line);border-radius:2px;padding:12px 16px;margin:0}
 legend{font-weight:500;font-size:.95rem;padding:0 6px}
-fieldset label{display:flex;align-items:center;gap:10px;font-weight:400;padding:3px 0}
-fieldset input{width:auto}
+fieldset label{display:flex;align-items:center;justify-content:flex-start;gap:10px;font-weight:400;padding:3px 0;text-align:left}
+fieldset input[type="checkbox"]{width:auto;padding:0;margin:0;flex:none;accent-color:var(--acc)}
 .ok{margin:0;color:var(--acc);min-height:1.4em}
 /* 11) PIED DE PAGE */
 footer.f{border-top:1px solid var(--line);color:var(--mute);text-align:center;padding:26px 24px calc(26px + env(safe-area-inset-bottom,0px));font-size:.9rem}
