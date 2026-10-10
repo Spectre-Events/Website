@@ -2,7 +2,7 @@
 
    1) COULEURS : modifiez-les ici, tout le site suit.
    --acc est la couleur d'accent (boutons, prix, liens). */
-:root{--bg:#f8f8f6;--ink:#16181d;--mute:#666a72;--line:#dcdcd7;--acc:#2f4a43;--card:#fff}
+:root{--bg:#f7f7ee;--ink:#181a20;--mute:#666a72;--line:#dcdcd7;--acc:#3a3c50;--card:#fff}
 html{scroll-behavior:smooth}
 /* 2) BASE : calcul des tailles plus intuitif, défilement doux au clic sur un lien du menu */
 *,*::before,*::after{box-sizing:inherit}
@@ -16,7 +16,7 @@ a{color:inherit}
 /* 3) EN-TÊTE ET MENU */
 header.top{border-bottom:1px solid var(--line)}
 header.top .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:22px;padding-bottom:22px}
-header.top b{font-family:"Cormorant Garamond",serif;font-size:1.5rem;font-weight:600}
+header.top b{font-family:"Cormorant Garamond",serif;font-size:2rem;font-weight:600}
 header.top a{text-decoration:none;margin-left:24px;font-size:.95rem;color:var(--mute)}
 header.top a:hover{color:var(--ink)}
 /* 4) ACCROCHE (grand titre du haut de page) */
@@ -25,7 +25,7 @@ header.top a:hover{color:var(--ink)}
 .hero p{max-width:33em;margin:24px 0 34px;color:var(--mute);font-size:1.1rem}
 /* BOUTONS : le bouton vert ; :hover = au survol de la souris */
 .btn{display:inline-block;background:var(--acc);color:#fff;text-decoration:none;padding:14px 30px;border:0;border-radius:2px;font:500 1rem "DM Sans",sans-serif;cursor:pointer}
-.btn:hover{background:#243a35}
+.btn:hover{background:#232639}
 /* Contour visible quand on navigue au clavier (accessibilité) : à garder */
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
 /* 5) SECTIONS : espacement et filet entre chaque bloc */
@@ -38,8 +38,8 @@ section h2{font-size:clamp(2rem,4vw,2.8rem);margin-bottom:12px}
 .evt h3{font-size:1.6rem;margin-bottom:8px}
 .evt p{margin:0;color:var(--mute);font-size:.97rem}
 .evt .tag{display:block;margin-top:14px;font-weight:700;color:var(--acc);font-size:.95rem}
-/* 7) PACKS ET OPTIONS */
-.packs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+/* 7) Photographie */
+.packs{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
 .pack{background:var(--card);border:1px solid var(--line);padding:30px 26px}
 .pack.hl{border-color:var(--acc);border-width:2px}
 .pack h3{font-size:1.7rem}
@@ -54,9 +54,11 @@ section h2{font-size:clamp(2rem,4vw,2.8rem);margin-bottom:12px}
 .opt span{color:var(--mute);font-size:.95rem}
 .opt em{font-style:normal;font-weight:700;white-space:nowrap;color:var(--acc)}
 /* 8) DÉROULÉ */
-.timeline{list-style:none;margin:0;padding:0;max-width:640px}
-.timeline li{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:18px 0;border-top:1px solid var(--line)}
-.timeline b{font-family:"Cormorant Garamond",serif;font-size:1.3rem;font-weight:600}
+.timeline{list-style:none;margin:0;padding:0;max-width:960px}
+.timeline li{display:grid;grid-template-columns:180px 1fr;gap:2px 20px;padding:18px 0;border-top:1px solid var(--line)}
+.timeline b{font-family:"Cormorant Garamond",serif;font-size:1.3rem;font-weight:600;grid-column:1;grid-row:1}
+.timeline em{font-style:normal;font-weight:700;white-space:nowrap;color:var(--acc);grid-column:1;grid-row:2}
+.timeline span{grid-column:2;grid-row:1 / span 2}
 /* 9) AVIS */
 .avis{display:grid;grid-template-columns:repeat(2,1fr);gap:48px}
 blockquote{margin:0;font-family:"Cormorant Garamond",serif;font-size:1.5rem;line-height:1.35}
