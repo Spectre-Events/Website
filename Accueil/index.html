@@ -88,17 +88,18 @@
 <div>
 <h2>Contact</h2>
 <p class="lead">Indiquez-moi le type d'événement, la date et le lieu. Je vérifie ma disponibilité et je vous réponds sous 24 h avec un devis.</p>
-<p>06 12 34 56 78<br>contact@lucasmoreau-dj.fr</p>
+<p>+33 6 81 33 42 83<br>contact@spectre-events.fr</p>
 </div>
 <!-- Chaque champ <input>/<select>/<textarea> a un "name" : c'est ce nom que lit le JavaScript. "required" = champ obligatoire. -->
 <form id="f">
 <label>Votre nom<input name="nom" required autocomplete="name"></label>
 <label>Votre e-mail<input name="mail" type="email" required autocomplete="email"></label>
-<label>Type d'événement<select name="type"><option>Mariage</option><option>Anniversaire</option><option>Soirée d'entreprise</option><option>Rallye</option><option>Fête privée</option><option>Autre</option></select></label>
+<label>Votre numéro de téléphone<input name="tel" type="tel" autocomplete="tel"></label>
+<label>Type d'événement<select name="type"><option>Mariage</option><option>Soirée d'entreprise</option><option>Rallye</option><option>Evénement privé</option><option>Autre</option></select></label>
 <label>Date de l'événement<input name="date" type="date"></label>
 <label>Lieu<input name="lieu" placeholder="Ville ou domaine"></label>
-<label>Nombre d'invités<select name="nb"><option>Moins de 50</option><option>50 à 100</option><option>100 à 200</option><option>Plus de 200</option></select></label>
-<fieldset class="full"><legend>Options (la messe concerne les mariages)</legend>
+<label>Nombre d'invités<input name="nb"></input></label>
+<fieldset class="full"><legend>Options</legend>
 <label><input type="checkbox" name="opt" value="Photobooth"> Photobooth</label>
 <label><input type="checkbox" name="opt" value="Bar à vinyles"> Bar à vinyles</label>
 <label><input type="checkbox" name="opt" value="Sonorisation de la messe"> Sonorisation de la messe</label>
@@ -114,6 +115,6 @@
 <footer class="f">© 2026 Lucas Moreau · DJ événementiel · Île-de-France</footer>
 
 <!-- Le JavaScript se charge en dernier, une fois la page affichée -->
-<script src="js/script.js"></script>
+<script src="../js/header.js"></script>
 </body>
 </html>

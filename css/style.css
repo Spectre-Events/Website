@@ -2,7 +2,7 @@
 
    1) COULEURS : modifiez-les ici, tout le site suit.
    --acc est la couleur d'accent (boutons, prix, liens). */
-:root{--bg:#f7f7ee;--ink:#181a20;--mute:#666a72;--line:#dcdcd7;--acc:#3a3c50;--card:#fff}
+:root{--bg:#f7f7ee;--ink:#181a20;--mute:#666a72;--line:#dcdcd7;--acc:#202446;--card:#fff}
 html{scroll-behavior:smooth}
 /* 2) BASE : calcul des tailles plus intuitif, défilement doux au clic sur un lien du menu */
 *,*::before,*::after{box-sizing:inherit}
@@ -14,11 +14,13 @@ a{color:inherit}
 /* .wrap centre le contenu et limite sa largeur (960px) pour rester lisible sur grand écran */
 .wrap{max-width:960px;margin:0 auto;padding:0 24px}
 /* 3) EN-TÊTE ET MENU */
-header.top{border-bottom:1px solid var(--line)}
-header.top .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:22px;padding-bottom:22px}
-header.top b{font-family:"Cormorant Garamond",serif;font-size:2rem;font-weight:600}
-header.top a{text-decoration:none;margin-left:24px;font-size:.95rem;color:var(--mute)}
-header.top a:hover{color:var(--ink)}
+header.top{border-bottom:1px solid;position:sticky;top:0;z-index:10;background:var(--acc);border-bottom:1px solid var(--line);transition:transform .3s ease;}
+header.top .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:12px;padding-bottom:12px}
+header.top b{color:var(--bg);font-family:"Cormorant Garamond",serif;font-size:2rem;font-weight:600}
+header.top a{color:var(--bg);text-decoration:none;margin-left:24px;font-size:.95rem}
+header.top a:hover{color:var(--mute)}
+header.top.cache{transform:translateY(-100%)}
+html{scroll-behavior:smooth;scroll-padding-top:40px}
 /* 4) ACCROCHE (grand titre du haut de page) */
 .hero{padding:96px 0 88px}
 .hero h1{font-size:clamp(2.6rem,6.5vw,4.6rem);max-width:13em}
@@ -64,8 +66,8 @@ section h2{font-size:clamp(2rem,4vw,2.8rem);margin-bottom:12px}
 blockquote{margin:0;font-family:"Cormorant Garamond",serif;font-size:1.5rem;line-height:1.35}
 blockquote footer{font:400 .92rem "DM Sans",sans-serif;color:var(--mute);margin-top:12px}
 /* 10) CONTACT ET FORMULAIRE */
-.contact .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px}
-form{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.contact .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px}
+form{display:grid;grid-template-columns:1fr 1fr;gap:1px 40px}
 label{display:grid;gap:6px;font-weight:500;font-size:.95rem}
 .full{grid-column:1/-1}
 input,select,textarea{font:inherit;padding:12px 14px;border:1px solid var(--line);border-radius:2px;background:#fff;color:var(--ink);width:100%}
