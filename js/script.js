@@ -35,7 +35,7 @@ formulaire.addEventListener('submit', async function (e) {
   const donnees = {
     access_key: '4581c5c5-a3e4-44a5-bcfe-c6339e5970b7',
     subject: 'Nouvelle demande de devis : ' + d.get('type'),
-    from_name: 'Formulaire de contact du site Spectre Events',
+    from_name: 'Formulaire de contact',
     replyto: d.get('mail'),                 // pour répondre directement au client
     'Nom': d.get('nom'),
     'E-mail': d.get('mail'),
@@ -62,14 +62,14 @@ formulaire.addEventListener('submit', async function (e) {
     const resultat = await reponse.json();
 
     if (resultat.success) {
-      message.textContent = 'Merci ! Votre demande a bien été envoyée, je vous réponds sous 24 h.';
+      message.textContent = 'Merci ! Votre demande a bien été envoyée, nous vous répondrons sous 24 h.';
       formulaire.reset();                   // vide le formulaire
       texteAutre.hidden = true;             // recache le champ "Autre"
     } else {
       throw new Error(resultat.message);
     }
   } catch (erreur) {
-    message.textContent = 'Une erreur est survenue. Vous pouvez m\'écrire directement à contact@spectre-events.fr.';
+    message.textContent = 'Une erreur est survenue. Vous pouvez nous écrire directement à contact@spectre-events.fr.';
   } finally {
     bouton.disabled = false;                // réactive le bouton
   }
