@@ -9,6 +9,8 @@
   --line: #dcdcd7;
   --acc: #202446;
   --card: #fff;
+  --wa: #1e7e34;
+  --wa-hover: #155724;
   --succes: #1e7e34;
   --erreur: #c82333;
 }
@@ -137,7 +139,14 @@ header.top.cache {
   font-size: 1.1rem;
 }
 
-/* BOUTONS : bouton d'action principal avec transition fluide */
+/* BOUTONS : boutons d'action Hero (Devis + WhatsApp) */
+.hero-btns {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
 .btn {
   display: inline-block;
   background: var(--acc);
@@ -156,6 +165,31 @@ header.top.cache {
 .btn:disabled {
   opacity: .6;
   cursor: not-allowed;
+}
+
+/* Bouton WhatsApp direct vert élégant */
+.btn-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--wa);
+  color: #fff;
+  text-decoration: none;
+  padding: 14px 26px;
+  border: 0;
+  border-radius: 2px;
+  font: 500 1rem "DM Sans", sans-serif;
+  cursor: pointer;
+  transition: background .2s ease, opacity .2s ease;
+}
+.btn-wa:hover {
+  background: var(--wa-hover);
+}
+.btn-wa svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  flex-shrink: 0;
 }
 
 /* Contour visible quand on navigue au clavier (accessibilité WCAG) */
@@ -349,11 +383,16 @@ blockquote footer {
 .contact-info a:hover {
   border-color: var(--acc);
 }
+.contact-info .btn-wa {
+  margin-top: 18px;
+  border-bottom: 0;
+}
 
+/* Formulaire épuré et ultra-rapide */
 form {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1px 40px;
+  gap: 12px 24px;
 }
 label {
   display: grid;
@@ -374,7 +413,7 @@ input, select, textarea {
   width: 100%;
 }
 textarea {
-  min-height: 110px;
+  min-height: 100px;
   resize: vertical;
 }
 fieldset {
@@ -388,14 +427,18 @@ legend {
   font-size: .95rem;
   padding: 0 6px;
 }
-fieldset label {
+.checkbox-group {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.checkbox-group label {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 10px;
+  gap: 8px;
   font-weight: 400;
-  padding: 3px 0;
-  text-align: left;
+  cursor: pointer;
 }
 fieldset input[type="checkbox"] {
   width: auto;

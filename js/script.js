@@ -1,27 +1,12 @@
 // ==============================================================================
-// SCRIPT.JS : Comportement et soumission du formulaire de contact
+// SCRIPT.JS : Comportement et soumission du formulaire de devis
 // ==============================================================================
 
 // 1) Récupération des éléments du formulaire
 const formulaire = document.getElementById('f');
 const message = document.getElementById('ok');
-const caseAutre = document.getElementById('opt-autre');
-const texteAutre = document.getElementById('opt-autre-texte');
 
-// 2) Gestion dynamique de l'option "Autre"
-if (caseAutre && texteAutre) {
-  caseAutre.addEventListener('change', function () {
-    texteAutre.hidden = !caseAutre.checked;   // Affiche le champ texte si la case est cochée
-    texteAutre.required = caseAutre.checked;  // Rend le champ obligatoire si affiché
-    if (caseAutre.checked) {
-      texteAutre.focus();                     // Place automatiquement le curseur dans le champ
-    } else {
-      texteAutre.value = '';                  // Réinitialise la valeur si décoché
-    }
-  });
-}
-
-// 3) Soumission asynchrone du formulaire avec Web3Forms
+// 2) Soumission asynchrone du formulaire avec Web3Forms
 if (formulaire) {
   formulaire.addEventListener('submit', async function (e) {
     e.preventDefault(); // Empêche le rechargement standard de la page
@@ -37,11 +22,8 @@ if (formulaire) {
       return;
     }
 
-    // Gestion des options cochées (avec précision du champ "Autre")
-    let liste = d.getAll('opt');
-    if (caseAutre && caseAutre.checked && texteAutre.value.trim()) {
-      liste = liste.map(o => o === 'Autre' ? 'Autre : ' + texteAutre.value.trim() : o);
-    }
+    // Options cochées (Photobooth, Bar à vinyles...)
+    const liste = d.getAll('opt');
 
     // Préparation des données pour l'e-mail de notification
     const donnees = {
@@ -55,8 +37,7 @@ if (formulaire) {
       'Type d\'événement': d.get('type'),
       'Date': d.get('date') || 'Non précisée',
       'Lieu': (d.get('lieu') || '').trim() || 'Non précisé',
-      'Nombre d\'invités': d.get('nb') || 'Non précisé',
-      'Options souhaitées': liste.join(', ') || 'Aucune',
+      'Options souhaitées': liste.join(', ') || 'Aucune option cochée',
       'Message': (d.get('msg') || '').trim() || 'Aucun message particulier'
     };
 
@@ -88,7 +69,6 @@ if (formulaire) {
         message.className = 'ok full succes';
         message.textContent = 'Merci ! Votre demande a bien été envoyée, nous vous répondrons sous 24 h avec un devis personnalisé.';
         formulaire.reset();
-        if (texteAutre) texteAutre.hidden = true;
       } else {
         throw new Error(resultat.message || 'Erreur lors de la transmission');
       }
