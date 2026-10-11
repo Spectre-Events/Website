@@ -39,7 +39,13 @@ h1, h2, h3 {
   margin: 0;
 }
 a {
-  color: inherit;
+  color:var(--card);
+}
+.beige{
+   color:var(--card);
+}
+.negro{
+   color:var(--ink);
 }
 
 /* .wrap centre le contenu et limite sa largeur (960px) pour rester lisible sur grand écran */
