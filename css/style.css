@@ -1,89 +1,493 @@
-/* STYLE.CSS : l'APPARENCE du site. Une règle s'écrit  sélecteur { propriété: valeur; }
+/* STYLE.CSS : l'APPARENCE du site. Une règle s'écrit sélecteur { propriété: valeur; }
 
-   1) COULEURS : modifiez-les ici, tout le site suit.
+   1) COULEURS & VARIABLES : modifiez-les ici, tout le site suit.
    --acc est la couleur d'accent (boutons, prix, liens). */
-:root{--bg:#f7f7ee;--ink:#181a20;--mute:#666a72;--line:#dcdcd7;--acc:#202446;--card:#fff}
-html{scroll-behavior:smooth}
-/* 2) BASE : calcul des tailles plus intuitif, défilement doux au clic sur un lien du menu */
-*,*::before,*::after{box-sizing:inherit}
+:root {
+  --bg: #f7f7ee;
+  --ink: #181a20;
+  --mute: #666a72;
+  --line: #dcdcd7;
+  --acc: #202446;
+  --card: #fff;
+  --succes: #1e7e34;
+  --erreur: #c82333;
+}
+
+/* 2) BASE : calcul des tailles plus intuitif (box-sizing), défilement doux avec marge pour le header */
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px; /* Évite que le haut des sections ne soit masqué par le header fixe */
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
 /* Police, taille de texte et couleurs par défaut de toute la page */
-body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 "DM Sans",system-ui,sans-serif}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 17px/1.65 "DM Sans", system-ui, sans-serif;
+}
+
 /* Les titres utilisent une police à empattements, le texte une police simple */
-h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;line-height:1.1;margin:0}
-a{color:inherit}
+h1, h2, h3 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 500;
+  line-height: 1.1;
+  margin: 0;
+}
+a {
+  color: inherit;
+}
+
 /* .wrap centre le contenu et limite sa largeur (960px) pour rester lisible sur grand écran */
-.wrap{max-width:960px;margin:0 auto;padding:0 24px}
-/* 3) EN-TÊTE ET MENU */
-header.top{border-bottom:1px solid;position:sticky;top:0;z-index:10;background:var(--acc);border-bottom:1px solid var(--line);transition:transform .3s ease;}
-header.top .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:12px;padding-bottom:12px}
-header.top b{color:var(--bg);font-family:"Cormorant Garamond",serif;font-size:2rem;font-weight:600}
-header.top a{color:var(--bg);text-decoration:none;margin-left:24px;font-size:.95rem}
-header.top a:hover{color:var(--mute)}
-header.top.cache{transform:translateY(-100%)}
-html{scroll-behavior:smooth;scroll-padding-top:40px}
+.wrap {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* 3) EN-TÊTE ET MENU DE NAVIGATION */
+header.top {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--acc);
+  border-bottom: 1px solid var(--line);
+  transition: transform .3s ease;
+}
+header.top .wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+/* Logo de marque et titre dans l'en-tête */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--bg);
+}
+.brand img {
+  height: 28px;
+  width: auto;
+  display: block;
+}
+.brand b {
+  color: var(--bg);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* Navigation principale */
+header.top nav {
+  display: flex;
+  align-items: center;
+}
+header.top nav a {
+  color: var(--bg);
+  text-decoration: none;
+  margin-left: 24px;
+  font-size: .95rem;
+  transition: color .2s ease;
+}
+header.top nav a:hover {
+  color: var(--mute);
+}
+header.top.cache {
+  transform: translateY(-100%);
+}
+
+/* Bouton burger pour mobile (masqué par défaut sur desktop) */
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: 0;
+  color: var(--bg);
+  padding: 6px;
+  cursor: pointer;
+  border-radius: 2px;
+}
+.menu-toggle svg {
+  display: block;
+  width: 26px;
+  height: 26px;
+}
+
 /* 4) ACCROCHE (grand titre du haut de page) */
-.hero{padding:96px 0 88px}
-.hero h1{font-size:clamp(2.6rem,6.5vw,4.6rem);max-width:13em}
-.hero p{max-width:33em;margin:24px 0 34px;color:var(--mute);font-size:1.1rem}
-/* BOUTONS : le bouton vert ; :hover = au survol de la souris */
-.btn{display:inline-block;background:var(--acc);color:#fff;text-decoration:none;padding:14px 30px;border:0;border-radius:2px;font:500 1rem "DM Sans",sans-serif;cursor:pointer}
-.btn:hover{background:#232639}
-/* Contour visible quand on navigue au clavier (accessibilité) : à garder */
-a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
+.hero {
+  padding: 96px 0 88px;
+}
+.hero h1 {
+  font-size: clamp(2.6rem, 6.5vw, 4.6rem);
+  max-width: 13em;
+}
+.hero p {
+  max-width: 33em;
+  margin: 24px 0 34px;
+  color: var(--mute);
+  font-size: 1.1rem;
+}
+
+/* BOUTONS : bouton d'action principal avec transition fluide */
+.btn {
+  display: inline-block;
+  background: var(--acc);
+  color: #fff;
+  text-decoration: none;
+  padding: 14px 30px;
+  border: 0;
+  border-radius: 2px;
+  font: 500 1rem "DM Sans", sans-serif;
+  cursor: pointer;
+  transition: background .2s ease, opacity .2s ease;
+}
+.btn:hover {
+  background: #2b305c;
+}
+.btn:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+/* Contour visible quand on navigue au clavier (accessibilité WCAG) */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 3px solid var(--acc);
+  outline-offset: 3px;
+}
+
 /* 5) SECTIONS : espacement et filet entre chaque bloc */
-section{padding:76px 0;border-top:1px solid var(--line)}
-section h2{font-size:clamp(2rem,4vw,2.8rem);margin-bottom:12px}
-.lead{max-width:36em;color:var(--mute);margin:0 0 40px}
-/* 6) CARTES DES ÉVÉNEMENTS : grille de 3 colonnes */
-.evts{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.evt{background:var(--card);border:1px solid var(--line);padding:26px}
-.evt h3{font-size:1.6rem;margin-bottom:8px}
-.evt p{margin:0;color:var(--mute);font-size:.97rem}
-.evt .tag{display:block;margin-top:14px;font-weight:700;color:var(--acc);font-size:.95rem}
-/* 7) Photographie */
-.packs{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-.pack{background:var(--card);border:1px solid var(--line);padding:30px 26px}
-.pack.hl{border-color:var(--acc);border-width:2px}
-.pack h3{font-size:1.7rem}
-.prix{margin:6px 0 16px;font-weight:700;color:var(--acc)}
-.pack ul{margin:0;padding-left:18px}
-.pack li{margin-bottom:6px}
-.opts{margin-top:44px}
-.opts h3{font-size:1.6rem;margin-bottom:14px}
-.opt{display:flex;justify-content:space-between;gap:20px;padding:16px 0;border-top:1px solid var(--line)}
-.opt:last-child{border-bottom:1px solid var(--line)}
-.opt b{display:block;font-weight:700}
-.opt span{color:var(--mute);font-size:.95rem}
-.opt em{font-style:normal;font-weight:700;white-space:nowrap;color:var(--acc)}
-/* 8) DÉROULÉ */
-.timeline{list-style:none;margin:0;padding:0;max-width:960px}
-.timeline li{display:grid;grid-template-columns:180px 1fr;gap:2px 20px;padding:18px 0;border-top:1px solid var(--line)}
-.timeline b{font-family:"Cormorant Garamond",serif;font-size:1.3rem;font-weight:600;grid-column:1;grid-row:1}
-.timeline em{font-style:normal;font-weight:700;white-space:nowrap;color:var(--acc);grid-column:1;grid-row:2}
-.timeline span{grid-column:2;grid-row:1 / span 2}
-/* 9) AVIS */
-.avis{display:grid;grid-template-columns:repeat(2,1fr);gap:48px}
-blockquote{margin:0;font-family:"Cormorant Garamond",serif;font-size:1.5rem;line-height:1.35}
-blockquote footer{font:400 .92rem "DM Sans",sans-serif;color:var(--mute);margin-top:12px}
+section {
+  padding: 76px 0;
+  border-top: 1px solid var(--line);
+}
+section h2 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  margin-bottom: 12px;
+}
+.lead {
+  max-width: 36em;
+  color: var(--mute);
+  margin: 0 0 40px;
+}
+
+/* 6) CARTES DES PRESTATIONS : grille de 3 colonnes */
+.evts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.evt {
+  background: var(--card);
+  border: 1px solid var(--line);
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+}
+.evt h3 {
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+.evt p {
+  margin: 0;
+  color: var(--mute);
+  font-size: .97rem;
+  flex: 1;
+}
+.evt .tag {
+  display: block;
+  margin-top: 14px;
+  font-weight: 700;
+  color: var(--acc);
+  font-size: .9rem;
+  letter-spacing: .3px;
+}
+
+/* Options complémentaires */
+.opts {
+  margin-top: 44px;
+}
+.opts h3 {
+  font-size: 1.6rem;
+  margin-bottom: 14px;
+}
+.opt {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+}
+.opt:last-child {
+  border-bottom: 1px solid var(--line);
+}
+.opt b {
+  display: block;
+  font-weight: 700;
+}
+.opt span {
+  color: var(--mute);
+  font-size: .95rem;
+}
+.opt em {
+  font-style: normal;
+  font-weight: 700;
+  white-space: nowrap;
+  color: var(--acc);
+}
+
+/* 7) PHOTOGRAPHIE & PHOTOBOOTH */
+.packs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.pack {
+  background: var(--card);
+  border: 1px solid var(--line);
+  padding: 30px 26px;
+}
+.pack.hl {
+  border-color: var(--acc);
+  border-width: 2px;
+}
+.pack h3 {
+  font-size: 1.7rem;
+}
+.prix {
+  margin: 6px 0 16px;
+  font-weight: 700;
+  color: var(--acc);
+}
+.pack ul {
+  margin: 0;
+  padding-left: 18px;
+}
+.pack li {
+  margin-bottom: 6px;
+}
+
+/* 8) LOCATION DE MATÉRIEL */
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 960px;
+}
+.timeline li {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 2px 20px;
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+}
+.timeline b {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  grid-column: 1;
+  grid-row: 1;
+}
+.timeline em {
+  font-style: normal;
+  font-weight: 700;
+  white-space: nowrap;
+  color: var(--acc);
+  grid-column: 1;
+  grid-row: 2;
+}
+.timeline span {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+}
+
+/* 9) TÉMOIGNAGES & AVIS CLIENTS */
+.avis {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px;
+}
+blockquote {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.5rem;
+  line-height: 1.35;
+}
+.stars {
+  color: #cda34f; /* Teinte dorée élégante */
+  font-size: 1rem;
+  letter-spacing: 2px;
+  display: block;
+  margin-bottom: 6px;
+}
+blockquote footer {
+  font: 400 .92rem "DM Sans", sans-serif;
+  color: var(--mute);
+  margin-top: 12px;
+}
+
 /* 10) CONTACT ET FORMULAIRE */
-.contact .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px}
-form{display:grid;grid-template-columns:1fr 1fr;gap:1px 40px}
-label{display:grid;gap:6px;font-weight:500;font-size:.95rem}
-.full{grid-column:1/-1}
-input,select,textarea{font:inherit;padding:12px 14px;border:1px solid var(--line);border-radius:2px;background:#fff;color:var(--ink);width:100%}
-textarea{min-height:110px;resize:vertical}
-fieldset{border:1px solid var(--line);border-radius:2px;padding:12px 16px;margin:0}
-legend{font-weight:500;font-size:.95rem;padding:0 6px}
-fieldset label{display:flex;align-items:center;justify-content:flex-start;gap:10px;font-weight:400;padding:3px 0;text-align:left}
-fieldset input[type="checkbox"]{width:auto;padding:0;margin:0;flex:none;accent-color:var(--acc)}
-.ok{margin:0;color:var(--acc);min-height:1.4em}
+.contact .wrap {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 40px;
+}
+.contact-info a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+  transition: border-color .2s ease;
+}
+.contact-info a:hover {
+  border-color: var(--acc);
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px 40px;
+}
+label {
+  display: grid;
+  gap: 6px;
+  font-weight: 500;
+  font-size: .95rem;
+}
+.full {
+  grid-column: 1 / -1;
+}
+input, select, textarea {
+  font: inherit;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: #fff;
+  color: var(--ink);
+  width: 100%;
+}
+textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+fieldset {
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 12px 16px;
+  margin: 0;
+}
+legend {
+  font-weight: 500;
+  font-size: .95rem;
+  padding: 0 6px;
+}
+fieldset label {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  font-weight: 400;
+  padding: 3px 0;
+  text-align: left;
+}
+fieldset input[type="checkbox"] {
+  width: auto;
+  padding: 0;
+  margin: 0;
+  flex: none;
+  accent-color: var(--acc);
+}
+
+/* Retour visuel du formulaire (succès et erreur différenciés) */
+.ok {
+  margin: 10px 0 0;
+  min-height: 1.4em;
+  font-weight: 500;
+  font-size: .95rem;
+}
+.ok.succes {
+  color: var(--succes);
+}
+.ok.erreur {
+  color: var(--erreur);
+}
+
+/* Mention RGPD sous le formulaire */
+.rgpd {
+  font-size: .8rem;
+  color: var(--mute);
+  margin-top: 10px;
+  line-height: 1.4;
+}
+.rgpd a {
+  color: inherit;
+  text-decoration: underline;
+}
+
 /* 11) PIED DE PAGE */
-footer.f{border-top:1px solid var(--line);color:var(--mute);text-align:center;padding:26px 24px calc(26px + env(safe-area-inset-bottom,0px));font-size:.9rem}
-/* 12) VERSION MOBILE : ces règles ne s'appliquent que si l'écran fait 760px ou moins.
-   Les grilles passent alors à une seule colonne. */
-@media (max-width:760px){
-.evts,.packs,.avis,.contact .wrap,form{grid-template-columns:1fr}
-.timeline li{grid-template-columns:1fr;gap:2px}
-header.top a:not(:last-child){display:none}
-.hero{padding:64px 0}
+footer.f {
+  border-top: 1px solid var(--line);
+  color: var(--mute);
+  text-align: center;
+  padding: 26px 24px calc(26px + env(safe-area-inset-bottom, 0px));
+  font-size: .9rem;
+}
+footer.f a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+/* 12) VERSION MOBILE (écrans de 760px ou moins) */
+@media (max-width: 760px) {
+  .evts, .packs, .avis, .contact .wrap, form {
+    grid-template-columns: 1fr;
+  }
+  .timeline li {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+  .hero {
+    padding: 64px 0;
+  }
+
+  /* Affichage du bouton burger sur mobile */
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Navigation mobile déroulante sous le header */
+  header.top nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--acc);
+    border-bottom: 1px solid var(--line);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 24px 24px;
+    gap: 16px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  }
+  header.top nav.ouvert {
+    display: flex;
+  }
+  header.top nav a {
+    margin-left: 0;
+    font-size: 1.05rem;
+    padding: 4px 0;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  header.top nav a:last-child {
+    border-bottom: 0;
+  }
 }

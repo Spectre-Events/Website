@@ -1,0 +1,93 @@
+# ==============================================================================
+# FICHIER .HTACCESS : Configuration du serveur Apache (OVH)
+# ==============================================================================
+# Ce fichier configure la sécurité, la redirection HTTPS, la compression
+# et la mise en cache des ressources statiques pour optimiser les performances.
+
+# ------------------------------------------------------------------------------
+# 1) REDIRECTION FORCÉE VERS HTTPS ET UNIFICATION DU DOMAINE
+# ------------------------------------------------------------------------------
+# Redirige automatiquement tout le trafic non sécurisé (HTTP) vers HTTPS (301)
+# et unifie le nom de domaine sans "www" pour éviter le duplicate content en SEO.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Si la connexion n'est pas en HTTPS OU si l'URL commence par www.
+  RewriteCond %{HTTPS} off [OR]
+  RewriteCond %{HTTP_HOST} ^www\.spectre-events\.fr [NC]
+  RewriteRule ^(.*)$ https://spectre-events.fr/$1 [L,R=301]
+</IfModule>
+
+# ------------------------------------------------------------------------------
+# 2) SÉCURITÉ : EN-TÊTES HTTP DE PROTECTION
+# ------------------------------------------------------------------------------
+<IfModule mod_headers.c>
+  # Empêche le navigateur de deviner le type MIME (protection contre MIME-sniffing)
+  Header set X-Content-Type-Options "nosniff"
+
+  # Empêche l'affichage du site dans des iframes externes (protection contre le Clickjacking)
+  Header set X-Frame-Options "SAMEORIGIN"
+
+  # Limite les informations envoyées dans le header Referer aux sites tiers
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # Restreint l'accès aux fonctionnalités sensibles du matériel
+  Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+
+  # Forcer HTTPS pour les prochaines visites (HSTS - 6 mois)
+  Header set Strict-Transport-Security "max-age=15552000; includeSubDomains" env=HTTPS
+</IfModule>
+
+# ------------------------------------------------------------------------------
+# 3) PROTECTION DES FICHIERS ET DOSSIERS SENSIBLES
+# ------------------------------------------------------------------------------
+# Bloque l'accès aux fichiers cachés (.git, .env, .htaccess, etc.)
+<FilesMatch "^\.">
+  Order allow,deny
+  Deny from all
+</FilesMatch>
+
+# ------------------------------------------------------------------------------
+# 4) COMPRESSION GZIP / DEFLATE
+# ------------------------------------------------------------------------------
+# Compresse le texte, le HTML, le CSS et le JavaScript pour accélérer le chargement
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE text/plain
+  AddOutputFilterByType DEFLATE text/xml
+  AddOutputFilterByType DEFLATE application/xml
+  AddOutputFilterByType DEFLATE application/xhtml+xml
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE text/javascript
+  AddOutputFilterByType DEFLATE image/svg+xml
+  AddOutputFilterByType DEFLATE application/json
+</IfModule>
+
+# ------------------------------------------------------------------------------
+# 5) MISE EN CACHE DU NAVIGATEUR (PERFORMANCES & CORE WEB VITALS)
+# ------------------------------------------------------------------------------
+# Définit une durée de vie longue pour les fichiers statiques
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # HTML : 1 heure (pour prise en compte rapide des mises à jour de contenu)
+  ExpiresByType text/html "access plus 1 hour"
+
+  # CSS et JavaScript : 1 mois
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType text/javascript "access plus 1 month"
+
+  # Images et Favicon : 6 mois
+  ExpiresByType image/x-icon "access plus 6 months"
+  ExpiresByType image/vnd.microsoft.icon "access plus 6 months"
+  ExpiresByType image/png "access plus 6 months"
+  ExpiresByType image/jpeg "access plus 6 months"
+  ExpiresByType image/webp "access plus 6 months"
+  ExpiresByType image/svg+xml "access plus 6 months"
+
+  # Polices d'écriture : 1 an
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType font/woff "access plus 1 year"
+</IfModule>
