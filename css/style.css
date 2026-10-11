@@ -9,8 +9,6 @@
   --line: #dcdcd7;
   --acc: #202446;
   --card: #fff;
-  --wa: #1e7e34;
-  --wa-hover: #155724;
   --succes: #1e7e34;
   --erreur: #c82333;
 }
@@ -139,7 +137,7 @@ header.top.cache {
   font-size: 1.1rem;
 }
 
-/* BOUTONS : boutons d'action Hero (Devis + WhatsApp) */
+/* BOUTONS : boutons d'action Hero */
 .hero-btns {
   display: flex;
   gap: 14px;
@@ -147,13 +145,14 @@ header.top.cache {
   align-items: center;
 }
 
+/* Bouton principal plein (marine) */
 .btn {
   display: inline-block;
   background: var(--acc);
   color: #fff;
   text-decoration: none;
   padding: 14px 30px;
-  border: 0;
+  border: 1px solid var(--acc);
   border-radius: 2px;
   font: 500 1rem "DM Sans", sans-serif;
   cursor: pointer;
@@ -161,35 +160,29 @@ header.top.cache {
 }
 .btn:hover {
   background: #2b305c;
+  border-color: #2b305c;
 }
 .btn:disabled {
   opacity: .6;
   cursor: not-allowed;
 }
 
-/* Bouton WhatsApp direct vert élégant */
-.btn-wa {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: var(--wa);
-  color: #fff;
+/* Bouton secondaire chic outline (fond transparent, bordure marine) */
+.btn-outline {
+  display: inline-block;
+  background: transparent;
+  color: var(--acc);
   text-decoration: none;
-  padding: 14px 26px;
-  border: 0;
+  padding: 14px 28px;
+  border: 1px solid var(--acc);
   border-radius: 2px;
   font: 500 1rem "DM Sans", sans-serif;
   cursor: pointer;
-  transition: background .2s ease, opacity .2s ease;
+  transition: background .2s ease, color .2s ease;
 }
-.btn-wa:hover {
-  background: var(--wa-hover);
-}
-.btn-wa svg {
-  width: 20px;
-  height: 20px;
-  fill: currentColor;
-  flex-shrink: 0;
+.btn-outline:hover {
+  background: var(--acc);
+  color: #fff;
 }
 
 /* Contour visible quand on navigue au clavier (accessibilité WCAG) */
@@ -383,9 +376,17 @@ blockquote footer {
 .contact-info a:hover {
   border-color: var(--acc);
 }
-.contact-info .btn-wa {
-  margin-top: 18px;
-  border-bottom: 0;
+.contact-info .wa-link {
+  display: inline-block;
+  margin-top: 14px;
+  color: var(--acc);
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px solid var(--acc);
+  transition: opacity .2s ease;
+}
+.contact-info .wa-link:hover {
+  opacity: .7;
 }
 
 /* Formulaire épuré et ultra-rapide */
