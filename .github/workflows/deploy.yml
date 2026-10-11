@@ -1,4 +1,9 @@
-name: Deploy to OVH
+# ==============================================================================
+# WORKFLOW GITHUB ACTIONS : Déploiement automatique vers l'hébergement OVH
+# ==============================================================================
+# Déclenché automatiquement à chaque commit ou fusion sur la branche 'main'.
+
+name: Deploy to OVH 
 
 on:
   push:
@@ -10,13 +15,22 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
     steps:
-    - name: Get latest code
-      uses: actions/checkout@v4
+      # 1) Récupération du code source
+      - name: Get latest code
+        uses: actions/checkout@v4
 
-    - name: Sync files to OVH
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-      with:
-        server: ${{ secrets.FTP_SERVER }}
-        username: ${{ secrets.FTP_USERNAME }}
-        password: ${{ secrets.FTP_PASSWORD }}
-        server-dir: /www/ # Repertoire racine Web chez OVH
+      # 2) Synchronisation sécurisée des fichiers via FTP
+      - name: Sync files to OVH 
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: /www/ # Répertoire racine Web chez OVH
+          # Sécurité : exclure les dossiers de versioning et workflows internes
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github/**
+            README.md
+            scratch/**

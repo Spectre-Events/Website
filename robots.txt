@@ -1,0 +1,9 @@
+# ==============================================================================
+# ROBOTS.TXT : Directives pour les robots d'indexation (Googlebot, Bingbot...)
+# ==============================================================================
+
+User-agent: *
+Allow: /
+
+# Emplacement du plan du site pour faciliter l'indexation
+Sitemap: https://spectre-events.fr/sitemap.xml

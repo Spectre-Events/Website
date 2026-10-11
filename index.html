@@ -3,116 +3,322 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="DJ événementiel : mariages, anniversaires, soirées d'entreprise.">
-<title>Spectre Events</title>
+<meta name="description" content="Spectre Events : DJ événementiel, mariages, séminaires d'entreprise, rallyes, sonorisation et location de matériel en Île-de-France.">
+<title>Spectre Events — Sonorisation, DJ & Événementiel haut de gamme</title>
+
+<!-- Optimisation SEO & Réseaux Sociaux (Open Graph & Twitter Cards) -->
+<link rel="canonical" href="https://spectre-events.fr/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://spectre-events.fr/">
+<meta property="og:title" content="Spectre Events — Sonorisation, DJ & Événementiel">
+<meta property="og:description" content="Mariages, séminaires, rallyes ou soirées privées : nous offrons une flexibilité totale pour sublimer tous vos événements.">
+<meta property="og:image" content="https://spectre-events.fr/images/og-image.jpg">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Spectre Events">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Spectre Events — Sonorisation, DJ & Événementiel">
+<meta name="twitter:description" content="Vos événements sur mesure : du cocktail à la dernière danse.">
+<meta name="twitter:image" content="https://spectre-events.fr/images/og-image.jpg">
+
+<!-- Performance : préconnexion aux polices Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="css/style.css">
-<link rel="apple-touch-icon" href="images/logo1.png">
-<link rel="icon" href="images/logo1.png" sizes="32x32" type="image/png">
+
+<!-- Feuille de style du site (v=2 pour rafraîchir le cache navigateur) -->
+<link rel="stylesheet" href="css/style.css?v=2">
+
+<!-- Favicons légers et optimisés (1.5 Ko au lieu de 1 Mo) -->
+<link rel="icon" href="images/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+<!-- Données structurées Schema.org pour Google -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EntertainmentBusiness",
+  "name": "Spectre Events",
+  "url": "https://spectre-events.fr/",
+  "logo": "https://spectre-events.fr/images/logo-nav.png",
+  "image": "https://spectre-events.fr/images/og-image.jpg",
+  "description": "DJ événementiel : mariages, séminaires, rallyes ou soirées privées. Sonorisation L-Acoustics, mise en lumière, borne photo et location.",
+  "telephone": "+33681334283",
+  "email": "contact@spectre-events.fr",
+  "areaServed": ["Île-de-France", "France"],
+  "priceRange": "€€",
+  "address": {
+    "@type": "PostalAddress",
+    "addressRegion": "Île-de-France",
+    "addressCountry": "FR"
+  }
+}
+</script>
 </head>
 <body>
 
+<!-- En-tête de navigation fixe avec logo de marque et menu responsive -->
+<header class="top">
+  <div class="wrap">
+    <a href="#" class="brand" aria-label="Spectre Events - Retour en haut de page">
+      <img src="images/logo-nav.png" alt="Logo Spectre Events" width="36" height="24">
+      <b>Spectre Events</b>
+    </a>
 
-<header class="top"><div class="wrap"><b>Spectre Events</b><div><a href="#sonorisation">Sonorisation</a><a href="#photographie">Photographie</a><a href="#location">Location</a><a href="#avis">Avis</a><a href="#contact">Contact</a></div></div></header>
+    <!-- Bouton menu burger visible sur mobile -->
+    <button class="menu-toggle" aria-label="Ouvrir le menu de navigation" aria-expanded="false" aria-controls="nav-principale">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
 
+    <!-- Liens du menu -->
+    <nav id="nav-principale" aria-label="Navigation principale">
+      <a href="#sonorisation">Sonorisation</a>
+      <a href="#photographie">Photographie</a>
+      <a href="#location">Location</a>
+      <a href="#avis">Avis</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
 
 <main>
 
-<div class="hero"><div class="wrap">
-<h1>L'excellence événementielle sur mesure : du cocktail à la dernière danse.</h1>
-<p>Mariages, séminaires, rallyes ou soirées privées : nous offrons une flexibilité totale pour sublimer tous vos événements. Grâce à une expérience éprouvée, nos DJ livrent une prestation haut de gamme, alliée à des installations élégantes et performantes pour une ambiance sur mesure.</p>
-<a class="btn" href="#contact">Demander un devis</a>
-</div></div>
+<!-- Section Hero (Accroche principale) -->
+<div class="hero">
+  <div class="wrap">
+    <h1>Vos événements sur mesure : du cocktail à la dernière danse.</h1>
+    <p>Mariages, séminaires, rallyes ou soirées privées : nous offrons une flexibilité totale pour sublimer tous vos événements. Grâce à une expérience éprouvée, nos DJ livrent une prestation haut de gamme, alliée à des installations élégantes et performantes pour une ambiance sur mesure.</p>
+    
+    <!-- Boutons d'action sobres et chics (Devis + WhatsApp en outline marine) -->
+    <div class="hero-btns">
+      <a class="btn" href="#contact">Demander un devis</a>
+      <a class="btn btn-outline" href="https://wa.me/33681334283?text=Bonjour%2C%20je%20souhaite%20un%20devis%20ou%20des%20renseignements%20pour%20un%20%C3%A9v%C3%A9nement." target="_blank" rel="noopener noreferrer">Nous contacter sur WhatsApp</a>
+    </div>
+  </div>
+</div>
 
+<!-- Section Sonorisation & Éclairage -->
+<section id="sonorisation">
+  <div class="wrap">
+    <h2>Nos prestations son et lumières</h2>
+    <p class="lead">Matériel de sonorisation et d'éclairage haut de gamme, installation soignée, disponible partout en France.</p>
+    <div class="evts">
+      <div class="evt">
+        <h3>Lounge</h3>
+        <p>Cocktails, inaugurations, garden parties,... ume installation chic et discrète.</p>
+        <span class="tag">Cocktail & Garden Party</span>
+      </div>
+      <div class="evt">
+        <h3>Soirées</h3>
+        <p>Mariages, séminaires d'entreprise, rallyes, soirées privées. Une installation complète pour créer une ambiance unique.</p>
+        <span class="tag">Mariage & Rallye</span>
+      </div>
+      <div class="evt">
+        <h3>Evénements sur mesure</h3>
+        <p>Un projet en tête ? Nous sommes là pour vous aider à en faire une réussite.</p>
+        <span class="tag">Accompagnement Dédié</span>
+      </div>
+    </div>
 
-<section id="sonorisation"><div class="wrap">
-<h2>Nos prestations son et lumières</h2>
-<p class="lead">Matériel de sonorisation et d'éclairage haut de gamme, installation soignée, disponible partout en France. </p>
-<div class="evts">
-<div class="evt"><h3>Lounge</h3><p>Cocktails, inaugurations, garden parties. Une installation chic et discrète.  </p><span class="tag"></span></div>
-<div class="evt"><h3>Soirées</h3><p>Mariages, séminaires d'entreprise, rallyes, soirées privées. Une installation complète pour créer une ambiance unique. </p><span class="tag"></span></div>
-<div class="evt"><h3>Evènements sur mesure</h3><p>Un projet en tête ? Nous sommes là pour vous aider à en faire une réussite. </p><span class="tag"></span></div>
-</div>
-<div class="opts" id="options">
-<h3>Pour aller plus loin...</h3>
-<div class="opt"><div><b>Bar à vinyles</b><span>Une sélection de disques jazz/variété/house que vos invités viennent sélectionner. Disponible pour tous les événements.</span></div><em></em></div>
-<div class='opt'><div><b>Effets scéniques</b><span>Etincelles froides, machine à fumée lourde, idéal pour renforcer l'impact de vos moments forts. </span></div>
-</div>
-</div>
+    <!-- Options supplémentaires -->
+    <div class="opts" id="options">
+      <h3>Pour aller plus loin...</h3>
+      <div class="opt">
+        <div>
+          <b>Bar à vinyles</b>
+          <span>Une sélection de disques jazz/variété/house que vos invités viennent sélectionner. Disponible pour tous les événements.</span>
+        </div>
+        <em>Sur devis</em>
+      </div>
+      <div class="opt">
+        <div>
+          <b>Effets scéniques</b>
+          <span>Etincelles froides, machine à fumée lourde, idéal pour renforcer l'impact de vos moments forts.</span>
+        </div>
+        <em>Sur devis</em>
+      </div>
+    </div>
+  </div>
 </section>
 
-
-<section id="photographie"><div class="wrap">
-<h2>Photographie</h2>
-<p class="lead">Une envie d'immortaliser vos souvenirs ? </p>
-<div class="packs">
-<div class="pack"><h3>Borne photo</h3><p class="prix">A partir de 400€</p><ul><li>Look vintage élégant</li><li>Cadres personnalisés</li><li>Impressions illimités sur papier photo</li><li>Galerie photo numérique </li></ul></div>
-<div class="pack"><h3>Photographe</h3><p class="prix">Devis sur demande</p><ul><li>Couverture continue</li><li>Post-production incluse</li><li>Rendu rapide</li></ul></div>
-</div>
-</div>
+<!-- Section Photographie -->
+<section id="photographie">
+  <div class="wrap">
+    <h2>Photographie</h2>
+    <p class="lead">Envie d'immortaliser vos souvenirs ?</p>
+    <div class="packs">
+      <div class="pack hl">
+        <h3>Borne photo</h3>
+        <p class="prix">A partir de 400€</p>
+        <ul>
+          <li>Look vintage élégant</li>
+          <li>Cadres personnalisés</li>
+          <li>Impressions illimités sur papier photo</li>
+          <li>Galerie photo numérique et GIFs</li>
+        </ul>
+      </div>
+      <div class="pack">
+        <h3>Photographe</h3>
+        <p class="prix">Devis sur demande</p>
+        <ul>
+          <li>Couverture continue</li>
+          <li>Post-production incluse</li>
+          <li>Rendu rapide</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </section>
 
-
-<section id="location"><div class="wrap">
-<h2>Location de matériel</h2>
-<p class="lead">Livraison possible dans toute l'Ile-de-France. Tarif à titre indicatif.</p>
-<ol class="timeline">
-<li><b>Petite sono</b><span>Deux enceintes 200w avec trépieds, connection bluetooth et un micro Shure. Adapté pour 50 personnes. </span><em>120€</em></li>
-<li><b>Grosse sono</b><span>Système son L-Acoustics : 2 12XT à 380W RMS chacune, 2 SB118 à 600W RMS chacun, ampli LA4 avec cablage, table de mixage Yamaha MG12, 2 micros HF Shure. Adapté jusqu'à 400 personnes. </span><em>300€</em></li>
-<li><b>Lumières sobres</b><span>2 Lyres Wash electroconcept, synchronisés avec le son. Totems disponibles en plus. </span><em>60€</em></li>
-<li><b>Lumières immersives</b><span>2 Lyres Wash sur totems, 8 pars led sur batterie, console de commande Wolfmix.</span><em>150€</em></li>
-</ol>
-</div>
+<!-- Section Location de Matériel -->
+<section id="location">
+  <div class="wrap">
+    <h2>Location de matériel</h2>
+    <p class="lead">Livraison possible dans toute l'Ile-de-France. Tarif à titre indicatif.</p>
+    <ol class="timeline">
+      <li>
+        <b>Petite sono</b>
+        <span>Deux enceintes 200w avec trépieds, connection bluetooth et un micro Shure. Adapté pour 50 personnes.</span>
+        <em>120€</em>
+      </li>
+      <li>
+        <b>Grosse sono</b>
+        <span>Système son L-Acoustics : 2 12XT à 380W RMS chacune, 2 SB118 à 600W RMS chacun, ampli LA4 avec cablage, table de mixage Yamaha MG12, 2 micros HF Shure. Adapté jusqu'à 400 personnes.</span>
+        <em>300€</em>
+      </li>
+      <li>
+        <b>Lumières sobres</b>
+        <span>2 Lyres Wash electroconcept, synchronisés avec le son. Totems disponibles en plus.</span>
+        <em>60€</em>
+      </li>
+      <li>
+        <b>Lumières immersives</b>
+        <span>2 Lyres Wash sur totems, 8 pars led sur batterie, console de commande Wolfmix.</span>
+        <em>150€</em>
+      </li>
+    </ol>
+  </div>
 </section>
 
-
-<section id="avis"><div class="wrap">
-<h2>Avis</h2>
-<p class="lead">Plus de 250 événements animés.</p>
-<div class="avis">
-<blockquote>« Merci encore pour cette superbe soirée, on a eu que des compliments sur la musique ! »<footer>Heidi et Auguste, mariage à Valenciennes</footer></blockquote>
-<blockquote>« C'était vraiment top, notre DJ a été excellent ! »<footer>Albéric et Marie Liesse, mariage à Angers</footer></blockquote>
-<blockquote>« DJ très sympathique et pro. Matériel de qualité. Bon rapport qualité prix. Je recommande ! »<footer>Astrid, anniversaire à Paris</footer></blockquote>
-<blockquote>« Grâce à votre implication, cet événement a été un véritable succès ! »<footer>Emma, soirée corporate</footer></blockquote>
-</div>
-</div>
+<!-- Section Avis Clients -->
+<section id="avis">
+  <div class="wrap">
+    <h2>Avis</h2>
+    <p class="lead">Plus de 250 événements animés.</p>
+    <div class="avis">
+      <blockquote>
+        <span class="stars" aria-label="5 étoiles">★★★★★</span>
+        « Merci encore pour cette superbe soirée, on a eu que des compliments sur la musique ! »
+        <footer>Heidi et Auguste, mariage à Valenciennes</footer>
+      </blockquote>
+      <blockquote>
+        <span class="stars" aria-label="5 étoiles">★★★★★</span>
+        « C'était vraiment top, notre DJ a été excellent ! »
+        <footer>Albéric et Marie Liesse, mariage à Angers</footer>
+      </blockquote>
+      <blockquote>
+        <span class="stars" aria-label="5 étoiles">★★★★★</span>
+        « DJ très sympathique et pro. Matériel de qualité. Bon rapport qualité prix. Je recommande ! »
+        <footer>Astrid, anniversaire à Paris</footer>
+      </blockquote>
+      <blockquote>
+        <span class="stars" aria-label="5 étoiles">★★★★★</span>
+        « Grâce à votre implication, cet événement a été un véritable succès ! »
+        <footer>Emma, soirée corporate</footer>
+      </blockquote>
+    </div>
+  </div>
 </section>
 
+<!-- Section Contact & Demande de Devis -->
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div>
+      <h2>Contact</h2>
+      <p class="lead">Indiquez-moi le type d'événement, la date et le lieu. Je vérifie ma disponibilité et je vous réponds sous 24 h avec un devis.</p>
+      <div class="contact-info">
+        <p>
+          <a href="tel:+33681334283">+33 6 81 33 42 83</a><br>
+          <a href="mailto:contact@spectre-events.fr">contact@spectre-events.fr</a>
+        </p>
+        <p>
+          <a class="wa-link" href="https://wa.me/33681334283?text=Bonjour%2C%20je%20souhaite%20un%20devis%20ou%20des%20renseignements%20pour%20un%20%C3%A9v%C3%A9nement." target="_blank" rel="noopener noreferrer">
+            Échanger sur WhatsApp →
+          </a>
+        </p>
+      </div>
+    </div>
 
-<section id="contact" class="contact"><div class="wrap">
-<div>
-<h2>Contact</h2>
-<p class="lead">Indiquez-moi le type d'événement, la date et le lieu. Je vérifie ma disponibilité et je vous réponds sous 24 h avec un devis.</p>
-<p>+33 6 81 33 42 83<br>contact@spectre-events.fr</p>
-</div>
+    <!-- Formulaire allégé et fluide : conversion optimisée -->
+    <form id="f">
+      <!-- Piège anti-robots invisible -->
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
 
-<form id="f">
-<input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
-<label>Votre nom<input name="nom" required autocomplete="name"></label>
-<label>Votre e-mail<input name="mail" type="email" required autocomplete="email"></label>
-<label>Votre numéro de téléphone<input name="tel" type="tel" autocomplete="tel"></label>
-<label>Type d'événement<select name="type"><option>Mariage</option><option>Soirée d'entreprise</option><option>Rallye</option><option>Evénement privé</option><option>Autre</option></select></label>
-<label>Date de l'événement<input name="date" type="date"></label>
-<label>Lieu<input name="lieu" placeholder="Ville ou domaine"></label>
-<label>Nombre d'invités<input name="nb"></input></label>
-<fieldset class="full"><legend>Options</legend>
-<label><input type="checkbox" name="opt" value="Photobooth"> Photobooth</label>
-<label><input type="checkbox" name="opt" value="Bar à vinyles"> Bar à vinyles</label>
-<label><input type="checkbox" name="opt" value="Autre" id="opt-autre"> Autre</label>
-<input type="text" name="opt-autre-texte" id="opt-autre-texte" placeholder="Précisez votre besoin" hidden>
-</fieldset>
-<label class="full">Votre message<textarea name="msg"></textarea></label>
-<div class="full"><button class="btn" type="submit">Envoyer ma demande</button></div>
-<p class="ok full" id="ok" role="status"></p>
-</form>
-</div>
+      <label>Votre nom
+        <input name="nom" required autocomplete="name" placeholder="Prénom et Nom">
+      </label>
+
+      <label>Votre e-mail
+        <input name="mail" type="email" required autocomplete="email" placeholder="nom@exemple.fr">
+      </label>
+
+      <label>Votre numéro de téléphone
+        <input name="tel" type="tel" autocomplete="tel" placeholder="06 00 00 00 00">
+      </label>
+
+      <label>Type d'événement
+        <select name="type">
+          <option>Mariage</option>
+          <option>Soirée d'entreprise</option>
+          <option>Rallye</option>
+          <option>Evénement privé</option>
+          <option>Autre</option>
+        </select>
+      </label>
+
+      <label>Date de l'événement
+        <input name="date" type="date">
+      </label>
+
+      <label>Lieu
+        <input name="lieu" placeholder="Ville ou domaine">
+      </label>
+
+      <fieldset class="full">
+        <legend>Options souhaitées</legend>
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="opt" value="Photobooth"> Photobooth</label>
+          <label><input type="checkbox" name="opt" value="Bar à vinyles"> Bar à vinyles</label>
+        </div>
+      </fieldset>
+
+      <label class="full">Votre message
+        <textarea name="msg" placeholder="Précisez votre projet, nombre d'invités estimé ou vos questions..."></textarea>
+      </label>
+
+      <div class="full">
+        <button class="btn" type="submit">Envoyer ma demande de devis</button>
+        <p class="rgpd">Vos données sont collectées uniquement pour répondre à votre demande de devis. En savoir plus dans nos <a href="mentions-legales.html">mentions légales et politique de confidentialité</a>.</p>
+      </div>
+
+      <!-- Zone de statut de réponse -->
+      <p class="ok full" id="ok" role="status" aria-live="polite"></p>
+    </form>
+  </div>
 </section>
+
 </main>
 
+<!-- Pied de page avec mentions légales -->
+<footer class="f">
+  © 2026 Spectre Events · Agence événementielle · Île-de-France · <a href="mentions-legales.html">Mentions légales & RGPD</a>
+</footer>
 
-<footer class="f">© 2026 Spectre Events · Agence événementielle · Île-de-France</footer>
-
-
+<!-- Scripts JavaScript natifs -->
 <script src="js/header.js"></script>
 <script src="js/script.js"></script>
 </body>
