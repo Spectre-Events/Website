@@ -855,14 +855,24 @@ section h2::after {
   color: rgba(247,247,238,.68);
 }
 
-.rental-head,
-.timeline {
+.rental-head {
   display: grid;
   grid-template-columns: 34px minmax(170px, .8fr) minmax(0, 2fr) max-content;
   column-gap: 24px;
   max-width: 1080px;
   margin-right: 0;
   margin-left: 0;
+}
+
+/* The list itself must stay vertical; only each individual price row is a grid. */
+.timeline {
+  display: block;
+  width: 100%;
+  max-width: 1080px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: rental;
 }
 
 .rental-head {
@@ -889,6 +899,7 @@ section h2::after {
 }
 
 .timeline {
+  /* display:block is intentionally preserved from the list layout above. */
   list-style: none;
   margin-top: 0;
   padding: 0;
@@ -1114,11 +1125,6 @@ footer.f {
 
   .rental-head span:nth-child(4) {
     grid-column: 3;
-  }
-
-  .timeline {
-    grid-template-columns: 28px minmax(0, 1fr) max-content;
-    column-gap: 12px;
   }
 
   .timeline li {
