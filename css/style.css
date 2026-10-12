@@ -556,7 +556,7 @@ footer.f a {
   --card: #fffef9;
   --succes: #236d3b;
   --erreur: #b32632;
-  --signal: #d8f45b;
+  --signal: #d4b77a;
   --paper-bright: #f7f7ee;
 }
 
@@ -676,8 +676,8 @@ header.top nav a:hover {
 }
 
 .btn:hover {
-  border-color: #e5ff87;
-  background: #e5ff87;
+  border-color: #e6d3a4;
+  background: #e6d3a4;
   color: var(--acc);
 }
 
@@ -698,7 +698,7 @@ button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-  outline: 3px solid #758d21;
+  outline: 3px solid #987b48;
   outline-offset: 3px;
 }
 
@@ -759,7 +759,7 @@ section h2::after {
 
 .evt .tag {
   margin-top: 20px;
-  color: #4c5d13;
+  color: #796139;
   font-size: .72rem;
   letter-spacing: .075em;
   text-transform: uppercase;
@@ -812,7 +812,7 @@ section h2::after {
 }
 
 .pack.hl {
-  border-top-color: #7e9824;
+  border-top-color: #987b48;
 }
 
 .pack h3 {
@@ -821,7 +821,7 @@ section h2::after {
 
 .prix {
   margin: 13px 0 22px;
-  color: #526818;
+  color: #7a633b;
   font-size: 1.25rem;
   font-weight: 700;
   letter-spacing: -.035em;
@@ -966,7 +966,7 @@ section h2::after {
 }
 
 #avis h2::after {
-  background: #7e9824;
+  background: #987b48;
 }
 
 .avis {
@@ -978,7 +978,7 @@ section h2::after {
 blockquote {
   padding: 22px 0 0 18px;
   border-top: 1px solid #c8cbbd;
-  border-left: 3px solid #7e9824;
+  border-left: 3px solid #987b48;
   color: var(--ink);
   font-family: "DM Sans", system-ui, sans-serif;
   font-size: clamp(1rem, 1.6vw, 1.25rem);
@@ -988,7 +988,7 @@ blockquote {
 
 .stars {
   margin-bottom: 12px;
-  color: #596f17;
+  color: #987b48;
   font-size: .8rem;
   letter-spacing: .12em;
 }
@@ -1001,7 +1001,7 @@ blockquote footer {
 }
 
 #contact h2::after {
-  background: #7e9824;
+  background: #987b48;
 }
 
 .contact .wrap {
@@ -1013,8 +1013,8 @@ blockquote footer {
 }
 
 .contact-info .wa-link {
-  color: #394815;
-  border-color: #7e9824;
+  color: #6f5934;
+  border-color: #987b48;
 }
 
 form {
@@ -1050,7 +1050,7 @@ fieldset {
 }
 
 fieldset input[type="checkbox"] {
-  accent-color: #667f1b;
+  accent-color: #987b48;
 }
 
 footer.f {
