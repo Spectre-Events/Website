@@ -324,6 +324,91 @@ header.top nav a:hover {
   background: var(--paper);
   color: var(--acc);
 }
+header.top nav {
+  align-self: stretch;
+}
+.has-sub {
+  position: relative;
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  margin-left: clamp(14px, 2vw, 26px);
+}
+header.top .has-sub > a {
+  margin-left: 0;
+}
+ 
+/* Petite flèche à côté du lien parent */
+.sub-toggle {
+  display: flex;
+  align-items: center;
+  margin-left: 2px;
+  padding: 6px 4px;
+  border: 0;
+  background: none;
+  color: rgba(var(--paper-rgb), .82);
+  cursor: pointer;
+  transition: color .2s ease;
+}
+.sub-toggle:hover {
+  color: var(--signal);
+}
+.sub-toggle svg {
+  display: block;
+  width: 14px;
+  height: 14px;
+  transition: transform .2s ease;
+}
+.sub-toggle[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+ 
+/* Le panneau du sous-menu */
+.sub {
+  display: none;
+  position: absolute;
+  top: calc(100% + 12px);
+  left: -18px;
+  z-index: 20;
+  min-width: 230px;
+  padding: 8px 0;
+  border: 1px solid var(--on-dark-line);
+  border-top: 2px solid var(--gold);
+  background: var(--acc);
+  box-shadow: 0 12px 24px var(--shadow);
+}
+/* Zone invisible qui comble l'écart avec l'en-tête : le menu ne se ferme pas en passant la souris */
+.sub::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -12px;
+  height: 12px;
+}
+.has-sub.ouvert .sub {
+  display: block;
+}
+@media (hover: hover) {
+  .has-sub:hover .sub {
+    display: block;
+  }
+  .has-sub:hover .sub-toggle {
+    color: var(--signal);
+  }
+}
+ 
+header.top nav .sub a {
+  display: block;
+  margin: 0;
+  padding: 11px 18px;
+  font-size: .88rem;
+  font-weight: 500;
+}
+header.top nav .sub a:hover {
+  background: rgba(var(--paper-rgb), .07);
+  color: var(--signal);
+}
 
 
 /* ==========================================================================
@@ -1035,6 +1120,41 @@ header.top nav a[aria-current="page"] {
   }
   .contact .wrap {
     gap: 32px;
+  }
+  header.top nav {
+    align-self: auto;
+  }
+  .has-sub {
+    display: block;
+    align-self: auto;
+    width: 100%;
+    margin-left: 0;
+  }
+  header.top .has-sub > a {
+    display: block;
+  }
+  .sub-toggle {
+    display: none;
+  }
+  header.top nav .sub {
+    position: static;
+    display: block;
+    min-width: 0;
+    padding: 0 0 0 16px;
+    border: 0;
+    background: none;
+    box-shadow: none;
+  }
+  .sub::before {
+    display: none;
+  }
+  header.top nav .sub a {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--on-dark-line-soft);
+    font-size: .95rem;
+  }
+  header.top nav .sub a:hover {
+    background: none;
   }
 }
 

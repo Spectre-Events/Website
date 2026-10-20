@@ -52,8 +52,28 @@
 
     <!-- Liens du menu -->
     <nav id="nav-principale" aria-label="Navigation principale">
-      <a href="/sonorisation">Sonorisation</a>
-      <a href="/photographie">Photographie</a>
+      <div class="has-sub">
+        <a href="/sonorisation/">Sonorisation</a>
+        <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sous-menu-son" aria-label="Afficher les types de sonorisation">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="sub" id="sous-menu-son">
+          <a href="../sonorisation/#corporate">Corporate</a>
+          <a href="../sonorisation/#mariages">Mariages</a>
+          <a href="../sonorisation/#privees">Soirées privées</a>
+        </div>
+      </div>
+      <div class="has-sub">
+        <a href="../photographie/">Photographie</a>
+        <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sous-menu-son" aria-label="Afficher les différentes propositions photos">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="sub" id="sous-menu-son">
+          <a href="../photographie/#borne">Borne Photo</a>
+          <a href="../photographie/#photo">Photographe</a>
+          <!--<a href="../photographie/#video">Vidéaste</a>-->
+        </div>
+      </div>
       <a href="#location">Location</a>
       <a href="#avis">Avis</a>
       <a href="#contact">Contact</a>
@@ -118,9 +138,9 @@
               <a class="btn" href="/#contact">Demander un devis</a>
             </div>
             <div class="gallery">
-              <img class="photo-main" src="/images/sonorisation/corporate-1.webp" alt="Sonorisation d'un séminaire d'entreprise" loading="lazy">
-              <img src="/images/sonorisation/corporate-2.webp" alt="Régie son lors d'une soirée d'entreprise" loading="lazy">
-              <img src="/images/sonorisation/corporate-3.webp" alt="Enceintes installées pour une convention" loading="lazy">
+              <img class="photo-main" src="../images/sonorisation/corporate-1.webp" alt="Sonorisation d'un séminaire d'entreprise" loading="lazy">
+              <img src="../images/sonorisation/corporate-2.webp" alt="Régie son lors d'une soirée d'entreprise" loading="lazy">
+              <img src="../images/sonorisation/corporate-3.webp" alt="Enceintes installées pour une convention" loading="lazy">
             </div>
           </div>
         </div>
@@ -140,9 +160,9 @@
               <a class="btn" href="/#contact">Demander un devis</a>
             </div>
             <div class="photos">
-              <figure class="photo"><img src="/images/sonorisation/mariage-1.webp" alt="Piste de danse lors d'un mariage" width="1600" height="900" loading="lazy"></figure>
-              <figure class="photo"><img src="/images/sonorisation/mariage-2.webp" alt="Installation son et lumière dans une tente de château" width="1200" height="800" loading="lazy"></figure>
-              <figure class="photo"><img src="/images/sonorisation/mariage-3.webp" alt="Installation son et lumière en extérieur pour un dîner" width="1200" height="800" loading="lazy"></figure>
+              <figure class="photo"><img src="../images/sonorisation/mariage-1.webp" alt="Piste de danse lors d'un mariage" width="1600" height="900" loading="lazy"></figure>
+              <figure class="photo"><img src="../images/sonorisation/mariage-2.webp" alt="Installation son et lumière dans une tente de château" width="1200" height="800" loading="lazy"></figure>
+              <figure class="photo"><img src="../images/sonorisation/mariage-3.webp" alt="Installation son et lumière en extérieur pour un dîner" width="1200" height="800" loading="lazy"></figure>
             </div>
           </div>
         </div>
@@ -161,9 +181,9 @@
               <a class="btn" href="/#contact">Demander un devis</a>
             </div>
             <div class="gallery">
-              <img class="photo-main" src="/images/sonorisation/privee-1.webp" alt="DJs pendant un mariage" >
-              <img src="/images/sonorisation/privee-2.webp" alt="Soirée étudiante d'environ 1000 personnes"  loading="lazy">
-              <img src="/images/sonorisation/privee-3.webp" alt="Enceintes installées dans un château"  loading="lazy">
+              <img class="photo-main" src="../images/sonorisation/privee-1.webp" alt="DJs pendant un mariage" >
+              <img src="../images/sonorisation/privee-2.webp" alt="Soirée étudiante d'environ 1000 personnes"  loading="lazy">
+              <img src="../images/sonorisation/privee-3.webp" alt="Enceintes installées dans un château"  loading="lazy">
             </div>
           </div>
         </div>
@@ -189,5 +209,6 @@
 <script src="../js/header.js"></script>
 <script src="../js/script.js"></script>
 <script src="../js/onglets.js"></script>
+<script src="../js/sous-menu.js"></script>
 </body>
 </html>

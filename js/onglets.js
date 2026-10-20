@@ -1,5 +1,7 @@
 /* ONGLETS : affiche un panneau à la fois, au clic ou au clavier (flèches, Début, Fin).
-   Sans JavaScript, les trois panneaux restent visibles les uns sous les autres. */
+   Sans JavaScript, les trois panneaux restent visibles les uns sous les autres.
+   Une adresse comme /sonorisation/#mariages ouvre directement le bon onglet,
+   y compris quand on clique sur un lien du menu depuis la même page. */
 (function () {
   document.querySelectorAll('.tabs').forEach(function (tabs) {
     var boutons = Array.prototype.slice.call(tabs.querySelectorAll('[role="tab"]'));
@@ -34,8 +36,17 @@
       });
     });
 
-    // Ouvre l'onglet indiqué dans l'adresse (ex. /sonorisation/#mariages), sinon le premier
-    var depart = boutons.findIndex(function (b) { return '#' + b.dataset.onglet === location.hash; });
-    afficher(depart >= 0 ? depart : 0);
+    // Ouvre l'onglet indiqué dans l'adresse et fait défiler jusqu'à la section
+    function depuisAdresse() {
+      var i = boutons.findIndex(function (b) { return '#' + b.dataset.onglet === location.hash; });
+      if (i >= 0) {
+        afficher(i);
+        tabs.closest('section').scrollIntoView();
+      }
+      return i;
+    }
+
+    if (depuisAdresse() < 0) { afficher(0); }
+    window.addEventListener('hashchange', depuisAdresse);   // clic sur le menu depuis la même page
   });
 })();

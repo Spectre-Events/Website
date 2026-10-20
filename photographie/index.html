@@ -52,8 +52,28 @@
 
     <!-- Liens du menu -->
     <nav id="nav-principale" aria-label="Navigation principale">
-      <a href="/sonorisation">Sonorisation</a>
-      <a href="/photographie">Photographie</a>
+      <div class="has-sub">
+        <a href="/sonorisation/">Sonorisation</a>
+        <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sous-menu-son" aria-label="Afficher les types de sonorisation">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="sub" id="sous-menu-son">
+          <a href="../sonorisation/#corporate">Corporate</a>
+          <a href="../sonorisation/#mariages">Mariages</a>
+          <a href="../sonorisation/#privees">Soirées privées</a>
+        </div>
+      </div>
+      <div class="has-sub">
+        <a href="../photographie/">Photographie</a>
+        <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sous-menu-son" aria-label="Afficher les différentes propositions photos">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="sub" id="sous-menu-son">
+          <a href="../photographie/#borne">Borne Photo</a>
+          <a href="../photographie/#photo">Photographe</a>
+          <!--<a href="../photographie/#video">Vidéaste</a>-->
+        </div>
+      </div>
       <a href="#location">Location</a>
       <a href="#avis">Avis</a>
       <a href="#contact">Contact</a>
@@ -169,5 +189,6 @@
 <script src="../js/header.js"></script>
 <script src="../js/script.js"></script>
 <script src="../js/onglets.js"></script>
+<script src="../js/sous-menu.js"></script>
 </body>
 </html>
