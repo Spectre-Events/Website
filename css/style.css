@@ -1,78 +1,193 @@
-/* STYLE.CSS : l'APPARENCE du site. Une règle s'écrit sélecteur { propriété: valeur; }
+/* ==========================================================================
+   STYLE.CSS : l'APPARENCE du site Spectre Events
+   Une règle s'écrit : sélecteur { propriété: valeur; }
+   Chaque propriété n'est écrite qu'une seule fois par sélecteur.
+   ========================================================================== */
 
-   1) COULEURS & VARIABLES : modifiez-les ici, tout le site suit.
-   --acc est la couleur d'accent (boutons, prix, liens). */
+
+/* ==========================================================================
+   1) COULEURS : UNE SEULE LISTE. Modifiez-les ici, tout le site suit.
+   ========================================================================== */
 :root {
-  --bg: #f7f7ee;
-  --ink: #181a20;
-  --mute: #666a72;
-  --line: #dcdcd7;
-  --acc: #202446;
-  --card: #fff;
-  --succes: #1e7e34;
-  --erreur: #c82333;
+  /* Fonds */
+  --bg: #f4f3ec;            /* fond général de la page */
+  --bg-alt: #e9eadf;        /* fond des sections Photographie, Avis et du pied de page */
+  --card: #fffef9;          /* fond des champs de formulaire */
+  --acc: #1e1c24;           /* fond sombre : en-tête, hero, section Location */
+
+  /* Textes */
+  --ink: #16161b;           /* texte principal et titres */
+  --ink-label: #30332b;     /* libellés du formulaire */
+  --ink-list: #42463d;      /* listes à puces des packs */
+  --mute: #62665d;          /* texte secondaire */
+  --mute-footer: #686b61;   /* texte du pied de page */
+  --paper: #f7f7ee;         /* texte clair sur fond sombre */
+  --paper-rgb: 247, 247, 238; /* même couleur, pour les variantes transparentes */
+
+  /* Traits et bordures */
+  --line: #d9dbd0;          /* filets entre les blocs */
+  --line-field: #c9cbbf;    /* bordures des champs de formulaire */
+  --line-quote: #c8cbbd;    /* filet au-dessus des avis */
+  --line-contact: #bfc2b5;  /* soulignement des liens de contact */
+
+  /* Dorés (accents) */
+  --signal: #d4b77a;        /* doré clair : boutons, numéros, prix de location */
+  --signal-hover: #e6d3a4;  /* doré au survol du bouton */
+  --gold: #987b48;          /* doré foncé : contour de focus, filets, étoiles, cases */
+  --gold-text: #796139;     /* étiquettes des cartes */
+  --gold-price: #7a633b;    /* prix des packs */
+  --gold-link: #6f5934;     /* lien WhatsApp */
+
+  /* États du formulaire */
+  --succes: #236d3b;
+  --erreur: #b32632;
+
+  /* Transparences sur fond sombre */
+  --on-dark-line: rgba(255, 255, 255, .14);      /* bordure de l'en-tête */
+  --on-dark-line-soft: rgba(255, 255, 255, .1);  /* séparateurs du menu mobile */
+  --shadow: rgba(0, 0, 0, .15);                  /* ombre du menu mobile */
 }
 
-/* 2) BASE : calcul des tailles plus intuitif (box-sizing), défilement doux avec marge pour le header */
+
+/* ==========================================================================
+   2) POLICE : DM Sans auto-hébergée
+   Licence disponible dans ../fonts/OFL-DM-Sans.txt.
+   ========================================================================== */
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/dm-sans-latin-400.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/dm-sans-latin-ext-400.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/dm-sans-latin-500.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/dm-sans-latin-ext-500.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/dm-sans-latin-700.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/dm-sans-latin-ext-700.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+
+/* ==========================================================================
+   3) BASE : calcul des tailles, défilement doux, texte et titres
+   ========================================================================== */
 html {
   box-sizing: border-box;
   scroll-behavior: smooth;
-  scroll-padding-top: 70px; /* Évite que le haut des sections ne soit masqué par le header fixe */
+  scroll-padding-top: 84px; /* évite que le haut des sections soit masqué par le header fixe */
 }
 *, *::before, *::after {
   box-sizing: inherit;
 }
 
-/* Police, taille de texte et couleurs par défaut de toute la page */
 body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
-  font: 17px/1.65 "DM Sans", system-ui, sans-serif;
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Les titres utilisent une police à empattements, le texte une police simple */
 h1, h2, h3 {
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-weight: 500;
-  line-height: 1.1;
   margin: 0;
-}
-a {
-  color:var(--card);
-}
-.beige{
-   color:var(--card);
-}
-.negro{
-   color:var(--ink);
+  color: var(--ink);
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -.045em;
+  line-height: 1.08;
 }
 
-/* .wrap centre le contenu et limite sa largeur (960px) pour rester lisible sur grand écran */
+a {
+  color: inherit;
+}
+
+/* Classes utilitaires de couleur de texte */
+.beige {
+  color: var(--card);
+}
+.negro {
+  color: var(--ink);
+}
+
+/* .wrap centre le contenu et limite sa largeur */
 .wrap {
-  max-width: 960px;
+  max-width: 1160px;
   margin: 0 auto;
   padding: 0 24px;
 }
 
-/* 3) EN-TÊTE ET MENU DE NAVIGATION */
+/* Contour visible quand on navigue au clavier (accessibilité) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+
+/* ==========================================================================
+   4) EN-TÊTE ET MENU DE NAVIGATION
+   ========================================================================== */
 header.top {
   position: sticky;
   top: 0;
   z-index: 10;
   background: var(--acc);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--on-dark-line);
   transition: transform .3s ease;
+}
+header.top.cache {
+  transform: translateY(-100%);
 }
 header.top .wrap {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  min-height: 72px;
   padding-top: 12px;
   padding-bottom: 12px;
 }
 
-/* Logo de marque et titre dans l'en-tête */
+/* Logo de marque et titre */
 .brand {
   display: flex;
   align-items: center;
@@ -87,9 +202,9 @@ header.top .wrap {
 }
 .brand b {
   color: var(--bg);
-  font-family: "Cormorant Garamond", serif;
-  font-size: 2rem;
-  font-weight: 600;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -.035em;
   line-height: 1;
 }
 
@@ -99,28 +214,26 @@ header.top nav {
   align-items: center;
 }
 header.top nav a {
-  color: var(--bg);
+  margin-left: clamp(14px, 2vw, 26px);
+  color: rgba(var(--paper-rgb), .82);
+  font-size: .88rem;
+  font-weight: 500;
   text-decoration: none;
-  margin-left: 24px;
-  font-size: .95rem;
   transition: color .2s ease;
 }
 header.top nav a:hover {
-  color: var(--mute);
-}
-header.top.cache {
-  transform: translateY(-100%);
+  color: var(--signal);
 }
 
-/* Bouton burger pour mobile (masqué par défaut sur desktop) */
+/* Bouton burger (masqué sur ordinateur, affiché sur mobile) */
 .menu-toggle {
   display: none;
-  background: transparent;
-  border: 0;
-  color: var(--bg);
   padding: 6px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--bg);
   cursor: pointer;
-  border-radius: 2px;
 }
 .menu-toggle svg {
   display: block;
@@ -128,585 +241,98 @@ header.top.cache {
   height: 26px;
 }
 
-/* 4) ACCROCHE (grand titre du haut de page) */
-.hero {
-  padding: 96px 0 88px;
-}
-.hero h1 {
-  font-size: clamp(2.6rem, 6.5vw, 4.6rem);
-  max-width: 13em;
-}
-.hero p {
-  max-width: 33em;
-  margin: 24px 0 34px;
-  color: var(--mute);
-  font-size: 1.1rem;
-}
-
-/* BOUTONS : boutons d'action Hero */
-.hero-btns {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-/* Bouton principal plein (marine) */
-.btn {
-  display: inline-block;
-  background: var(--acc);
-  color: #fff;
-  text-decoration: none;
-  padding: 14px 30px;
-  border: 1px solid var(--acc);
-  border-radius: 2px;
-  font: 500 1rem "DM Sans", sans-serif;
-  cursor: pointer;
-  transition: background .2s ease, opacity .2s ease;
-}
-.btn:hover {
-  background: #2b305c;
-  border-color: #2b305c;
-}
-.btn:disabled {
-  opacity: .6;
-  cursor: not-allowed;
-}
-
-/* Bouton secondaire chic outline (fond transparent, bordure marine) */
-.btn-outline {
-  display: inline-block;
-  background: transparent;
-  color: var(--acc);
-  text-decoration: none;
-  padding: 14px 28px;
-  border: 1px solid var(--acc);
-  border-radius: 2px;
-  font: 500 1rem "DM Sans", sans-serif;
-  cursor: pointer;
-  transition: background .2s ease, color .2s ease;
-}
-.btn-outline:hover {
-  background: var(--acc);
-  color: #fff;
-}
-
-/* Contour visible quand on navigue au clavier (accessibilité WCAG) */
-a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
-  outline: 3px solid var(--acc);
-  outline-offset: 3px;
-}
-
-/* 5) SECTIONS : espacement et filet entre chaque bloc */
-section {
-  padding: 76px 0;
-  border-top: 1px solid var(--line);
-}
-section h2 {
-  font-size: clamp(2rem, 4vw, 2.8rem);
-  margin-bottom: 12px;
-}
-.lead {
-  max-width: 36em;
-  color: var(--mute);
-  margin: 0 0 40px;
-}
-
-/* 6) CARTES DES PRESTATIONS : grille de 3 colonnes */
-.evts {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-.evt {
-  background: var(--card);
-  border: 1px solid var(--line);
-  padding: 26px;
-  display: flex;
-  flex-direction: column;
-}
-.evt h3 {
-  font-size: 1.6rem;
-  margin-bottom: 8px;
-}
-.evt p {
-  margin: 0;
-  color: var(--mute);
-  font-size: .97rem;
-  flex: 1;
-}
-.evt .tag {
-  display: block;
-  margin-top: 14px;
-  font-weight: 700;
-  color: var(--acc);
-  font-size: .9rem;
-  letter-spacing: .3px;
-}
-
-/* Options complémentaires */
-.opts {
-  margin-top: 44px;
-}
-.opts h3 {
-  font-size: 1.6rem;
-  margin-bottom: 14px;
-}
-.opt {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 16px 0;
-  border-top: 1px solid var(--line);
-}
-.opt:last-child {
-  border-bottom: 1px solid var(--line);
-}
-.opt b {
-  display: block;
-  font-weight: 700;
-}
-.opt span {
-  color: var(--mute);
-  font-size: .95rem;
-}
-.opt em {
-  font-style: normal;
-  font-weight: 700;
-  white-space: nowrap;
-  color: var(--acc);
-}
-
-/* 7) PHOTOGRAPHIE & PHOTOBOOTH */
-.packs {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
-.pack {
-  background: var(--card);
-  border: 1px solid var(--line);
-  padding: 30px 26px;
-}
-.pack.hl {
-  border-color: var(--acc);
-  border-width: 2px;
-}
-.pack h3 {
-  font-size: 1.7rem;
-}
-.prix {
-  margin: 6px 0 16px;
-  font-weight: 700;
-  color: var(--acc);
-}
-.pack ul {
-  margin: 0;
-  padding-left: 18px;
-}
-.pack li {
-  margin-bottom: 6px;
-}
-
-/* 8) LOCATION DE MATÉRIEL */
-.timeline {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  max-width: 960px;
-}
-.timeline li {
-  display: grid;
-  grid-template-columns: 180px 1fr;
-  gap: 2px 20px;
-  padding: 18px 0;
-  border-top: 1px solid var(--line);
-}
-.timeline b {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 1.3rem;
-  font-weight: 600;
-  grid-column: 1;
-  grid-row: 1;
-}
-.timeline em {
-  font-style: normal;
-  font-weight: 700;
-  white-space: nowrap;
-  color: var(--acc);
-  grid-column: 1;
-  grid-row: 2;
-}
-.timeline span {
-  grid-column: 2;
-  grid-row: 1 / span 2;
-}
-
-/* 9) TÉMOIGNAGES & AVIS CLIENTS */
-.avis {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 48px;
-}
-blockquote {
-  margin: 0;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 1.5rem;
-  line-height: 1.35;
-}
-.stars {
-  color: #cda34f; /* Teinte dorée élégante */
-  font-size: 1rem;
-  letter-spacing: 2px;
-  display: block;
-  margin-bottom: 6px;
-}
-blockquote footer {
-  font: 400 .92rem "DM Sans", sans-serif;
-  color: var(--mute);
-  margin-top: 12px;
-}
-
-/* 10) CONTACT ET FORMULAIRE */
-.contact .wrap {
-  display: grid;
-  grid-template-columns: .8fr 1.2fr;
-  gap: 40px;
-}
-.contact-info a {
-  color: inherit;
-  text-decoration: none;
-  border-bottom: 1px solid var(--line);
-  transition: border-color .2s ease;
-}
-.contact-info a:hover {
-  border-color: var(--acc);
-}
-.contact-info .wa-link {
-  display: inline-block;
-  margin-top: 14px;
-  color: var(--acc);
-  font-weight: 500;
-  text-decoration: none;
-  border-bottom: 1px solid var(--acc);
-  transition: opacity .2s ease;
-}
-.contact-info .wa-link:hover {
-  opacity: .7;
-}
-
-/* Formulaire épuré et ultra-rapide */
-form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px 24px;
-}
-label {
-  display: grid;
-  gap: 6px;
-  font-weight: 500;
-  font-size: .95rem;
-}
-.full {
-  grid-column: 1 / -1;
-}
-input, select, textarea {
-  font: inherit;
-  padding: 12px 14px;
-  border: 1px solid var(--line);
-  border-radius: 2px;
-  background: #fff;
-  color: var(--ink);
-  width: 100%;
-}
-textarea {
-  min-height: 100px;
-  resize: vertical;
-}
-fieldset {
-  border: 1px solid var(--line);
-  border-radius: 2px;
-  padding: 12px 16px;
-  margin: 0;
-}
-legend {
-  font-weight: 500;
-  font-size: .95rem;
-  padding: 0 6px;
-}
-.checkbox-group {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-.checkbox-group label {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 8px;
-  font-weight: 400;
-  cursor: pointer;
-}
-fieldset input[type="checkbox"] {
-  width: auto;
-  padding: 0;
-  margin: 0;
-  flex: none;
-  accent-color: var(--acc);
-}
-
-/* Retour visuel du formulaire (succès et erreur différenciés) */
-.ok {
-  margin: 10px 0 0;
-  min-height: 1.4em;
-  font-weight: 500;
-  font-size: .95rem;
-}
-.ok.succes {
-  color: var(--succes);
-}
-.ok.erreur {
-  color: var(--erreur);
-}
-
-/* Mention RGPD sous le formulaire */
-.rgpd {
-  font-size: .8rem;
-  color: var(--mute);
-  margin-top: 10px;
-  line-height: 1.4;
-}
-.rgpd a {
-  color: inherit;
-  text-decoration: underline;
-}
-
-/* 11) PIED DE PAGE */
-footer.f {
-  border-top: 1px solid var(--line);
-  color: var(--mute);
-  text-align: center;
-  padding: 26px 24px calc(26px + env(safe-area-inset-bottom, 0px));
-  font-size: .9rem;
-}
-footer.f a {
-  color: inherit;
-  text-decoration: underline;
-}
-
-/* 12) VERSION MOBILE (écrans de 760px ou moins) */
-@media (max-width: 760px) {
-  .evts, .packs, .avis, .contact .wrap, form {
-    grid-template-columns: 1fr;
-  }
-  .timeline li {
-    grid-template-columns: 1fr;
-    gap: 2px;
-  }
-  .hero {
-    padding: 64px 0;
-  }
-
-  /* Affichage du bouton burger sur mobile */
-  .menu-toggle {
-    display: block;
-  }
-
-  /* Navigation mobile déroulante sous le header */
-  header.top nav {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: var(--acc);
-    border-bottom: 1px solid var(--line);
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 16px 24px 24px;
-    gap: 16px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-  }
-  header.top nav.ouvert {
-    display: flex;
-  }
-  header.top nav a {
-    margin-left: 0;
-    font-size: 1.05rem;
-    padding: 4px 0;
-    width: 100%;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  }
-  header.top nav a:last-child {
-    border-bottom: 0;
-  }
-}
-
 
 /* ==========================================================================
-   SPECTRE EVENTS — direction visuelle 2026
-   Refonte progressive : composition, contraste et lisibilité avant les effets.
+   5) ACCROCHE (grand titre du haut de page) ET BOUTONS
    ========================================================================== */
-:root {
-  --bg: #f4f3ec;
-  --ink: #191b16;
-  --mute: #62665d;
-  --line: #d9dbd0;
-  --acc: #20241c;
-  --card: #fffef9;
-  --succes: #236d3b;
-  --erreur: #b32632;
-  --signal: #d4b77a;
-  --paper-bright: #f7f7ee;
-}
-
-html {
-  scroll-padding-top: 84px;
-}
-
-body {
-  background: var(--bg);
-  color: var(--ink);
-  font-family: "DM Sans", system-ui, sans-serif;
-  font-size: 16px;
-  line-height: 1.65;
-  -webkit-font-smoothing: antialiased;
-}
-
-h1, h2, h3 {
-  color: var(--ink);
-  font-family: "DM Sans", system-ui, sans-serif;
-  font-weight: 700;
-  letter-spacing: -.045em;
-  line-height: 1.08;
-}
-
-a {
-  color: inherit;
-}
-
-.wrap {
-  max-width: 1160px;
-}
-
-header.top {
-  background: var(--acc);
-  border-bottom: 1px solid rgba(255,255,255,.14);
-}
-
-header.top .wrap {
-  min-height: 72px;
-}
-
-.brand b {
-  font-family: "DM Sans", system-ui, sans-serif;
-  font-size: 1.05rem;
-  font-weight: 700;
-  letter-spacing: -.035em;
-}
-
-header.top nav a {
-  margin-left: clamp(14px, 2vw, 26px);
-  color: rgba(247,247,238,.82);
-  font-size: .88rem;
-  font-weight: 500;
-}
-
-header.top nav a:hover {
-  color: var(--signal);
-}
-
-.menu-toggle {
-  border-radius: 0;
-}
-
 .hero {
   position: relative;
   overflow: hidden;
   padding: clamp(84px, 11vw, 148px) 0 clamp(78px, 9vw, 118px);
   background-color: var(--acc);
   background-image:
-    linear-gradient(rgba(247,247,238,.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(247,247,238,.035) 1px, transparent 1px);
+    linear-gradient(rgba(var(--paper-rgb), .035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--paper-rgb), .035) 1px, transparent 1px);
   background-size: 56px 56px;
-  color: var(--paper-bright);
+  color: var(--paper);
 }
-
 .hero .wrap {
   position: relative;
   z-index: 1;
 }
-
 .hero h1 {
   max-width: 15ch;
-  color: var(--paper-bright);
+  color: var(--paper);
   font-size: clamp(3.25rem, 7vw, 6.15rem);
-  font-weight: 700;
   letter-spacing: -.075em;
   line-height: .99;
   text-wrap: balance;
 }
-
 .hero p {
   max-width: 37em;
   margin: 28px 0 34px;
-  color: rgba(247,247,238,.72);
+  color: rgba(var(--paper-rgb), .72);
   font-size: clamp(1rem, 1.4vw, 1.13rem);
   line-height: 1.75;
 }
 
 .hero-btns {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   gap: 12px;
 }
 
+/* Base commune aux deux types de boutons */
 .btn,
 .btn-outline {
+  display: inline-block;
   min-height: 49px;
   padding: 13px 20px;
+  border: 1px solid;
   border-radius: 2px;
-  font-size: .92rem;
-  font-weight: 700;
+  font: 700 .92rem "DM Sans", sans-serif;
+  text-decoration: none;
+  cursor: pointer;
   transition: background-color .18s ease, color .18s ease, border-color .18s ease;
 }
 
+/* Bouton principal plein (doré) */
 .btn {
   border-color: var(--signal);
   background: var(--signal);
   color: var(--acc);
 }
-
 .btn:hover {
-  border-color: #e6d3a4;
-  background: #e6d3a4;
+  border-color: var(--signal-hover);
+  background: var(--signal-hover);
   color: var(--acc);
 }
+.btn:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+}
 
+/* Bouton secondaire (fond transparent, bordure claire) */
 .btn-outline {
-  border-color: rgba(247,247,238,.48);
+  border-color: rgba(var(--paper-rgb), .48);
   background: transparent;
-  color: var(--paper-bright);
+  color: var(--paper);
 }
-
 .btn-outline:hover {
-  border-color: var(--paper-bright);
-  background: var(--paper-bright);
+  border-color: var(--paper);
+  background: var(--paper);
   color: var(--acc);
 }
 
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible {
-  outline: 3px solid #987b48;
-  outline-offset: 3px;
-}
 
+/* ==========================================================================
+   6) SECTIONS : espacement, filet, titres et texte d'introduction
+   ========================================================================== */
 section {
   padding: clamp(64px, 8vw, 104px) 0;
   border-top: 1px solid var(--line);
 }
-
 section h2 {
   max-width: 18ch;
   margin-bottom: 14px;
@@ -714,7 +340,6 @@ section h2 {
   letter-spacing: -.065em;
   text-wrap: balance;
 }
-
 section h2::after {
   display: block;
   width: 38px;
@@ -723,7 +348,6 @@ section h2::after {
   background: var(--signal);
   content: "";
 }
-
 .lead {
   max-width: 43em;
   margin: 0 0 38px;
@@ -732,139 +356,170 @@ section h2::after {
   line-height: 1.75;
 }
 
+
+/* ==========================================================================
+   7) CARTES DES PRESTATIONS ET OPTIONS
+   ========================================================================== */
 .evts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: clamp(22px, 3vw, 42px);
   margin-top: 48px;
 }
-
 .evt {
+  display: flex;
+  flex-direction: column;
   min-width: 0;
   padding: 20px 0 0;
   border: 0;
   border-top: 2px solid var(--acc);
   background: transparent;
 }
-
-.evt h3,
-.opts h3 {
+.evt h3 {
   margin-bottom: 12px;
   font-size: 1.35rem;
   letter-spacing: -.04em;
 }
-
 .evt p {
+  flex: 1;
+  margin: 0;
   color: var(--mute);
+  font-size: .97rem;
   line-height: 1.75;
 }
-
 .evt .tag {
+  display: block;
   margin-top: 20px;
-  color: #796139;
+  color: var(--gold-text);
   font-size: .72rem;
+  font-weight: 700;
   letter-spacing: .075em;
   text-transform: uppercase;
 }
 
+/* Options complémentaires */
 .opts {
   margin-top: 70px;
 }
-
 .opts h3 {
   margin-bottom: 20px;
+  font-size: 1.35rem;
+  letter-spacing: -.04em;
 }
-
 .opt {
+  display: flex;
+  justify-content: space-between;
   align-items: baseline;
   gap: 24px;
   padding: 19px 0;
-  border-color: var(--line);
+  border-top: 1px solid var(--line);
 }
-
+.opt:last-child {
+  border-bottom: 1px solid var(--line);
+}
 .opt b {
+  display: block;
   margin-bottom: 3px;
+  font-weight: 700;
 }
-
 .opt span {
   color: var(--mute);
+  font-size: .95rem;
   line-height: 1.65;
 }
-
 .opt em {
   color: var(--ink);
   font-size: .85rem;
+  font-style: normal;
+  font-weight: 700;
+  white-space: nowrap;
 }
 
+
+/* ==========================================================================
+   8) PHOTOGRAPHIE & PHOTOBOOTH
+   ========================================================================== */
 #photographie {
-  background: #e9eadf;
+  background: var(--bg-alt);
 }
-
 .packs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: clamp(24px, 4vw, 50px);
   margin-top: 44px;
 }
-
-.pack,
-.pack.hl {
+.pack {
   padding: 25px 0 0;
   border: 0;
   border-top: 2px solid var(--acc);
   background: transparent;
 }
-
 .pack.hl {
-  border-top-color: #987b48;
+  border-top-color: var(--gold);
 }
-
 .pack h3 {
   font-size: 1.45rem;
 }
-
 .prix {
   margin: 13px 0 22px;
-  color: #7a633b;
+  color: var(--gold-price);
   font-size: 1.25rem;
   font-weight: 700;
   letter-spacing: -.035em;
 }
-
 .pack ul {
+  margin: 0;
   padding-left: 18px;
-  color: #42463d;
+  color: var(--ink-list);
 }
-
 .pack li {
-  padding-left: 3px;
   margin-bottom: 8px;
+  padding-left: 3px;
 }
 
+
+/* ==========================================================================
+   9) LOCATION DE MATÉRIEL (fond sombre)
+   ========================================================================== */
 #location {
   border-top: 0;
   background: var(--acc);
-  color: var(--paper-bright);
+  color: var(--paper);
 }
-
 #location h2 {
-  color: var(--paper-bright);
+  color: var(--paper);
 }
-
-#location h2::after {
-  background: var(--signal);
-}
-
 #location .lead {
-  color: rgba(247,247,238,.68);
+  color: rgba(var(--paper-rgb), .68);
 }
 
+/* En-tête du tableau de location */
 .rental-head {
   display: grid;
   grid-template-columns: 34px minmax(170px, .8fr) minmax(0, 2fr) max-content;
   column-gap: 24px;
+  align-items: end;
   max-width: 1080px;
-  margin-right: 0;
-  margin-left: 0;
+  margin: 0;
+  padding: 0 0 12px;
+  color: rgba(var(--paper-rgb), .55);
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+.rental-head span:nth-child(2) {
+  grid-column: 2;
+}
+.rental-head span:nth-child(3) {
+  grid-column: 3;
+}
+.rental-head span:nth-child(4) {
+  grid-column: 4;
+  justify-self: end;
 }
 
-/* Keep the rental list vertical; only each individual price row is a grid. */
+/* Liste du matériel : la liste reste verticale, chaque ligne est une grille */
 .timeline {
   display: block;
   width: 100%;
@@ -874,47 +529,15 @@ section h2::after {
   list-style: none;
   counter-reset: rental;
 }
-
-.rental-head {
-  align-items: end;
-  padding: 0 0 12px;
-  color: rgba(247,247,238,.55);
-  font-size: .68rem;
-  font-weight: 700;
-  letter-spacing: .11em;
-  text-transform: uppercase;
-}
-
-.rental-head span:nth-child(2) {
-  grid-column: 2;
-}
-
-.rental-head span:nth-child(3) {
-  grid-column: 3;
-}
-
-.rental-head span:nth-child(4) {
-  grid-column: 4;
-  justify-self: end;
-}
-
-.timeline {
-  list-style: none;
-  margin-top: 0;
-  padding: 0;
-  counter-reset: rental;
-}
-
 .timeline li {
   display: grid;
   grid-template-columns: 34px minmax(170px, .8fr) minmax(0, 2fr) max-content;
   align-items: start;
   gap: 0 24px;
   padding: 22px 0 24px;
-  border-top: 1px solid rgba(247,247,238,.18);
+  border-top: 1px solid rgba(var(--paper-rgb), .18);
   counter-increment: rental;
 }
-
 .timeline li::before {
   grid-column: 1;
   grid-row: 1;
@@ -925,28 +548,24 @@ section h2::after {
   font-weight: 700;
   letter-spacing: .08em;
 }
-
 .timeline b {
   grid-column: 2;
   grid-row: 1;
   margin: 0;
-  color: var(--paper-bright);
-  font-family: "DM Sans", system-ui, sans-serif;
+  color: var(--paper);
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: -.02em;
   line-height: 1.5;
 }
-
 .timeline span {
   grid-column: 3;
   grid-row: 1;
   max-width: none;
-  color: rgba(247,247,238,.68);
+  color: rgba(var(--paper-rgb), .68);
   font-size: .88rem;
   line-height: 1.7;
 }
-
 .timeline em {
   grid-column: 4;
   grid-row: 1;
@@ -961,215 +580,472 @@ section h2::after {
   white-space: nowrap;
 }
 
+
+/* ==========================================================================
+   10) TÉMOIGNAGES & AVIS CLIENTS
+   ========================================================================== */
 #avis {
-  background: #e9eadf;
+  background: var(--bg-alt);
 }
-
 #avis h2::after {
-  background: #987b48;
+  background: var(--gold);
 }
-
 .avis {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   column-gap: clamp(24px, 5vw, 64px);
   row-gap: 28px;
   margin-top: 42px;
 }
-
 blockquote {
+  margin: 0;
   padding: 22px 0 0 18px;
-  border-top: 1px solid #c8cbbd;
-  border-left: 3px solid #987b48;
+  border-top: 1px solid var(--line-quote);
+  border-left: 3px solid var(--gold);
   color: var(--ink);
-  font-family: "DM Sans", system-ui, sans-serif;
   font-size: clamp(1rem, 1.6vw, 1.25rem);
   font-weight: 500;
   line-height: 1.6;
 }
-
 .stars {
+  display: block;
   margin-bottom: 12px;
-  color: #987b48;
+  color: var(--gold);
   font-size: .8rem;
   letter-spacing: .12em;
 }
-
 blockquote footer {
   margin-top: 15px;
   color: var(--mute);
-  font-size: .78rem;
-  line-height: 1.5;
+  font: 400 .78rem/1.5 "DM Sans", sans-serif;
 }
 
+
+/* ==========================================================================
+   11) CONTACT ET FORMULAIRE
+   ========================================================================== */
 #contact h2::after {
-  background: #987b48;
+  background: var(--gold);
 }
-
 .contact .wrap {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
   gap: clamp(28px, 5vw, 64px);
 }
-
 .contact-info a {
-  border-color: #bfc2b5;
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--line-contact);
+  transition: border-color .2s ease;
 }
-
+.contact-info a:hover {
+  border-color: var(--acc);
+}
 .contact-info .wa-link {
-  color: #6f5934;
-  border-color: #987b48;
+  display: inline-block;
+  margin-top: 14px;
+  color: var(--gold-link);
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold);
+  transition: opacity .2s ease;
+}
+.contact-info .wa-link:hover {
+  opacity: .7;
 }
 
+/* Champs du formulaire */
 form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 18px 20px;
 }
-
-label,
-legend {
-  color: #30332b;
+label {
+  display: grid;
+  gap: 6px;
+  color: var(--ink-label);
   font-size: .87rem;
   font-weight: 700;
 }
-
+legend {
+  padding: 0 6px;
+  color: var(--ink-label);
+  font-size: .87rem;
+  font-weight: 700;
+}
+.full {
+  grid-column: 1 / -1;
+}
 input,
 select,
 textarea {
+  width: 100%;
   min-height: 48px;
   padding: 11px 13px;
-  border: 1px solid #c9cbbf;
+  border: 1px solid var(--line-field);
   border-radius: 2px;
   background: var(--card);
   color: var(--ink);
+  font: inherit;
   font-size: .95rem;
 }
-
 textarea {
   min-height: 120px;
+  resize: vertical;
 }
-
 fieldset {
-  border: 1px solid #c9cbbf;
+  margin: 0;
+  padding: 12px 16px;
+  border: 1px solid var(--line-field);
   border-radius: 2px;
 }
-
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  font-weight: 400;
+  cursor: pointer;
+}
 fieldset input[type="checkbox"] {
-  accent-color: #987b48;
+  flex: none;
+  width: auto;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  accent-color: var(--gold);
 }
 
+/* Retour visuel du formulaire (succès et erreur) */
+.ok {
+  min-height: 1.4em;
+  margin: 10px 0 0;
+  font-size: .95rem;
+  font-weight: 500;
+}
+.ok.succes {
+  color: var(--succes);
+}
+.ok.erreur {
+  color: var(--erreur);
+}
+
+/* Mention RGPD sous le formulaire */
+.rgpd {
+  margin-top: 10px;
+  color: var(--mute);
+  font-size: .8rem;
+  line-height: 1.4;
+}
+.rgpd a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+
+/* ==========================================================================
+   12) PIED DE PAGE
+   ========================================================================== */
 footer.f {
-  border-color: var(--line);
-  background: #e9eadf;
-  color: #686b61;
+  padding: 26px 24px calc(26px + env(safe-area-inset-bottom, 0px));
+  border-top: 1px solid var(--line);
+  background: var(--bg-alt);
+  color: var(--mute-footer);
   font-size: .82rem;
+  text-align: center;
+}
+footer.f a {
+  color: inherit;
+  text-decoration: underline;
 }
 
+
+/* ==========================================================================
+   13) ONGLETS 
+   ========================================================================== */
+
+/* Accroche d'une page secondaire : moins haute que celle de l'accueil */
+.hero.hero-page {
+  padding: clamp(64px, 8vw, 104px) 0;
+}
+.hero.hero-page h1 {
+  font-size: clamp(2.6rem, 5.5vw, 4.6rem);
+}
+
+/* Lien actif dans le menu */
+header.top nav a[aria-current="page"] {
+  color: var(--signal);
+}
+
+/* Onglets : sans JavaScript, les trois panneaux s'affichent à la suite */
+.tablist {
+  display: none;
+}
+.tabs.js .tablist {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 28px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid var(--line);
+}
+.tab {
+  margin-bottom: -1px;
+  padding: 14px 0;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  background: none;
+  color: var(--mute);
+  font: 700 .95rem "DM Sans", sans-serif;
+  cursor: pointer;
+  transition: color .18s ease, border-color .18s ease;
+}
+.tab:hover {
+  color: var(--ink);
+}
+.tab[aria-selected="true"] {
+  border-bottom-color: var(--gold);
+  color: var(--ink);
+}
+.tabpanel + .tabpanel {
+  margin-top: 72px;
+}
+.tabs.js .tabpanel + .tabpanel {
+  margin-top: 0;
+}
+
+/* Contenu d'un onglet : texte à gauche, photos à droite */
+.panel-grid {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  gap: clamp(28px, 5vw, 64px);
+  align-items: start;
+}
+.panel-text h3 {
+  margin-bottom: 14px;
+  font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+}
+.panel-text p {
+  margin: 0 0 18px;
+  color: var(--mute);
+  line-height: 1.75;
+}
+.panel-text ul {
+  margin: 0 0 30px;
+  padding-left: 18px;
+  color: var(--ink-list);
+}
+.panel-text li {
+  margin-bottom: 8px;
+  padding-left: 3px;
+}
+
+/* Photos : même cadrage partout, la première en grand */
+.photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.photo {
+  margin: 0;
+  overflow: hidden;
+  aspect-ratio: 3 / 2;
+  background: var(--bg-alt);   /* visible tant que l'image n'est pas ajoutée */
+}
+.photos .photo:first-child {
+  grid-column: 1 / -1;
+  aspect-ratio: 16 / 9;
+}
+.photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.gallery {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  grid-template-rows: repeat(2, 1fr);
+  gap: 15px;
+  height: 550px;
+}
+.gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+}
+/* La grande photo occupe les trois lignes */
+.photo-main {
+  grid-row: 1 / 3;
+}
+
+
+/* ==========================================================================
+   13) VERSION MOBILE (écrans de 760px ou moins)
+   ========================================================================== */
 @media (max-width: 760px) {
+
+  /* Les grilles passent sur une seule colonne */
+  .evts, .packs, .avis, .contact .wrap, form {
+    grid-template-columns: 1fr;
+  }
+
+  /* Accroche */
   .hero {
     padding: 76px 0 72px;
     background-size: 44px 44px;
   }
-
   .hero h1 {
     max-width: 13ch;
     font-size: clamp(3rem, 12vw, 4.6rem);
   }
-
   .hero p {
     margin: 23px 0 27px;
   }
-
   .hero-btns {
     align-items: stretch;
   }
-
   .hero-btns .btn,
   .hero-btns .btn-outline {
     width: 100%;
     text-align: center;
   }
 
+  /* Menu burger et navigation déroulante sous le header */
+  .menu-toggle {
+    display: block;
+  }
+  header.top nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px 24px 24px;
+    border-bottom: 1px solid var(--line);
+    background: var(--acc);
+    box-shadow: 0 10px 20px var(--shadow);
+  }
+  header.top nav.ouvert {
+    display: flex;
+  }
+  header.top nav a {
+    width: 100%;
+    margin-left: 0;
+    padding: 4px 0;
+    border-bottom: 1px solid var(--on-dark-line-soft);
+    font-size: 1.05rem;
+  }
+  header.top nav a:last-child {
+    border-bottom: 0;
+  }
+
+  /* Prestations, options, packs */
   .evts {
     gap: 30px;
     margin-top: 34px;
   }
-
   .evt {
     padding-top: 17px;
   }
-
   .opts {
     margin-top: 48px;
   }
-
   .opt {
     align-items: flex-start;
     gap: 14px;
   }
-
-  .pack,
-  .pack.hl {
+  .pack {
     padding-top: 20px;
   }
 
+  /* Location de matériel */
   #location .lead {
     margin-bottom: 30px;
   }
-
   .rental-head {
     grid-template-columns: 28px minmax(0, 1fr) max-content;
     column-gap: 12px;
     font-size: .62rem;
   }
-
   .rental-head span:nth-child(3) {
     display: none;
   }
-
   .rental-head span:nth-child(4) {
     grid-column: 3;
   }
-
   .timeline li {
     grid-template-columns: 28px minmax(0, 1fr) max-content;
     column-gap: 12px;
     row-gap: 7px;
     padding: 19px 0 21px;
   }
-
   .timeline li::before {
     grid-column: 1;
     grid-row: 1 / span 2;
   }
-
   .timeline b {
     grid-column: 2;
     grid-row: 1;
   }
-
   .timeline span {
     grid-column: 2 / 4;
     grid-row: 2;
     padding-right: 2px;
     font-size: .84rem;
   }
-
   .timeline em {
     grid-column: 3;
     grid-row: 1;
     font-size: 1.35rem;
   }
+  .panel-grid {
+    grid-template-columns: 1.5fr 1fr;
+  }
+  .tabs.js .tablist {
+    gap: 4px 22px;
+  }
+  .gallery {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 300px 180px;
+    height: auto;
+  }
 
+  .photo-main {
+    grid-column: 1 / 3;
+    grid-row: auto;
+  }
+
+  .gallery img {
+    height: 180px;
+  }
+
+  /* Avis et contact */
   .avis {
     row-gap: 24px;
   }
-
   .contact .wrap {
     gap: 32px;
   }
 }
 
+
+/* ==========================================================================
+   14) ACCESSIBILITÉ : réduit les animations si le visiteur l'a demandé
+   ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
-
   *,
   *::before,
   *::after {
@@ -1179,60 +1055,3 @@ footer.f {
     transition-duration: .01ms !important;
   }
 }
-
-
-/* DM Sans auto-hébergée. Licence disponible dans ../fonts/OFL-DM-Sans.txt. */
-@font-face {
-  font-family: "DM Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("../fonts/dm-sans-latin-400.woff2") format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-  font-family: "DM Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("../fonts/dm-sans-latin-ext-400.woff2") format("woff2");
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-
-@font-face {
-  font-family: "DM Sans";
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("../fonts/dm-sans-latin-500.woff2") format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-  font-family: "DM Sans";
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("../fonts/dm-sans-latin-ext-500.woff2") format("woff2");
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-
-@font-face {
-  font-family: "DM Sans";
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url("../fonts/dm-sans-latin-700.woff2") format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-  font-family: "DM Sans";
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url("../fonts/dm-sans-latin-ext-700.woff2") format("woff2");
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-
