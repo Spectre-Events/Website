@@ -37,6 +37,7 @@
   --gold-text: #796139;     /* étiquettes des cartes */
   --gold-price: #7a633b;    /* prix des packs */
   --gold-link: #6f5934;     /* lien WhatsApp */
+  --braise: #c0562f;
 
   /* États du formulaire */
   --succes: #236d3b;
@@ -289,6 +290,7 @@ header.top nav a:hover {
   display: inline-block;
   min-height: 49px;
   padding: 13px 20px;
+  max-width: 200px;
   border: 1px solid;
   border-radius: 2px;
   font: 700 .92rem "DM Sans", sans-serif;
@@ -302,6 +304,9 @@ header.top nav a:hover {
   border-color: var(--signal);
   background: var(--signal);
   color: var(--acc);
+  max-width: 200px;
+  min-height: 49px;
+  padding: 13px 20px;
 }
 .btn:hover {
   border-color: var(--signal-hover);
@@ -410,6 +415,25 @@ header.top nav .sub a:hover {
   color: var(--signal);
 }
 
+.hero.hero-braise{background-image:radial-gradient(ellipse 60% 90% at 88% 115%,rgba(192,86,47,.42),transparent 70%),linear-gradient(rgba(var(--paper-rgb),.035) 1px,transparent 1px),linear-gradient(90deg,rgba(var(--paper-rgb),.035) 1px,transparent 1px)}
+.hero.hero-braise h1{max-width:16ch}
+.traiteur section h2::after{background:var(--braise)}
+.traiteur .evt{border-top-color:var(--braise)}
+.traiteur .evt .tag{color:var(--braise)}
+.traiteur .gallery{margin-top:44px}
+.traiteur .photo,.traiteur .gallery img{background:var(--bg-alt)}
+.dark{background:var(--acc);color:var(--paper);border-top:0}
+.dark h2{color:var(--paper)}
+.dark .lead{color:rgba(var(--paper-rgb),.7)}
+.dark .opt{border-color:rgba(var(--paper-rgb),.18)}
+.dark .opt:last-child{border-bottom-color:rgba(var(--paper-rgb),.18)}
+.dark .opt b{color:var(--paper)}
+.dark .opt span{color:rgba(var(--paper-rgb),.68)}
+.dark .opt em{color:var(--signal)}
+.duo{background:var(--bg-alt)}
+.duo .hero-btns .btn-outline{border-color:var(--ink);color:var(--ink)}
+.duo .hero-btns .btn-outline:hover{background:var(--ink);color:var(--paper)}
+.contact-info p{margin:0 0 10px;color:var(--mute)}
 
 /* ==========================================================================
    6) SECTIONS : espacement, filet, titres et texte d'introduction
