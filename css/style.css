@@ -1239,7 +1239,141 @@ header.top nav a[aria-current="page"] {
 
 
 /* ==========================================================================
-   16) ACCESSIBILITÉ : réduit les animations si le visiteur l'a demandé
+   16) AGRANDISSEMENT DES PHOTOS (fenêtre plein écran, voir js/lightbox.js)
+   ========================================================================== */
+.zoomable {
+  cursor: zoom-in;
+}
+.zoomable:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+dialog.lightbox {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  background: transparent;
+  color: var(--paper);
+}
+/* display uniquement quand la fenêtre est ouverte (sinon elle ne se ferme plus) */
+dialog.lightbox[open] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 64px 16px 24px;
+}
+/* Empêche la page de défiler derrière la fenêtre */
+dialog.lightbox:modal {
+  overscroll-behavior: contain;
+}
+dialog.lightbox::backdrop {
+  overflow: hidden;
+  overscroll-behavior: contain;
+  background: rgba(14, 13, 18, .97);
+}
+
+.lightbox form {
+  display: block;
+  margin: 0;
+}
+.lightbox figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  min-height: 0;
+  margin: 0;
+}
+/* Format d'origine : jamais rognée ni déformée, seulement réduite si elle dépasse de l'écran */
+.lightbox figure img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: calc(100vw - 32px);
+  max-height: calc(100vh - 150px);
+  max-height: calc(100dvh - 150px);
+  object-fit: contain;
+}
+.lightbox figcaption {
+  max-width: 60ch;
+  color: rgba(var(--paper-rgb), .78);
+  font-size: .85rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.lb-btn {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  border: 1px solid rgba(var(--paper-rgb), .35);
+  border-radius: 50%;
+  background: rgba(30, 28, 36, .72);
+  color: var(--paper);
+  cursor: pointer;
+  transition: background-color .18s ease, border-color .18s ease, color .18s ease;
+}
+.lb-btn[hidden] {
+  display: none;
+}
+.lb-btn:hover {
+  border-color: var(--signal);
+  background: var(--signal);
+  color: var(--acc);
+}
+.lb-btn svg {
+  display: block;
+  width: 22px;
+  height: 22px;
+}
+.lb-close {
+  top: calc(12px + env(safe-area-inset-top, 0px));
+  right: 12px;
+}
+.lb-prev,
+.lb-next {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.lb-prev {
+  left: 12px;
+}
+.lb-next {
+  right: 12px;
+}
+
+@media (max-width: 760px) {
+  dialog.lightbox[open] {
+    padding: 64px 12px 84px;
+  }
+  .lightbox figure img {
+    max-width: calc(100vw - 24px);
+    max-height: calc(100vh - 210px);
+    max-height: calc(100dvh - 210px);
+  }
+  /* Sur téléphone, les flèches passent en bas pour ne pas cacher la photo */
+  .lb-prev,
+  .lb-next {
+    top: auto;
+    bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+    transform: none;
+  }
+}
+
+
+/* ==========================================================================
+   17) ACCESSIBILITÉ : réduit les animations si le visiteur l'a demandé
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
   html {
