@@ -6,6 +6,12 @@
 const formulaire = document.getElementById('f');
 const message = document.getElementById('ok');
 
+// Lien "Devis entreprise" (?type=entreprise) : présélectionne le type d'événement
+const typeChoisi = document.getElementById('type');
+if (typeChoisi && new URLSearchParams(location.search).get('type') === 'entreprise') {
+  typeChoisi.value = 'Soirée d\'entreprise';
+}
+
 // 2) Soumission asynchrone du formulaire avec Web3Forms
 if (formulaire) {
   formulaire.addEventListener('submit', async function (e) {
@@ -34,7 +40,9 @@ if (formulaire) {
       'Nom': (d.get('nom') || '').trim(),
       'E-mail': (d.get('mail') || '').trim(),
       'Téléphone': (d.get('tel') || '').trim() || 'Non précisé',
+      'Entreprise': (d.get('societe') || '').trim() || 'Particulier',
       'Type d\'événement': d.get('type'),
+      'Nombre d\'invités': d.get('invites') || 'Non précisé',
       'Date': d.get('date') || 'Non précisée',
       'Lieu': (d.get('lieu') || '').trim() || 'Non précisé',
       'Options souhaitées': liste.join(', ') || 'Aucune option cochée',

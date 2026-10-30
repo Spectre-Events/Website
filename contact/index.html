@@ -4,15 +4,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Spectre Events : Sonorisation et mise en lumière haut de gamme jusqu'à 500 personnes, bar à vinyles.">
-<title>Spectre Events — Sonorisation, mise en lumière & DJ haut de gamme</title>
+<meta name="description" content="Demandez votre devis gratuit à Spectre Events : sonorisation, DJ, photographie et organisation d'événements. Réponse sous 24 heures.">
+<title>Demande de devis — Spectre Events</title>
 
 <!-- Optimisation SEO & Réseaux Sociaux (Open Graph & Twitter Cards) -->
-<link rel="canonical" href="https://spectre-events.fr/sonorisation/">
+<link rel="canonical" href="https://spectre-events.fr/contact/">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://spectre-events.fr/sonorisation">
-<meta property="og:title" content="Spectre Events — Sonorisation, mise en lumière & DJ haut de gamme">
-<meta property="og:description" content="Mariages, séminaires, rallyes ou soirées privées : nous gérons la partie technique et artistique pour tous vos événements.">
+<meta property="og:url" content="https://spectre-events.fr/contact/">
+<meta property="og:title" content="Demande de devis — Spectre Events">
+<meta property="og:description" content="Décrivez-nous votre événement : vous recevez un devis détaillé et gratuit sous 24 heures.">
 <meta property="og:image" content="https://spectre-events.fr/images/og-image.jpg">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="Spectre Events">
@@ -23,7 +23,7 @@
 <!-- Performance : préconnexion aux polices Google Fonts -->
 <!-- Feuille de style du site (v=2 pour rafraîchir le cache navigateur) -->
 <link rel="preload" href="../fonts/dm-sans-latin-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../css/style.css?v=20261020b">
+<link rel="stylesheet" href="../css/style.css?v=20261029c">
 
 <!-- Favicons légers et optimisés (1.5 Ko au lieu de 1 Mo) -->
 <link rel="icon" href="../images/favicon-32x32.png" sizes="32x32" type="image/png">
@@ -65,10 +65,10 @@
       </div>
       <div class="has-sub">
         <a href="../photographie/">Photographie</a>
-        <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sous-menu-son" aria-label="Afficher les différentes propositions photos">
+        <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sous-menu-photo" aria-label="Afficher les différentes propositions photos">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
         </button>
-        <div class="sub" id="sous-menu-son">
+        <div class="sub" id="sous-menu-photo">
           <a href="../photographie/#borne">Borne Photo</a>
           <a href="../photographie/#photo">Photographe</a>
           <!--<a href="../photographie/#video">Vidéaste</a>-->
@@ -76,7 +76,7 @@
       </div>
       <a href="../traiteur">Traiteur</a>
       <a href="../location">Location</a>
-      <a href="../contact">Contact</a>
+      <a class="nav-cta" href="../contact/">Devis gratuit</a>
     </nav>
   </div>
 </header>
@@ -89,15 +89,21 @@
 <section id="contact" class="contact">
   <div class="wrap">
     <div>
-      <h2>Contact</h2>
-      <p class="lead">Indiquez-nous le type d'événement, la date et le lieu. Nous donnons suite rapidement, et les devis sont gratuits.</p>
+      <h2>Demande de devis</h2>
+      <p class="lead">Indiquez-nous le type d'événement, la date et le lieu. Vous recevez une proposition personnalisée sous 24 h.</p>
+      <ul class="garanties">
+        <li>Devis gratuit et sans engagement</li>
+        <li>Réponse sous 24 h</li>
+        <li>Un suivi personnel par l'un des fondateurs</li>
+        <li>Des rendez-vous de préparation avant le jour J</li>
+      </ul>
       <div class="contact-info">
         <p>
           <a href="tel:+33681334283">+33 6 81 33 42 83</a><br>
           <a href="mailto:contact@spectre-events.fr">contact@spectre-events.fr</a>
         </p>
         <p>
-          <a></a><a href="https://www.instagram.com/spectre_event/" target="_blank" rel="noopener noreferrer">Instagram : @spectre_events</a><br>
+          <a href="https://www.instagram.com/spectre_event/" target="_blank" rel="noopener noreferrer">Instagram : @spectre_events</a><br>
           <a class="wa-link" href="https://wa.me/33681334283?text=Bonjour%2C%20je%20souhaite%20un%20devis%20ou%20des%20renseignements%20pour%20un%20%C3%A9v%C3%A9nement." target="_blank" rel="noopener noreferrer">
             Échanger sur WhatsApp
           </a>
@@ -122,13 +128,28 @@
         <input name="tel" type="tel" autocomplete="tel" placeholder="06 00 00 00 00">
       </label>
 
+      <label>Entreprise <span class="facultatif">(facultatif)</span>
+        <input name="societe" autocomplete="organization" placeholder="Nom de votre société">
+      </label>
+
       <label>Type d'événement
-        <select name="type">
+        <select name="type" id="type">
           <option>Mariage</option>
           <option>Soirée d'entreprise</option>
+          <option>Cocktail / inauguration</option>
           <option>Rallye</option>
-          <option>Evénement privé</option>
+          <option>Événement privé</option>
           <option>Autre</option>
+        </select>
+      </label>
+
+      <label>Nombre d'invités
+        <select name="invites">
+          <option value="">Je ne sais pas encore</option>
+          <option>Moins de 50</option>
+          <option>50 à 150</option>
+          <option>150 à 300</option>
+          <option>Plus de 300</option>
         </select>
       </label>
 
@@ -144,6 +165,7 @@
         <legend>Prestations souhaitées</legend>
         <div class="checkbox-group">
           <label><input type="checkbox" name="opt" value="DJ"> DJ</label>
+          <label><input type="checkbox" name="opt" value="Sonorisation conférence"> Sonorisation / micros</label>
           <label><input type="checkbox" name="opt" value="Photobooth"> Photobooth</label>
           <label><input type="checkbox" name="opt" value="Bar à vinyles"> Bar à vinyles</label>
           <label><input type="checkbox" name="opt" value="Photographe"> Photographe</label>
@@ -153,12 +175,12 @@
       </fieldset>
 
       <label class="full">Votre message
-        <textarea name="msg" placeholder="Veuillez préciser votre projet, nombre d'invités estimé, questions diverses... "></textarea>
+        <textarea name="msg" placeholder="Horaires, déroulé de la soirée, budget indicatif, questions diverses..."></textarea>
       </label>
 
       <div class="full">
         <button class="btn" type="submit">Envoyer ma demande de devis</button>
-        <p class="rgpd">Vos données sont collectées uniquement pour répondre à votre demande de devis. En savoir plus dans nos <a href="mentions-legales/">mentions légales et politique de confidentialité</a>.</p>
+        <p class="rgpd">Vos données sont collectées uniquement pour répondre à votre demande de devis. En savoir plus dans nos <a href="../mentions-legales/">mentions légales et politique de confidentialité</a>.</p>
       </div>
 
       <!-- Zone de statut de réponse -->
@@ -172,7 +194,9 @@
 
 <!-- Pied de page avec mentions légales -->
 <footer class="f">
-  © 2026 Spectre Events · Agence événementielle · <a href="../contact">Contact</a> · <a href="../mentions-legales/">Mentions légales & RGPD</a>
+  <p><b>Spectre Events</b> · Sonorisation, DJ et organisation d'événements · Paris & Île-de-France</p>
+  <p><a href="tel:+33681334283">06 81 33 42 83</a> · <a href="mailto:contact@spectre-events.fr">contact@spectre-events.fr</a> · <a href="/contact/">Demande de devis</a> · <a href="/mentions-legales/">Mentions légales & RGPD</a></p>
+  <p>© 2026 Spectre Events</p>
 </footer>
 
 <!-- Scripts JavaScript natifs -->

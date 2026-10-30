@@ -3,28 +3,28 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Spectre Events : DJ événementiel, mariages, séminaires d'entreprise, rallyes, sonorisation et location de matériel en Île-de-France.">
-<title>Spectre Events — Sonorisation, DJ & Événementiel haut de gamme</title>
+<meta name="description" content="Spectre Events : sonorisation, DJ, photographie et organisation d'événements pour les entreprises et les particuliers, à Paris et en Île-de-France.">
+<title>Spectre Events — Sonorisation, DJ & organisation d'événements</title>
 
 <!-- Optimisation SEO & Réseaux Sociaux (Open Graph & Twitter Cards) -->
 <link rel="canonical" href="https://spectre-events.fr/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://spectre-events.fr/">
-<meta property="og:title" content="Spectre Events — Sonorisation, DJ & Événementiel">
-<meta property="og:description" content="Mariages, séminaires, rallyes ou soirées privées : nous offrons une flexibilité totale pour sublimer tous vos événements.">
+<meta property="og:title" content="Spectre Events — Sonorisation, DJ & organisation d'événements">
+<meta property="og:description" content="Des installations élégantes, un matériel de référence et un interlocuteur unique pour vos réceptions, soirées d'entreprise et mariages.">
 <meta property="og:image" content="https://spectre-events.fr/images/og-image.jpg">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="Spectre Events">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Spectre Events — Sonorisation, DJ & Événementiel">
-<meta name="twitter:description" content="Vos événements sur mesure, du cocktail à la dernière danse.">
+<meta name="twitter:title" content="Spectre Events — Sonorisation, DJ & organisation d'événements">
+<meta name="twitter:description" content="Des installations élégantes, un matériel de référence et un interlocuteur unique pour vos réceptions, soirées d'entreprise et mariages.">
 <meta name="twitter:image" content="https://spectre-events.fr/images/og-image.jpg">
 
 <!-- Performance : préconnexion aux polices Google Fonts -->
 <!-- Feuille de style du site (v=2 pour rafraîchir le cache navigateur) -->
 <link rel="preload" href="fonts/dm-sans-latin-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/style.css?v=20261020b">
+<link rel="stylesheet" href="css/style.css?v=20261029c">
 
 <!-- Favicons légers et optimisés (1.5 Ko au lieu de 1 Mo) -->
 <link rel="icon" href="images/favicon-32x32.png" sizes="32x32" type="image/png">
@@ -49,6 +49,19 @@
     "addressRegion": "Île-de-France",
     "addressCountry": "FR"
   }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Combien coûte une prestation ?", "acceptedAnswer": {"@type": "Answer", "text": "Le tarif dépend du nombre d'invités, du lieu, de la durée et des prestations retenues. Le devis est gratuit, détaillé poste par poste, et envoyé sous 24 heures."}},
+    {"@type": "Question", "name": "Pouvez-vous gérer tout l'événement ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. Nous intervenons pour une seule prestation ou coordonnons l'ensemble de la soirée avec nos traiteurs, photographes et lieux partenaires. Vous conservez un interlocuteur unique."}},
+    {"@type": "Question", "name": "Jusqu'à combien de personnes ?", "acceptedAnswer": {"@type": "Answer", "text": "De 40 à 5 000 personnes. Le matériel est choisi selon la salle et le nombre d'invités."}},
+    {"@type": "Question", "name": "Où intervenez-vous ?", "acceptedAnswer": {"@type": "Answer", "text": "Nous intervenons principalement à Paris et en Île-de-France, ainsi qu'en Vendée et dans les Pays de la Loire. Pour un événement ailleurs en France, contactez-nous : nous étudions chaque demande."}},
+    {"@type": "Question", "name": "Combien de temps à l'avance faut-il réserver ?", "acceptedAnswer": {"@type": "Answer", "text": "Plusieurs mois à l'avance pour les dates de décembre et les samedis de printemps et d'été. Pour une date proche, contactez-nous directement."}}
+  ]
 }
 </script>
 </head>
@@ -86,10 +99,10 @@
       </div>
       <div class="has-sub">
         <a href="../photographie/">Photographie</a>
-        <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sous-menu-son" aria-label="Afficher les différentes propositions photos">
+        <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sous-menu-photo" aria-label="Afficher les différentes propositions photos">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
         </button>
-        <div class="sub" id="sous-menu-son">
+        <div class="sub" id="sous-menu-photo">
           <a href="../photographie/#borne">Borne Photo</a>
           <a href="../photographie/#photo">Photographe</a>
           <!--<a href="../photographie/#video">Vidéaste</a>-->
@@ -97,7 +110,7 @@
       </div>
       <a href="../traiteur">Traiteur</a>
       <a href="../location">Location</a>
-      <a href="../contact">Contact</a>
+      <a class="nav-cta" href="../contact/">Devis gratuit</a>
     </nav>
   </div>
 </header>
@@ -107,53 +120,160 @@
 <!-- Section Hero (Accroche principale) -->
 <div class="hero">
   <div class="wrap">
-    <h1>Vos événements sur mesure, pensés jusqu'au dernier détail.</h1>
-    <p>Séminaires d'entreprises, mariages, rallyes ou soirées privées : nous offrons une flexibilité totale pour sublimer tous vos événements. Grâce à une expérience éprouvée, nos équipes livrent une prestation haut de gamme, alliée à des installations élégantes et performantes pour une ambiance sur mesure.</p>
-    
-    <!-- Boutons d'action sobres et chics (Devis + WhatsApp en outline marine) -->
+    <h1>L'élégance se remarque. La technique, jamais.</h1>
+    <p>Sonorisation, lumière, DJ, photographie et traiteur pour vos réceptions, soirées d'entreprise et mariages. Des installations soignées qui s'accordent à votre lieu, un matériel de référence, et un interlocuteur unique de la première rencontre au dernier morceau.</p>
+
+    <!-- Boutons d'action : devis + aperçu des prestations -->
     <div class="hero-btns">
-      <a class="btn" href="/contact">Demander un devis</a>
+      <a class="btn" href="/contact/">Demander un devis gratuit</a>
+      <a class="btn-outline" href="#prestations">Découvrir nos prestations</a>
     </div>
+
+    <!-- Bandeau de réassurance -->
+    <ul class="preuves" aria-label="Nos garanties">
+      <li><b>+120</b><span>événements animés</span></li>
+      <li><b>5 000</b><span>invités sur notre plus grand événement</span></li>
+      <li><b>+500</b><span>vinyles dans notre bar à disques</span></li>
+      <li><b>24 h</b><span>pour recevoir votre devis</span></li>
+    </ul>
   </div>
 </div>
 
-<!-- Section Présentation -->
-<section id="sonorisation">
+<!-- Section Présentation : l'histoire de la maison et ce qui la distingue -->
+<section id="maison">
   <div class="wrap">
-    <h2>Qui sommes nous ? </h2>
-    <p class="lead">Spectre Events est une agence événementielle spécialisée dans la conception et la réalisation de soirées d’entreprise clé en main. Notre expertise s’appuie sur une expérience solide de la technique et de l'événementiel. <br>Originairement DJs, nous avons su développer des partenaires de confiance : traiteurs, photographes, salles de réceptions. Nous vous mettons donc à disposition nos contacts et nos compétences d'organisation et de coordination pour vous faciliter la préparation d'événements grandioses.</p>
-    <p class="lead">Envie d'une proposition clé en main ? Vous avez besoin d'un prestataire uniquement ? Nous faisons les deux, avec la même qualité. </p>
-    <div class="evts">
-      <div class="evt">
-        <h3>Lounge</h3>
-        <p>Cocktails, inaugurations, garden parties… une installation chic et discrète.</p>
-        <span class="tag">Cocktail & Garden Party</span>
-      </div>
-      <div class="evt">
-        <h3>Soirées</h3>
-        <p>Mariages, séminaires d'entreprise, rallyes, soirées privées. Une installation complète pour créer une ambiance unique.</p>
-        <span class="tag">Séminaires, mariages & soirées privées</span>
-      </div>
-      <div class="evt">
-        <h3>Événements sur mesure</h3>
-        <p>Un projet en tête ? Nous sommes là pour vous aider à en faire une réussite. Tous nos devis sont gratuits.</p>
-        <span class="tag">Accompagnement Dédié</span>
+    <div class="recit">
+      <h2>Une maison née derrière les platines</h2>
+      <div>
+        <p>Spectre Events a été fondée par Maxime et Andéol. Nous avons commencé comme DJs, dans des soirées privées, avant de rejoindre les mariages puis les événements d'entreprise. Au fil des prestations, les mêmes traiteurs, photographes et lieux de réception sont devenus des partenaires réguliers, et nos clients ont commencé à nous confier bien davantage que la musique.</p>
+        <p>Nous sommes partis d'un constat simple : un événement réussi se juge autant à ce que l'on voit qu'à ce que l'on entend. Une enceinte posée au hasard, un câble qui traverse la salle ou une régie mal habillée suffisent à abîmer un beau décor. Nous voulions des installations aussi soignées que les lieux qui les accueillent, et un son à la hauteur.</p>
+        <p>Le nom Spectre fait référence au spectre sonore, l'ensemble des fréquences que l'on équilibre pour obtenir un rendu juste. Il résume notre façon de travailler : une installation élégante, un son maîtrisé, une présence discrète.</p>
       </div>
     </div>
 
-    
+    <h3 class="sous-titre">Ce qui nous distingue</h3>
+    <div class="atouts">
+      <div class="atout">
+        <h4>Des installations élégantes</h4>
+        <p>Pieds et totems sobres, régie habillée, câbles rangés et dissimulés autant que le lieu le permet : l'installation s'accorde à votre salle au lieu de s'y imposer. Elle se fond dans le décor d'un château comme dans celui d'un showroom.</p>
+      </div>
+      <div class="atout">
+        <h4>Un matériel de référence</h4>
+        <p>Enceintes L-Acoustics, celles des salles de concert et des festivals, micros sans fil Shure, éclairages pilotés en direct. Ce matériel nous appartient et nous l'entretenons nous-mêmes : nous savons exactement ce qu'il peut donner et dans quel état il arrive chez vous.</p>
+      </div>
+      <div class="atout">
+        <h4>Le sens de la solution</h4>
+        <p>Une prise trop éloignée, une salle réaménagée la veille, un horaire qui glisse : chaque événement réserve sa part d'imprévus. Notre rôle est de les régler sans que vos invités s'en aperçoivent, avec du matériel de secours et une bonne dose de débrouillardise.</p>
+      </div>
+      <div class="atout">
+        <h4>Une présence discrète</h4>
+        <p>Tenue soignée, gestes mesurés, attention constante au déroulé : nous sommes là quand vous avez besoin de nous et invisibles le reste du temps. Vos invités retiennent l'ambiance, pas l'équipe technique.</p>
+      </div>
+      <div class="atout">
+        <h4>Toutes les prestations, un seul nom</h4>
+        <p>Son, lumière, DJ, borne photo, photographe, traiteur : nous réunissons l'ensemble avec des partenaires choisis pour leur sérieux. Vous gagnez du temps, et votre événement garde une cohérence du début à la fin.</p>
+      </div>
+      <div class="atout">
+        <h4>Une attention de chaque instant</h4>
+        <p>Un devis sous 24 heures, une réponse rapide à chaque question, des rendez-vous autant que nécessaire. Jeune maison, nous savons que notre réputation se construit événement après événement, et nous traitons chacun comme le plus important.</p>
+      </div>
+    </div>
   </div>
 </section>
 
+<!-- Section Prestations : un aperçu de chaque page, avec photo -->
+<section id="prestations">
+  <div class="wrap">
+    <h2>Nos prestations</h2>
+    <p class="lead">Chaque prestation peut être réservée seule ou réunie avec les autres dans une organisation complète. Dans les deux cas, le même soin du détail et le même interlocuteur.</p>
+    <div class="services">
+      <a class="service" href="/sonorisation/">
+        <img src="images/sonorisation/mariage-2.webp" alt="Installation son et lumière sous une tente de réception" width="1200" height="800" loading="lazy">
+        <h3>Sonorisation & DJ</h3>
+        <p>Diffusion L-Acoustics, micros sans fil, mise en lumière et DJ, dans une installation discrète qui accompagne les discours comme la piste de danse.</p>
+        <span>Découvrir</span>
+      </a>
+      <a class="service" href="/photographie/">
+        <img src="images/photographie/borne-1.webp" alt="Borne photo vintage installée dans un château" loading="lazy">
+        <h3>Photographie</h3>
+        <p>Une borne photo vintage aux impressions illimitées, ou un photographe pour garder la trace de chaque temps fort.</p>
+        <span>Découvrir</span>
+      </a>
+      <a class="service" href="/traiteur/">
+        <img src="images/traiteur/poivre.jpeg" alt="Préparation d'un plat par l'équipe de Beret et Papilles" loading="lazy">
+        <h3>Traiteur</h3>
+        <p>Avec notre partenaire Beret et Papilles : cocktails, dîners assis ou buffets, à partir de produits locaux et de saison.</p>
+        <span>Découvrir</span>
+      </a>
+      <a class="service" href="/location/">
+        <img src="images/sonorisation/privee-3.webp" alt="Enceintes installées dans un château" loading="lazy">
+        <h3>Location de matériel</h3>
+        <p>Sonorisation et éclairage à louer, de la petite enceinte pour un cocktail au système complet pour 400 personnes.</p>
+        <span>Découvrir</span>
+      </a>
+    </div>
+    <h3 class="sous-titre">Pour chaque moment de votre événement</h3>
+    <div class="evts">
+      <div class="evt">
+        <h3>Cocktails et réceptions</h3>
+        <p>Lors d'un cocktail ou d'une réception, la parole compte autant que la musique. Nous installons des micros sans fil et une diffusion calibrée pour que chaque discours soit entendu jusqu'au fond de la salle. Entre deux prises de parole, la musique accompagne les échanges sans jamais les couvrir.</p>
+        <span class="tag">Discours & ambiance</span>
+      </div>
+      <div class="evt">
+        <h3>Soirées dansantes</h3>
+        <p>Une piste de danse réussie se construit morceau après morceau. Nous lisons la salle et adaptons la sélection à votre public, pour que les invités de tous âges s'y retrouvent au fil de la soirée. Le son reste puissant sur la piste et confortable autour, pour que chacun profite à sa manière.</p>
+        <span class="tag">DJ & mise en lumière</span>
+      </div>
+      <div class="evt">
+        <h3>À la carte ou clé en main</h3>
+        <p>Certains clients nous confient uniquement la sonorisation ou le DJ, d'autres l'organisation complète de leur événement. Dans ce second cas, nous coordonnons pour vous le traiteur, le photographe et le lieu, avec des partenaires que nous connaissons bien. Le niveau d'exigence reste le même, quelle que soit l'ampleur de la mission.</p>
+        <span class="tag">Une prestation ou l'ensemble</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-
+<!-- Section Engagements : les principes de la maison -->
+<section id="engagements" class="dark">
+  <div class="wrap">
+    <h2>Nos engagements</h2>
+    <p class="lead">Un événement engage l'image de celui qui l'organise, qu'il s'agisse d'une entreprise ou d'une famille. Voici les principes que nous appliquons à chaque prestation, quelle que soit sa taille.</p>
+    <div class="piliers">
+      <div class="pilier">
+        <h3>Un interlocuteur unique</h3>
+        <p>Dès le premier échange, votre projet est suivi personnellement par l'un des fondateurs, qui reste votre contact jusqu'au soir de l'événement. Vous n'avez pas à répéter vos attentes à plusieurs personnes, ni à coordonner vous-même les différents prestataires. Une question ou un changement de dernière minute se règle en un seul appel.</p>
+      </div>
+      <div class="pilier">
+        <h3>Une préparation approfondie</h3>
+        <p>Avant chaque événement, nous organisons plusieurs rendez-vous pour comprendre précisément vos attentes : déroulé de la soirée, horaires des prises de parole, ambiance souhaitée, contraintes du lieu. Lorsque c'est utile, nous visitons la salle en amont afin de prévoir l'implantation du matériel. Le jour venu, rien ne se décide dans l'urgence.</p>
+      </div>
+      <div class="pilier">
+        <h3>Une installation prête avant vos invités</h3>
+        <p>Nous arrivons largement en avance pour installer, régler et vérifier chaque élément, et disposons toujours de matériel de secours. Celui qui assure la soirée est aussi celui qui a monté l'installation : il peut intervenir immédiatement si un réglage doit évoluer. Quand les premiers invités entrent, tout est en place depuis longtemps.</p>
+      </div>
+      <div class="pilier">
+        <h3>Une tarification transparente</h3>
+        <p>Chaque devis détaille l'ensemble des postes, du matériel à la main-d'œuvre, afin que vous sachiez précisément ce que vous financez. Nous proposons un matériel haut de gamme à un tarif juste, sans les frais de structure d'une grande agence. Le devis est gratuit et vous parvient sous 24 heures.</p>
+      </div>
+    </div>
+    <div class="hero-btns" style="margin-top:48px">
+      <a class="btn" href="/contact/">Demander un devis</a>
+      <a class="btn-outline" href="/sonorisation/">Voir nos réalisations</a>
+    </div>
+  </div>
+</section>
 
 <!-- Section Avis Clients -->
 <section id="avis">
   <div class="wrap">
-    <h2>Avis</h2>
-    <p class="lead">Plus de 120 événements animés.</p>
+    <h2>Ils nous ont fait confiance</h2>
+    <p class="lead">Plus de 120 événements animés depuis nos débuts, pour des entreprises comme pour des particuliers.</p>
     <div class="avis">
+      <blockquote>
+        <span class="stars" aria-label="5 étoiles">★★★★★</span>
+        « Grâce à votre implication, cet événement a été un véritable succès ! »
+        <footer>Emma, soirée corporate</footer>
+      </blockquote>
       <blockquote>
         <span class="stars" aria-label="5 étoiles">★★★★★</span>
         « Merci encore pour cette superbe soirée, on a eu que des compliments sur la musique ! »
@@ -169,21 +289,48 @@
         « DJ très sympathique et pro. Matériel de qualité. Bon rapport qualité prix. Je recommande ! »
         <footer>Astrid, anniversaire à Paris</footer>
       </blockquote>
-      <blockquote>
-        <span class="stars" aria-label="5 étoiles">★★★★★</span>
-        « Grâce à votre implication, cet événement a été un véritable succès ! »
-        <footer>Emma, soirée corporate</footer>
-      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- Section FAQ : répond aux questions qui freinent une demande de devis -->
+<section id="faq">
+  <div class="wrap">
+    <h2>Questions fréquentes</h2>
+    <div class="faq">
+      <details>
+        <summary>Combien coûte une prestation ?</summary>
+        <p>Le tarif dépend du nombre d'invités, du lieu, de la durée de la soirée et des prestations retenues. Plutôt qu'une grille de prix générique, nous établissons pour chaque projet un devis détaillé poste par poste. Il est gratuit, sans engagement, et vous parvient sous 24 heures.</p>
+      </details>
+      <details>
+        <summary>Pouvez-vous gérer tout l'événement ?</summary>
+        <p>Oui. Nous pouvons intervenir pour une seule prestation, ou coordonner l'ensemble de la soirée avec les traiteurs, photographes et lieux de réception avec lesquels nous travaillons régulièrement. Dans les deux cas, vous conservez un interlocuteur unique.</p>
+      </details>
+      <details>
+        <summary>Jusqu'à combien de personnes ?</summary>
+        <p>Nous sonorisons aussi bien des cocktails d'une quarantaine de personnes que des soirées de grande ampleur : notre plus grand événement réunissait 5 000 personnes. Le matériel est dimensionné selon la salle et le nombre d'invités.</p>
+      </details>
+      <details>
+        <summary>Où intervenez-vous ?</summary>
+        <p>Nous intervenons principalement à Paris et en Île-de-France, ainsi qu'en Vendée et dans les Pays de la Loire. Pour un événement ailleurs en France, contactez-nous : nous étudions chaque demande.</p>
+      </details>
+      <details>
+        <summary>Combien de temps à l'avance faut-il réserver ?</summary>
+        <p>Les mois de décembre et les samedis de printemps et d'été sont très demandés : nous vous conseillons de nous contacter plusieurs mois à l'avance. Pour une date plus proche, contactez-nous directement, nous vous confirmerons rapidement nos disponibilités.</p>
+      </details>
     </div>
   </div>
 </section>
 
 <!-- Section Contact & Demande de Devis -->
-<section id="contact" class="contact">
+<section id="contact" class="contact-cta dark">
   <div class="wrap">
-    <h2>Contact</h2><br>
-    <p class="lead">Besoin de renseignements ? Vous pouvez nous contacter via le formulaire de contact ou grâce aux différents canaux. Nous reviendrons rapidement vers vous. </p><br>
-    <a class="btn" href="/contact">Nous contacter</a><br>
+    <h2>Parlons de votre prochain événement.</h2>
+    <p class="lead">Indiquez-nous la date, le lieu et le nombre d'invités. Nous revenons vers vous pour échanger sur votre projet, et vous recevez un devis détaillé sous 24 heures.</p>
+    <div class="hero-btns">
+      <a class="btn" href="/contact/">Demander un devis gratuit</a>
+      <a class="btn-outline" href="tel:+33681334283">06 81 33 42 83</a>
+    </div>
   </div>
 </section>
 
@@ -191,7 +338,9 @@
 
 <!-- Pied de page avec mentions légales -->
 <footer class="f">
-  © 2026 Spectre Events · Agence événementielle · <a href="/contact">Contact</a> · <a href="../mentions-legales/">Mentions légales & RGPD</a>
+  <p><b>Spectre Events</b> · Sonorisation, DJ et organisation d'événements · Paris & Île-de-France</p>
+  <p><a href="tel:+33681334283">06 81 33 42 83</a> · <a href="mailto:contact@spectre-events.fr">contact@spectre-events.fr</a> · <a href="/contact/">Demande de devis</a> · <a href="/mentions-legales/">Mentions légales & RGPD</a></p>
+  <p>© 2026 Spectre Events</p>
 </footer>
 
 <!-- Scripts JavaScript natifs -->
