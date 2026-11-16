@@ -1729,3 +1729,81 @@ dialog.lightbox::backdrop {
     transition-duration: .01ms !important;
   }
 }
+
+
+/* ==========================================================================
+   18) TABLEAU COMPARATIF DES OFFRES & BLOC FONDATEURS E-E-A-T (SEO / GEO)
+   ========================================================================== */
+.hero-kicker {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: var(--signal);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+.offres-table-wrap {
+  margin-top: 40px;
+  overflow-x: auto;
+  border-top: 2px solid var(--acc);
+}
+.offres-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: .94rem;
+}
+.offres-table th,
+.offres-table td {
+  padding: 16px 18px 16px 0;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+.offres-table th {
+  color: var(--mute);
+  font-size: .74rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.offres-table td strong {
+  color: var(--ink);
+  font-size: 1rem;
+}
+.offres-table .prix-cell {
+  color: var(--gold-price);
+  font-weight: 700;
+  white-space: nowrap;
+}
+.eeat-author-box {
+  margin-top: 56px;
+  padding: 26px 28px;
+  border-top: 2px solid var(--gold);
+  background: var(--bg-alt);
+}
+.eeat-author-box h3 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+.eeat-author-box p {
+  margin: 0 0 10px;
+  color: var(--mute);
+  font-size: .95rem;
+  line-height: 1.7;
+}
+.eeat-author-box p:last-child {
+  margin-bottom: 0;
+}
+.eeat-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 12px;
+  font-size: .86rem;
+  font-weight: 700;
+}
+.eeat-links a {
+  color: var(--gold-link);
+  text-decoration: underline;
+}

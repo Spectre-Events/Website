@@ -1,9 +1,41 @@
 # ==============================================================================
-# ROBOTS.TXT : Directives pour les robots d'indexation (Googlebot, Bingbot...)
+# ROBOTS.TXT : Directives pour les moteurs de recherche et agents IA (GEO)
 # ==============================================================================
 
 User-agent: *
 Allow: /
 
-# Emplacement du plan du site pour faciliter l'indexation
+# OpenAI / ChatGPT Search & Navigation en direct
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Anthropic / Claude
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+# Google Gemini / Vertex AI
+User-agent: Google-Extended
+Allow: /
+
+# Emplacement du plan du site et du fichier de référence LLM (GEO)
 Sitemap: https://spectre-events.fr/sitemap.xml
+# LLMs-Txt: https://spectre-events.fr/llms.txt
