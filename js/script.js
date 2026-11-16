@@ -10,6 +10,19 @@ const message = document.getElementById('ok');
 const typeChoisi = document.getElementById('type');
 if (typeChoisi && new URLSearchParams(location.search).get('type') === 'entreprise') {
   typeChoisi.value = 'Soirée d\'entreprise';
+
+  // Textes adaptés aux demandes d'entreprise
+  const intro = document.querySelector('#contact .lead');
+  if (intro) {
+    intro.textContent = 'Quelques lignes suffisent : la date, le nombre d\'invités, le lieu envisagé et, si vous le souhaitez, votre enveloppe. L\'un des fondateurs étudie votre demande et vous répond sous 24 h.';
+  }
+  const champMessage = formulaire && formulaire.querySelector('textarea[name="msg"]');
+  if (champMessage) {
+    champMessage.placeholder = 'Format de l\'événement, horaires, prises de parole prévues, enveloppe indicative, contraintes du lieu...';
+  }
+  // Le nom de la société n'est plus présenté comme facultatif
+  const mention = formulaire && formulaire.querySelector('.facultatif');
+  if (mention) { mention.remove(); }
 }
 
 // 2) Soumission asynchrone du formulaire avec Web3Forms
