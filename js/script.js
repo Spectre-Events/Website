@@ -28,6 +28,20 @@ const message = document.getElementById('ok');
   }
 })();
 
+// Adaptation UX pour les demandes d'entreprise (?type=entreprise)
+if (formulaire && new URLSearchParams(location.search).get('type') === 'entreprise') {
+  const intro = document.querySelector('#contact .lead');
+  if (intro) {
+    intro.textContent = 'Quelques lignes suffisent : la date, le nombre d\'invités, le lieu envisagé et, si vous le souhaitez, votre enveloppe. L\'un des fondateurs étudie votre demande et vous répond sous 24 h.';
+  }
+  const champMessage = formulaire.querySelector('textarea[name="msg"]');
+  if (champMessage && !new URLSearchParams(location.search).get('msg')) {
+    champMessage.placeholder = 'Format de l\'événement, horaires, prises de parole prévues, enveloppe indicative, contraintes du lieu...';
+  }
+  const mention = formulaire.querySelector('.facultatif');
+  if (mention) { mention.remove(); }
+}
+
 // 3) Pré-remplissage du formulaire depuis les pages prestations ou le configurateur
 (function preremplirFormulaire() {
   if (!formulaire) return;

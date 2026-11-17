@@ -508,6 +508,21 @@ section h2::after {
   text-transform: uppercase;
 }
 
+/* Variante à quatre cartes (page Entreprises) */
+.evts.evts-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+@media (max-width: 1100px) {
+  .evts.evts-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 760px) {
+  .evts.evts-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Options complémentaires */
 .opts {
   margin-top: 70px;
@@ -1092,6 +1107,7 @@ header.top nav a.nav-cta:hover {
   padding-top: 20px;
   border-top: 2px solid var(--acc);
 }
+.atout h3,
 .atout h4 {
   margin: 0 0 12px;
   font-size: 1.15rem;
