@@ -46,6 +46,24 @@ if (formulaire && new URLSearchParams(location.search).get('type') === 'entrepri
 (function preremplirFormulaire() {
   if (!formulaire) return;
   const params = new URLSearchParams(location.search);
+  let backup = null;
+  try {
+    const brut = sessionStorage.getItem('spectre_config_prefill');
+    if (brut) {
+      backup = JSON.parse(brut);
+      sessionStorage.removeItem('spectre_config_prefill');
+    }
+  } catch (err) {
+    backup = null;
+  }
+
+  // N'utiliser le secours sessionStorage que si aucun paramètre explicite n'est dans l'URL
+  const depuisUrl = params.has('type') || params.has('invites') || params.has('opt') || params.has('msg');
+  const getVal = (cle) => {
+    if (params.has(cle)) return params.get(cle) || '';
+    if (!depuisUrl && backup && backup[cle]) return String(backup[cle]);
+    return '';
+  };
 
   const correspondancesType = {
     'mariage': 'Mariage',
@@ -61,24 +79,24 @@ if (formulaire && new URLSearchParams(location.search).get('type') === 'entrepri
     'autre': 'Autre'
   };
 
-  const typeParam = (params.get('type') || '').toLowerCase();
+  const typeParam = getVal('type').toLowerCase();
   const typeChoisi = document.getElementById('type');
   if (typeChoisi && correspondancesType[typeParam]) {
     typeChoisi.value = correspondancesType[typeParam];
   }
 
-  const invitesParam = params.get('invites');
+  const invitesParam = getVal('invites');
   const selectInvites = formulaire.querySelector('select[name="invites"]');
   if (selectInvites && invitesParam) {
     const optionExiste = Array.from(selectInvites.options).some(o => o.value === invitesParam || o.text === invitesParam);
     if (optionExiste) selectInvites.value = invitesParam;
   }
 
-  const lieuParam = params.get('lieu');
+  const lieuParam = getVal('lieu');
   const champLieu = formulaire.querySelector('input[name="lieu"]');
   if (champLieu && lieuParam) champLieu.value = lieuParam;
 
-  const optParam = params.get('opt');
+  const optParam = getVal('opt');
   if (optParam) {
     const optsDemandees = optParam.split(',').map(s => s.trim().toLowerCase()).filter(Boolean);
     formulaire.querySelectorAll('input[name="opt"]').forEach(cb => {
@@ -88,7 +106,7 @@ if (formulaire && new URLSearchParams(location.search).get('type') === 'entrepri
     });
   }
 
-  const msgParam = params.get('msg');
+  const msgParam = getVal('msg');
   const champMsg = formulaire.querySelector('textarea[name="msg"]');
   if (champMsg && msgParam) champMsg.value = msgParam;
 })();

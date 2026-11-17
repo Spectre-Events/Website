@@ -223,16 +223,39 @@
       optDevis.length ? '- Options sur devis : ' + optDevis.join(', ') : ''
     ].filter(Boolean).join('\n');
 
+    const optsUniques = Array.from(new Set(optForm));
+    if (mode === 'location' && !optsUniques.includes('Sonorisation conférence')) {
+      optsUniques.push('Sonorisation conférence');
+    }
+
     if (elDevis) {
       const q = new URLSearchParams();
-      q.set('type', mode === 'location' ? 'location' : type);
+      q.set('type', type);
       q.set('invites', libellesJauge[jauge]);
-      if (optForm.length) q.set('opt', Array.from(new Set(optForm)).join(','));
+      if (optsUniques.length) q.set('opt', optsUniques.join(','));
       q.set('msg', resumeTexte);
       elDevis.href = '../contact/?' + q.toString();
     }
 
     racine.dataset.resume = resumeTexte;
+    racine.dataset.prefill = JSON.stringify({
+      type: type,
+      invites: libellesJauge[jauge],
+      opt: optsUniques.join(','),
+      msg: resumeTexte
+    });
+  }
+
+  if (elDevis) {
+    elDevis.addEventListener('click', function () {
+      try {
+        if (racine.dataset.prefill) {
+          sessionStorage.setItem('spectre_config_prefill', racine.dataset.prefill);
+        }
+      } catch (err) {
+        // Ignoré si sessionStorage indisponible
+      }
+    });
   }
 
   racine.addEventListener('change', calculer);
