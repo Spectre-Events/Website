@@ -171,7 +171,7 @@
         + (aBarVinyles ? ' + bar à vinyles (+300 €)' : '')
         + (optDevis.length ? ' + options sur devis.' : '. Devis précis poste par poste sous 24 h.');
 
-      equipements.push('DJ résident (Maxime Feltin ou Andéol) et rendez-vous de préparation en amont');
+      equipements.push('DJ (Maxime Feltin ou Andéol) et rendez-vous de préparation en amont');
       if (jauge === 'plus-400' || jauge === '150-400') {
         equipements.push('Système L-Acoustics haute puissance (12XT 380 W RMS + caissons SB118 600 W RMS + ampli LA4)');
       } else {
