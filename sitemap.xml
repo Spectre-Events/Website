@@ -54,4 +54,52 @@
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://spectre-events.fr/avis/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://spectre-events.fr/guides/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://spectre-events.fr/guides/location-sono-ou-dj/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://spectre-events.fr/guides/combien-de-watts-pour-ma-soiree/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://spectre-events.fr/guides/sonorisation-chateau-peniche-jardin/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://spectre-events.fr/guides/sonorisation-seminaire-conference-paris/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://spectre-events.fr/guides/sonorisation-rallye-gala-grande-jauge/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://spectre-events.fr/guides/animations-soiree-bar-a-vinyles-photobooth/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
