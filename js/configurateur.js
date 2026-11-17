@@ -86,11 +86,11 @@
     let conseil = '';
 
     const aBornePhoto = opts.includes('Photobooth');
+    const aBarVinyles = opts.includes('Bar à vinyles');
+    const supplementOptions = (aBornePhoto ? 400 : 0) + (aBarVinyles ? 300 : 0);
+
     if (aBornePhoto) optForm.push('Photobooth');
-    if (opts.includes('Bar à vinyles')) {
-      optDevis.push('Bar à vinyles (+500 disques)');
-      optForm.push('Bar à vinyles');
-    }
+    if (aBarVinyles) optForm.push('Bar à vinyles');
     if (opts.includes('Effets scéniques')) {
       optDevis.push('Effets scéniques (étincelles froides / fumée lourde)');
     }
@@ -106,7 +106,7 @@
     if (mode === 'location') {
       if (jauge === 'plus-400') {
         titre = 'Système L-Acoustics grande jauge (avec technicien)';
-        budget = 'À partir de 1 400 € TTC (sur devis)';
+        budget = 'À partir de ' + (1400 + supplementOptions).toLocaleString('fr-FR') + ' € TTC (sur devis)';
         note = 'Au-delà de 400 invités, nous dimensionnons la diffusion L-Acoustics avec installation et présence technique pour garantir une couverture homogène sans risque de coupure.';
         equipements.push('Système L-Acoustics dimensionné de 400 à 5 000 personnes');
         equipements.push('Amplification LA4, consoles et micros sans fil Shure HF');
@@ -135,10 +135,10 @@
           equipements.push('Lumières immersives : 2 lyres Wash sur totems + 8 PAR LED sur batterie + console Wolfmix (150 €)');
         }
 
-        const totalBase = prixSono + prixLumiere + (aBornePhoto ? 400 : 0);
-        budget = aBornePhoto
-          ? 'À partir de ' + totalBase + ' € TTC'
-          : totalBase + ' € TTC (hors livraison)';
+        const totalBase = prixSono + prixLumiere + supplementOptions;
+        budget = (aBornePhoto || aBarVinyles || optDevis.length)
+          ? 'À partir de ' + totalBase.toLocaleString('fr-FR') + ' € TTC'
+          : totalBase.toLocaleString('fr-FR') + ' € TTC (hors livraison)';
 
         note = 'Tarif indicatif matériel en autonomie à Paris & Île-de-France. Livraison et installation sur devis sous 24 h.';
 
@@ -164,9 +164,12 @@
       const prixBaseType = tarifsBasePrestation[type] || 600;
 
       titre = 'Prestation DJ & Sonorisation L-Acoustics — ' + libellesType[type];
-      const basePrix = aBornePhoto ? prixBaseType + 400 : prixBaseType;
+      const basePrix = prixBaseType + supplementOptions;
       budget = 'À partir de ' + basePrix.toLocaleString('fr-FR') + ' € TTC';
-      note = 'Comprend la prestation complète (dès ' + prixBaseType.toLocaleString('fr-FR') + ' €)' + (aBornePhoto ? ' + la borne photo vintage (dès 400 €)' : '') + (optDevis.length ? ' + options sur devis.' : '. Devis précis poste par poste sous 24 h.');
+      note = 'Comprend la prestation complète (dès ' + prixBaseType.toLocaleString('fr-FR') + ' €)'
+        + (aBornePhoto ? ' + borne photo (+400 €)' : '')
+        + (aBarVinyles ? ' + bar à vinyles (+300 €)' : '')
+        + (optDevis.length ? ' + options sur devis.' : '. Devis précis poste par poste sous 24 h.');
 
       equipements.push('DJ résident (Maxime Feltin ou Andéol) et rendez-vous de préparation en amont');
       if (jauge === 'plus-400' || jauge === '150-400') {
@@ -188,7 +191,10 @@
     }
 
     if (aBornePhoto) {
-      equipements.push('Borne photo vintage (dès 400 €) : impressions illimitées, cadre personnalisé, galerie en ligne');
+      equipements.push('Borne photo vintage (+400 €) : impressions illimitées, cadre personnalisé, galerie en ligne');
+    }
+    if (aBarVinyles) {
+      equipements.push('Bar à vinyles (+300 €) : +500 disques (house, jazz, rock, variété) choisis par vos invités');
     }
     optDevis.forEach(item => {
       equipements.push('Option sur devis : ' + item);
