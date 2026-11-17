@@ -329,6 +329,15 @@ header.top nav a:hover {
   background: var(--paper);
   color: var(--acc);
 }
+.btn-outline.negro {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+.btn-outline.negro:hover {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+}
 header.top nav {
   align-self: stretch;
 }
