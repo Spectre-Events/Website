@@ -140,14 +140,14 @@
           ? 'À partir de ' + totalBase.toLocaleString('fr-FR') + ' € TTC'
           : totalBase.toLocaleString('fr-FR') + ' € TTC (hors livraison)';
 
-        note = 'Tarif indicatif matériel en autonomie à Paris & Île-de-France. Livraison et installation sur devis sous 24 h.';
+        note = 'Tarif indicatif matériel en autonomie à Paris et dans toute la France. Livraison et installation sur devis sous 24 h.';
 
         if (jauge === 'moins-50' && lieu !== 'interieur') {
           conseil = 'Conseil acoustique : même sous 50 invités, l\'extérieur ou le multi-espaces disperse les basses. La Grosse sono L-Acoustics (300 €) garde un son propre sans pousser les enceintes.';
         } else if (lumiere === 'immersive') {
           conseil = 'Conseil lumière : les 8 PAR LED sur batterie évitent tout câble apparent le long des murs ou colonnes de votre salle.';
         } else {
-          conseil = 'Conseil : pensez à vérifier si vous avez besoin d\'une livraison/installation en Île-de-France lors de votre demande.';
+          conseil = 'Conseil : pensez à vérifier si vous avez besoin d\'une livraison/installation dans toute la France lors de votre demande.';
         }
       }
     } else {
