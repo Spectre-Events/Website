@@ -155,10 +155,18 @@
       optForm.push('DJ');
       if (type === 'entreprise' || lieu === 'multi') optForm.push('Sonorisation conférence');
 
+      const tarifsBasePrestation = {
+        mariage: 1400,
+        entreprise: 800,
+        rallye: 600,
+        anniversaire: 600
+      };
+      const prixBaseType = tarifsBasePrestation[type] || 600;
+
       titre = 'Prestation DJ & Sonorisation L-Acoustics — ' + libellesType[type];
-      const basePrix = aBornePhoto ? 1800 : 1400;
+      const basePrix = aBornePhoto ? prixBaseType + 400 : prixBaseType;
       budget = 'À partir de ' + basePrix.toLocaleString('fr-FR') + ' € TTC';
-      note = 'Comprend la prestation complète (dès 1 400 €)' + (aBornePhoto ? ' + la borne photo vintage (dès 400 €)' : '') + (optDevis.length ? ' + options sur devis.' : '. Devis précis poste par poste sous 24 h.');
+      note = 'Comprend la prestation complète (dès ' + prixBaseType.toLocaleString('fr-FR') + ' €)' + (aBornePhoto ? ' + la borne photo vintage (dès 400 €)' : '') + (optDevis.length ? ' + options sur devis.' : '. Devis précis poste par poste sous 24 h.');
 
       equipements.push('DJ résident (Maxime Feltin ou Andéol) et rendez-vous de préparation en amont');
       if (jauge === 'plus-400' || jauge === '150-400') {
