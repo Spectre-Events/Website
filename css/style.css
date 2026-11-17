@@ -1807,3 +1807,169 @@ dialog.lightbox::backdrop {
   color: var(--gold-link);
   text-decoration: underline;
 }
+
+
+/* ==========================================================================
+   19) CONFIGURATEUR INTERACTIF SON, LUMIÈRE & BUDGET
+   ========================================================================== */
+.config-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr);
+  gap: clamp(28px, 4vw, 56px);
+  align-items: start;
+  margin-top: 40px;
+}
+.config-form {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.config-step {
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+}
+.config-step h2 {
+  font-size: 1.15rem;
+  letter-spacing: -.025em;
+  margin-bottom: 14px;
+}
+.config-step h2::after {
+  display: none;
+}
+.choice-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.choice-pill {
+  position: relative;
+  display: block;
+  cursor: pointer;
+}
+.choice-pill input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  min-height: 0;
+  margin: 0;
+}
+.choice-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-height: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--line-field);
+  border-radius: 2px;
+  background: var(--card);
+  transition: border-color .16s ease, background-color .16s ease;
+}
+.choice-card b {
+  color: var(--ink);
+  font-size: .95rem;
+  line-height: 1.3;
+}
+.choice-card span {
+  color: var(--mute);
+  font-size: .82rem;
+  font-weight: 400;
+  line-height: 1.45;
+}
+.choice-pill input:checked + .choice-card {
+  border-color: var(--acc);
+  background: var(--bg-alt);
+  box-shadow: inset 3px 0 0 var(--gold);
+}
+.choice-pill input:focus-visible + .choice-card {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+}
+.config-result {
+  position: sticky;
+  top: 96px;
+  padding: 28px;
+  background: var(--acc);
+  color: var(--paper);
+  border-top: 3px solid var(--signal);
+}
+.config-kicker {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--signal);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.config-result h3 {
+  color: var(--paper);
+  font-size: clamp(1.35rem, 2.1vw, 1.75rem);
+  margin-bottom: 10px;
+}
+.config-budget {
+  margin: 0 0 18px;
+  color: var(--signal);
+  font-size: clamp(1.45rem, 2.4vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -.04em;
+  line-height: 1.2;
+}
+.config-note {
+  margin: 0 0 18px;
+  color: rgba(var(--paper-rgb), .78);
+  font-size: .9rem;
+  line-height: 1.6;
+}
+.config-list {
+  margin: 0 0 20px;
+  padding: 16px 0 0 18px;
+  border-top: 1px solid rgba(var(--paper-rgb), .18);
+  color: rgba(var(--paper-rgb), .9);
+  font-size: .9rem;
+}
+.config-list li {
+  margin-bottom: 7px;
+}
+.config-advice {
+  margin: 0 0 22px;
+  padding: 12px 14px;
+  background: rgba(var(--paper-rgb), .06);
+  border-left: 3px solid var(--signal);
+  color: rgba(var(--paper-rgb), .86);
+  font-size: .85rem;
+  line-height: 1.55;
+}
+.config-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.config-actions .btn,
+.config-actions .btn-outline {
+  width: 100%;
+  max-width: none;
+  text-align: center;
+}
+.config-copy-status {
+  min-height: 1.2em;
+  margin: 8px 0 0;
+  color: var(--signal);
+  font-size: .8rem;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .config-grid {
+    grid-template-columns: 1fr;
+  }
+  .config-result {
+    position: static;
+  }
+}
+@media (max-width: 560px) {
+  .choice-grid {
+    grid-template-columns: 1fr;
+  }
+}
+

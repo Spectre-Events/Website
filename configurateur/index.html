@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Simulateur gratuit Spectre Events : dimensionnez votre sonorisation L-Acoustics, éclairage, DJ ou borne photo selon votre événement (40 à 5 000 pers.) et obtenez une estimation immédiate.">
+<meta name="author" content="Maxime Feltin & Andéol — Spectre Events">
+<title>Simulateur Sono L-Acoustics, DJ &amp; Budget | Spectre Events</title>
+
+<link rel="canonical" href="https://spectre-events.fr/configurateur/">
+<link rel="alternate" type="text/markdown" href="https://spectre-events.fr/llms.txt" title="LLMs.txt — Spectre Events">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://spectre-events.fr/configurateur/">
+<meta property="og:title" content="Simulateur Sonorisation L-Acoustics, DJ & Budget — Spectre Events">
+<meta property="og:description" content="Estimez en 30 secondes la configuration sono L-Acoustics, éclairage et budget pour votre mariage, soirée d'entreprise, rallye ou location à Paris & IDF.">
+<meta property="og:image" content="https://spectre-events.fr/images/og-image.jpg">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Spectre Events">
+
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preload" href="../fonts/dm-sans-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../css/style.css?v=20261117">
+
+<link rel="icon" href="../images/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Simulateur de sonorisation L-Acoustics & budget événementiel — Spectre Events",
+  "url": "https://spectre-events.fr/configurateur/",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  },
+  "provider": {
+    "@type": "EntertainmentBusiness",
+    "name": "Spectre Events",
+    "url": "https://spectre-events.fr/"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://spectre-events.fr/"},
+    {"@type": "ListItem", "position": 2, "name": "Simulateur sono & budget", "item": "https://spectre-events.fr/configurateur/"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Comment dimensionner la puissance de sa sonorisation selon le nombre d'invités ?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Jusqu'à 50 personnes en intérieur, deux enceintes 200 W suffisent (pack Petite sono à 120 €). De 50 à 400 personnes, ou en extérieur/sous tente, il faut un système avec caissons de basses comme le pack L-Acoustics 2×12XT + 2×SB118 (300 € en location autonome ou dès 1 400 € en prestation avec DJ). Au-delà de 400 personnes (jusqu'à 5 000), la diffusion est dimensionnée sur mesure avec technicien."}
+    },
+    {
+      "@type": "Question",
+      "name": "L'estimation affichée par le simulateur est-elle contractuelle ?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Le simulateur fournit un repère budgétaire transparent basé sur nos tarifs d'appel réels (120 € à 300 € en location, dès 400 € borne photo, dès 1 400 € prestation DJ & sono complète). En un clic, vous transmettez votre configuration pour recevoir votre devis définitif détaillé poste par poste sous 24 heures."}
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a href="../" class="brand" aria-label="Spectre Events - Retour à l'accueil">
+      <img src="../images/logo-header.png" alt="Logo Spectre Events" width="36" height="24">
+      <b>Spectre Events</b>
+    </a>
+
+    <button class="menu-toggle" aria-label="Ouvrir le menu de navigation" aria-expanded="false" aria-controls="nav-principale">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+
+    <nav id="nav-principale" aria-label="Navigation principale">
+      <a href="../entreprises/">Entreprises</a>
+      <div class="has-sub">
+        <a href="../sonorisation/">Sonorisation</a>
+        <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sous-menu-son" aria-label="Afficher les types de sonorisation">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="sub" id="sous-menu-son">
+          <a href="../sonorisation/#corporate">Corporate</a>
+          <a href="../mariages/">Mariages</a>
+          <a href="../soirees-privees/">Rallyes &amp; Soirées privées</a>
+        </div>
+      </div>
+      <div class="has-sub">
+        <a href="../photographie/">Photographie</a>
+        <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sous-menu-photo" aria-label="Afficher les différentes propositions photos">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="sub" id="sous-menu-photo">
+          <a href="../photographie/#borne">Borne Photo</a>
+          <a href="../photographie/#photo">Photographe</a>
+        </div>
+      </div>
+      <a href="../traiteur/">Traiteur</a>
+      <a href="../location/">Location</a>
+      <a href="../configurateur/" aria-current="page">Simulateur</a>
+      <a class="nav-cta" href="../contact/">Devis gratuit</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<div class="hero hero-page">
+  <div class="wrap">
+    <span class="hero-kicker">Outil gratuit · Sans inscription · Tarifs transparents</span>
+    <h1>Simulateur sonorisation L-Acoustics, lumière &amp; budget</h1>
+    <p>Renseignez votre type d'événement, votre jauge (40 à 5 000 personnes) et la configuration du lieu : obtenez immédiatement le dimensionnement matériel recommandé et son repère tarifaire, puis envoyez votre configuration en un clic pour recevoir un devis précis sous 24 heures.</p>
+  </div>
+</div>
+
+<section id="simulateur">
+  <div class="wrap">
+    <div class="config-grid" id="configurateur-app">
+      <div class="config-form">
+
+        <div class="config-step">
+          <h2>1. Formule souhaitée</h2>
+          <div class="choice-grid">
+            <label class="choice-pill">
+              <input type="radio" name="cfg-mode" value="prestation" checked>
+              <span class="choice-card">
+                <b>Prestation complète avec DJ</b>
+                <span>Installation, réglages, DJ résident &amp; éclairage (dès 1 400 €)</span>
+              </span>
+            </label>
+            <label class="choice-pill">
+              <input type="radio" name="cfg-mode" value="location">
+              <span class="choice-card">
+                <b>Location de matériel seule</b>
+                <span>Sonorisation &amp; éclairage en autonomie (60 € à 300 €)</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="config-step">
+          <h2>2. Type d'événement</h2>
+          <div class="choice-grid">
+            <label class="choice-pill">
+              <input type="radio" name="cfg-type" value="mariage" checked>
+              <span class="choice-card">
+                <b>Mariage</b>
+                <span>Cérémonie, cocktail, discours &amp; soirée dansante</span>
+              </span>
+            </label>
+            <label class="choice-pill">
+              <input type="radio" name="cfg-type" value="entreprise">
+              <span class="choice-card">
+                <b>Entreprise / Séminaire</b>
+                <span>Convention, inauguration, soirée corporate</span>
+              </span>
+            </label>
+            <label class="choice-pill">
+              <input type="radio" name="cfg-type" value="rallye">
+              <span class="choice-card">
+                <b>Rallye / Gala</b>
+                <span>Grande jauge, soirée étudiante ou gala</span>
+              </span>
+            </label>
+            <label class="choice-pill">
+              <input type="radio" name="cfg-type" value="anniversaire">
+              <span class="choice-card">
+                <b>Anniversaire / Privé</b>
+                <span>Appartement, salle, jardin ou château</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="config-step">
+          <h2>3. Nombre d'invités estimé</h2>
+          <div class="choice-grid">
+            <label class="choice-pill">
+              <input type="radio" name="cfg-jauge" value="moins-50">
+              <span class="choice-card">
+                <b>Moins de 50 pers.</b>
+                <span>Cocktail, discours ou soirée intime</span>
+              </span>
+            </label>
+            <label class="choice-pill">
+              <input type="radio" name="cfg-jauge" value="50-150" checked>
+              <span class="choice-card">
+                <b>50 à 150 pers.</b>
+                <span>Format mariage, séminaire ou anniversaire</span>
+              </span>
+            </label>
+            <label class="choice-pill">
+              <input type="radio" name="cfg-jauge" value="150-400">
+              <span class="choice-card">
+                <b>150 à 400 pers.</b>
+                <span>Grande salle, château ou chapiteau</span>
+              </span>
+            </label>
+            <label class="choice-pill">
+              <input type="radio" name="cfg-jauge" value="plus-400">
+              <span class="choice-card">
+                <b>400 à 5 000 pers.</b>
+                <span>Convention, rallye ou gala grande capacité</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="config-step">
+          <h2>4. Configuration du lieu</h2>
+          <div class="choice-grid">
+            <label class="choice-pill">
+              <input type="radio" name="cfg-lieu" value="interieur" checked>
+              <span class="choice-card">
+                <b>Salle en intérieur</b>
+                <span>Salle de réception, hôtel, locaux d'entreprise</span>
+              </span>
+            </label>
+            <label class="choice-pill">
+              <input type="radio" name="cfg-lieu" value="exterieur">
+              <span class="choice-card">
+                <b>Extérieur / Tente</b>
+                <span>Jardin, cour de château ou chapiteau</span>
+              </span>
+            </label>
+            <label class="choice-pill">
+              <input type="radio" name="cfg-lieu" value="multi">
+              <span class="choice-card">
+                <b>Multi-espaces</b>
+                <span>Cérémonie ou cocktail dehors + soirée dedans</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="config-step" id="cfg-bloc-lumiere" hidden>
+          <h2>5. Pack éclairage (Location autonome)</h2>
+          <div class="choice-grid">
+            <label class="choice-pill">
+              <input type="radio" name="cfg-lumiere" value="aucun">
+              <span class="choice-card">
+                <b>Son seul (0 €)</b>
+                <span>Pas d'éclairage supplémentaire</span>
+              </span>
+            </label>
+            <label class="choice-pill">
+              <input type="radio" name="cfg-lumiere" value="sobre">
+              <span class="choice-card">
+                <b>Lumières sobres (+60 €)</b>
+                <span>2 lyres Wash Electroconcept synchronisées</span>
+              </span>
+            </label>
+            <label class="choice-pill">
+              <input type="radio" name="cfg-lumiere" value="immersive" checked>
+              <span class="choice-card">
+                <b>Lumières immersives (+150 €)</b>
+                <span>2 lyres sur totems + 8 PAR LED batterie + Wolfmix</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="config-step">
+          <h2>Options complémentaires</h2>
+          <div class="choice-grid">
+            <label class="choice-pill">
+              <input type="checkbox" name="cfg-opt" value="Photobooth">
+              <span class="choice-card">
+                <b>Borne photo vintage</b>
+                <span>À partir de 400 € · Impressions illimitées</span>
+              </span>
+            </label>
+            <label class="choice-pill">
+              <input type="checkbox" name="cfg-opt" value="Bar à vinyles">
+              <span class="choice-card">
+                <b>Bar à vinyles (+500 disques)</b>
+                <span>Sur devis · Animation cocktail &amp; soirée</span>
+              </span>
+            </label>
+            <label class="choice-pill">
+              <input type="checkbox" name="cfg-opt" value="Effets scéniques">
+              <span class="choice-card">
+                <b>Effets scéniques</b>
+                <span>Sur devis · Étincelles froides &amp; fumée lourde</span>
+              </span>
+            </label>
+            <label class="choice-pill">
+              <input type="checkbox" name="cfg-opt" value="Photographe">
+              <span class="choice-card">
+                <b>Photographe événementiel</b>
+                <span>Sur devis · Reportage complet &amp; galerie</span>
+              </span>
+            </label>
+            <label class="choice-pill">
+              <input type="checkbox" name="cfg-opt" value="Traiteur">
+              <span class="choice-card">
+                <b>Traiteur Beret et Papilles</b>
+                <span>Sur devis · Cocktails, dîners &amp; buffets</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+      </div>
+
+      <aside class="config-result" aria-live="polite">
+        <span class="config-kicker">Configuration recommandée</span>
+        <h3 id="cfg-titre">Prestation DJ &amp; Sonorisation L-Acoustics — Mariage</h3>
+        <p class="config-budget" id="cfg-budget">À partir de 1 400 € TTC</p>
+        <p class="config-note" id="cfg-note"></p>
+        <ul class="config-list" id="cfg-liste"></ul>
+        <p class="config-advice" id="cfg-conseil"></p>
+        <div class="config-actions">
+          <a class="btn" id="cfg-devis-btn" href="../contact/">Envoyer cette config pour un devis 24 h</a>
+          <button class="btn-outline" type="button" id="cfg-copier-btn">Copier le récapitulatif</button>
+        </div>
+        <p class="config-copy-status" id="cfg-copie-statut" role="status"></p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="faq-configurateur">
+  <div class="wrap">
+    <h2>Questions fréquentes sur le dimensionnement</h2>
+    <div class="faq">
+      <details>
+        <summary>Comment dimensionner la puissance de sa sonorisation selon le nombre d'invités ?</summary>
+        <p>Jusqu'à <b>50 personnes en intérieur</b>, deux enceintes 200 W suffisent (pack Petite sono à 120 €). De <b>50 à 400 personnes</b>, ou dès que l'événement se tient en extérieur ou sous tente, il faut des caissons de basses dédiés comme notre pack <b>L-Acoustics 2×12XT + 2×SB118</b> (300 € en location autonome ou dès 1 400 € avec DJ). Au-delà de 400 personnes (jusqu'à 5 000), la diffusion est dimensionnée sur mesure avec technicien.</p>
+      </details>
+      <details>
+        <summary>L'estimation affichée par le simulateur est-elle contractuelle ?</summary>
+        <p>Ce simulateur donne un repère budgétaire basé sur nos tarifs publics réels. En cliquant sur <b>« Envoyer cette config pour un devis 24 h »</b>, votre sélection pré-remplit automatiquement notre formulaire afin que Maxime Feltin ou Andéol vous adresse un devis détaillé poste par poste sous 24 heures.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="f">
+  <p><b>Spectre Events</b> · Sonorisation, DJ et organisation d'événements · Paris &amp; Île-de-France</p>
+  <p><a href="tel:+33681334283">06 81 33 42 83</a> · <a href="mailto:contact@spectre-events.fr">contact@spectre-events.fr</a> · <a href="../contact/">Demande de devis</a> · <a href="../mentions-legales/">Mentions légales &amp; RGPD</a></p>
+  <p>© 2026 Spectre Events</p>
+</footer>
+
+<script src="../js/header.js"></script>
+<script src="../js/sous-menu.js"></script>
+<script src="../js/configurateur.js"></script>
+</body>
+</html>

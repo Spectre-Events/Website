@@ -24,9 +24,12 @@
 ## Pages Clés du Site
 
 - [Accueil — Spectre Events](https://spectre-events.fr/): Présentation générale, preuves chiffrées (+120 événements, 40 à 5 000 invités), tableau comparatif des offres, équipe fondatrice et FAQ.
-- [Sonorisation, Lumière & DJ (Mariages, Corporate, Rallyes, Soirées privées)](https://spectre-events.fr/sonorisation/): Détail des prestations DJ et sonorisation L-Acoustics dès 1 400 €, bar à vinyles (+500 disques) et effets scéniques.
+- [DJ & Sonorisation Mariage (Paris & Île-de-France)](https://spectre-events.fr/mariages/): Cérémonie laïque, cocktail au bar à vinyles, discours micros Shure HF et soirée dansante dès 1 400 € TTC.
+- [DJ Rallyes, Galas & Soirées Privées](https://spectre-events.fr/soirees-privees/): Diffusion L-Acoustics 12XT + SB118, éclairage DMX Wolfmix et PAR LED sur batterie pour 50 à 5 000 personnes dès 1 400 € TTC.
+- [Sonorisation, Lumière & DJ (Vue technique)](https://spectre-events.fr/sonorisation/): Détail des prestations DJ et sonorisation L-Acoustics dès 1 400 €, bar à vinyles (+500 disques) et effets scéniques.
 - [Événements d'Entreprise Clé en Main](https://spectre-events.fr/entreprises/): Organisation complète de soirées corporate, séminaires et inaugurations à Paris et en Île-de-France (lieu, traiteur, son L-Acoustics, DJ, photo).
 - [Location de Matériel Son & Lumière](https://spectre-events.fr/location/): Grille tarifaire de location d'enceintes, systèmes L-Acoustics (120 € à 300 €) et éclairages (60 € à 150 €) avec livraison en Île-de-France.
+- [Simulateur Sonorisation, Lumière & Budget](https://spectre-events.fr/configurateur/): Outil gratuit pour dimensionner la sonorisation L-Acoustics, l'éclairage et estimer le budget selon le type d'événement, le lieu et le nombre d'invités.
 - [Photographie & Borne Photo Vintage](https://spectre-events.fr/photographie/): Location de photobooth vintage dès 400 € (impressions illimitées) et reportage photographe professionnel.
 - [Traiteur Événementiel Beret et Papilles](https://spectre-events.fr/traiteur/): Cocktails, dîners assis et buffets à la braise à partir de produits locaux et de saison.
 - [Demande de Devis sous 24 h & Contact](https://spectre-events.fr/contact/): Formulaire de demande de devis rapide et coordonnées directes.
