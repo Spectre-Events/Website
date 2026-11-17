@@ -6,13 +6,80 @@
 const formulaire = document.getElementById('f');
 const message = document.getElementById('ok');
 
-// Lien "Devis entreprise" (?type=entreprise) : présélectionne le type d'événement
-const typeChoisi = document.getElementById('type');
-if (typeChoisi && new URLSearchParams(location.search).get('type') === 'entreprise') {
-  typeChoisi.value = 'Soirée d\'entreprise';
-}
+// 2) Suivi de provenance sans cookie (sessionStorage uniquement, conforme zéro-traceur)
+(function enregistrerProvenance() {
+  try {
+    if (!sessionStorage.getItem('spectre_landing')) {
+      sessionStorage.setItem('spectre_landing', location.pathname + location.search);
+    }
+    if (!sessionStorage.getItem('spectre_referrer') && document.referrer) {
+      sessionStorage.setItem('spectre_referrer', document.referrer);
+    }
+    const params = new URLSearchParams(location.search);
+    const utm = ['utm_source', 'utm_medium', 'utm_campaign']
+      .map(k => params.get(k) ? k.replace('utm_', '') + '=' + params.get(k) : '')
+      .filter(Boolean)
+      .join(', ');
+    if (utm && !sessionStorage.getItem('spectre_utm')) {
+      sessionStorage.setItem('spectre_utm', utm);
+    }
+  } catch (err) {
+    // Stockage indisponible (navigation privée stricte) : ignoré silencieusement
+  }
+})();
 
-// 2) Soumission asynchrone du formulaire avec Web3Forms
+// 3) Pré-remplissage du formulaire depuis les pages prestations ou le configurateur
+(function preremplirFormulaire() {
+  if (!formulaire) return;
+  const params = new URLSearchParams(location.search);
+
+  const correspondancesType = {
+    'mariage': 'Mariage',
+    'entreprise': 'Soirée d\'entreprise',
+    'corporate': 'Soirée d\'entreprise',
+    'seminaire': 'Soirée d\'entreprise',
+    'cocktail': 'Cocktail / inauguration',
+    'rallye': 'Rallye',
+    'anniversaire': 'Anniversaire',
+    'prive': 'Événement privé',
+    'privee': 'Événement privé',
+    'location': 'Autre',
+    'autre': 'Autre'
+  };
+
+  const typeParam = (params.get('type') || '').toLowerCase();
+  const typeChoisi = document.getElementById('type');
+  if (typeChoisi && correspondancesType[typeParam]) {
+    typeChoisi.value = correspondancesType[typeParam];
+  }
+
+  const invitesParam = params.get('invites');
+  const selectInvites = formulaire.querySelector('select[name="invites"]');
+  if (selectInvites && invitesParam) {
+    const optionExiste = Array.from(selectInvites.options).some(o => o.value === invitesParam || o.text === invitesParam);
+    if (optionExiste) selectInvites.value = invitesParam;
+  }
+
+  const lieuParam = params.get('lieu');
+  const champLieu = formulaire.querySelector('input[name="lieu"]');
+  if (champLieu && lieuParam) champLieu.value = lieuParam;
+
+  const optParam = params.get('opt');
+  if (optParam) {
+    const optsDemandees = optParam.split(',').map(s => s.trim().toLowerCase()).filter(Boolean);
+    formulaire.querySelectorAll('input[name="opt"]').forEach(cb => {
+      if (optsDemandees.includes(cb.value.toLowerCase())) {
+        cb.checked = true;
+      }
+    });
+  }
+
+  const msgParam = params.get('msg');
+  const champMsg = formulaire.querySelector('textarea[name="msg"]');
+  if (champMsg && msgParam) champMsg.value = msgParam;
+})();
+
+// 4) Soumission asynchrone du formulaire avec Web3Forms
 if (formulaire) {
   formulaire.addEventListener('submit', async function (e) {
     e.preventDefault(); // Empêche le rechargement standard de la page
@@ -31,6 +98,17 @@ if (formulaire) {
     // Options cochées (Photobooth, Bar à vinyles...)
     const liste = d.getAll('opt');
 
+    let pageOrigine = location.pathname;
+    let provenance = 'Accès direct';
+    try {
+      pageOrigine = sessionStorage.getItem('spectre_landing') || location.pathname;
+      const utm = sessionStorage.getItem('spectre_utm');
+      const ref = sessionStorage.getItem('spectre_referrer');
+      provenance = [utm, ref].filter(Boolean).join(' | ') || 'Accès direct';
+    } catch (err) {
+      // Ignoré si sessionStorage indisponible
+    }
+
     // Préparation des données pour l'e-mail de notification
     const donnees = {
       access_key: '4581c5c5-a3e4-44a5-bcfe-c6339e5970b7',
@@ -46,7 +124,9 @@ if (formulaire) {
       'Date': d.get('date') || 'Non précisée',
       'Lieu': (d.get('lieu') || '').trim() || 'Non précisé',
       'Options souhaitées': liste.join(', ') || 'Aucune option cochée',
-      'Message': (d.get('msg') || '').trim() || 'Aucun message particulier'
+      'Message': (d.get('msg') || '').trim() || 'Aucun message particulier',
+      'Page d\'entrée': pageOrigine,
+      'Source / UTM': provenance
     };
 
     const bouton = formulaire.querySelector('button[type="submit"]');

@@ -80,6 +80,39 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://spectre-events.fr/"},
+    {"@type": "ListItem", "position": 2, "name": "Location de matériel", "item": "https://spectre-events.fr/location/"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Comment choisir entre la Petite sono (120 €) et la Grosse sono L-Acoustics (300 €) ?",
+      "acceptedAnswer": {"@type": "Answer", "text": "La Petite sono (2 enceintes 200 W sur trépieds, Bluetooth et 1 micro Shure à 120 €) convient jusqu'à 50 personnes en intérieur pour un cocktail, un discours ou un anniversaire en appartement. Au-delà de 50 personnes, en extérieur, sous tente ou pour une vraie piste de danse jusqu'à 400 personnes, nous recommandons la Grosse sono L-Acoustics (2 enceintes 12XT 380 W RMS + 2 caissons SB118 600 W RMS + ampli LA4 + console Yamaha MG12 + 2 micros HF Shure à 300 €)."}
+    },
+    {
+      "@type": "Question",
+      "name": "La livraison et l'installation du matériel sont-elles possibles en Île-de-France ?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Oui, nous assurons la livraison, l'installation complète et la reprise du matériel partout à Paris et en Île-de-France (75, 77, 78, 91, 92, 93, 94, 95) sur devis précis sous 24 heures, ainsi que l'enlèvement sur rendez-vous."}
+    },
+    {
+      "@type": "Question",
+      "name": "Le matériel d'éclairage peut-il fonctionner sans câbles visibles ou sur batterie ?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Oui. Notre pack Lumières immersives (150 €) inclut 8 projecteurs PAR LED sur batterie sans câble d'alimentation visible pour mettre en valeur les murs et colonnes, complétés par 2 lyres Wash sur totems et une console DMX Wolfmix."}
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -164,13 +197,32 @@
       </li>
     </ol>
     <div class="hero-btns" style="margin-top:44px">
-      <a class="btn" href="../contact/">Réserver du matériel</a>
+      <a class="btn" href="../contact/?type=location">Réserver du matériel</a>
+      <a class="btn-outline" href="../configurateur/">Dimensionner ma config (Simulateur)</a>
       <a class="btn-outline" href="../sonorisation/">Prestation avec DJ (dès 1 400 €)</a>
     </div>
   </div>
 </section>
 
-
+<section id="faq-location">
+  <div class="wrap">
+    <h2>Questions fréquentes sur la location</h2>
+    <div class="faq">
+      <details>
+        <summary>Comment choisir entre la Petite sono (120 €) et la Grosse sono L-Acoustics (300 €) ?</summary>
+        <p>La <b>Petite sono (120 €)</b> inclut 2 enceintes 200 W sur trépieds, le Bluetooth et 1 micro Shure : elle est adaptée jusqu'à <b>50 personnes en intérieur</b> (cocktail, discours, anniversaire en appartement). Au-delà de 50 personnes, en extérieur, sous tente ou pour une piste de danse jusqu'à <b>400 personnes</b>, choisissez la <b>Grosse sono L-Acoustics (300 €)</b> (2×12XT 380 W RMS + 2×SB118 600 W RMS + ampli LA4 + console Yamaha MG12 + 2 micros HF Shure).</p>
+      </details>
+      <details>
+        <summary>La livraison et l'installation du matériel sont-elles possibles en Île-de-France ?</summary>
+        <p>Oui, nous assurons la livraison, l'installation complète et la reprise du matériel partout à <b>Paris et en Île-de-France</b> (75, 77, 78, 91, 92, 93, 94, 95) sur devis précis sous 24 heures, ainsi que l'enlèvement sur rendez-vous.</p>
+      </details>
+      <details>
+        <summary>Le matériel d'éclairage peut-il fonctionner sans câbles visibles ou sur batterie ?</summary>
+        <p>Oui. Notre pack <b>Lumières immersives (150 €)</b> comprend <b>8 projecteurs PAR LED sur batterie</b> sans câble d'alimentation visible pour souligner les murs et colonnes de la salle, complétés par 2 lyres Wash sur totems et une console DMX Wolfmix.</p>
+      </details>
+    </div>
+  </div>
+</section>
 
 </main>
 
