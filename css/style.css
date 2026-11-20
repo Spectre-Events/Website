@@ -261,6 +261,17 @@ header.top nav a:hover {
   position: relative;
   z-index: 1;
 }
+
+/* Accueil : photo de soirée en fond, assombrie côté texte pour rester lisible */
+.hero.hero-photo {
+  background-color: var(--acc);
+  background-image:
+    linear-gradient(90deg, rgba(30, 28, 36, .92) 0%, rgba(30, 28, 36, .78) 45%, rgba(30, 28, 36, .4) 100%),
+    url("../images/photo-floue.webp");
+  background-position: center, right center;
+  background-size: cover, cover;
+  background-repeat: no-repeat;
+}
 .hero h1 {
   max-width: 15ch;
   color: var(--paper);
@@ -1385,6 +1396,13 @@ header.top nav a.nav-cta:hover {
   .hero {
     padding: 76px 0 72px;
     background-size: 44px 44px;
+  }
+  .hero.hero-photo {
+    background-image:
+      linear-gradient(rgba(30, 28, 36, .8), rgba(30, 28, 36, .88)),
+      url("../images/photo-floue.webp");
+    background-position: center, 70% center;
+    background-size: cover, cover;
   }
   .hero h1 {
     max-width: 13ch;
