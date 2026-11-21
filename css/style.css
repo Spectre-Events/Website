@@ -262,15 +262,24 @@ header.top nav a:hover {
   z-index: 1;
 }
 
-/* Accueil : photo de soirée en fond, assombrie côté texte pour rester lisible */
+/* Photo en fond du haut de page, assombrie côté texte pour rester lisible.
+   La photo dépend de la page : .hero-salle (accueil), .hero-floue (sonorisation) */
 .hero.hero-photo {
   background-color: var(--acc);
+  background-position: center, var(--hero-cadrage, center);
+  background-size: cover, cover;
+  background-repeat: no-repeat;
+}
+.hero.hero-salle {
+  background-image:
+    linear-gradient(90deg, rgba(30, 28, 36, .92) 0%, rgba(30, 28, 36, .8) 50%, rgba(30, 28, 36, .55) 100%),
+    url("../images/salle-1.webp");
+}
+.hero.hero-floue {
+  --hero-cadrage: right center;
   background-image:
     linear-gradient(90deg, rgba(30, 28, 36, .92) 0%, rgba(30, 28, 36, .78) 45%, rgba(30, 28, 36, .4) 100%),
     url("../images/photo-floue.webp");
-  background-position: center, right center;
-  background-size: cover, cover;
-  background-repeat: no-repeat;
 }
 .hero h1 {
   max-width: 15ch;
@@ -1397,12 +1406,16 @@ header.top nav a.nav-cta:hover {
     padding: 76px 0 72px;
     background-size: 44px 44px;
   }
-  .hero.hero-photo {
+  .hero.hero-salle {
+    background-image:
+      linear-gradient(rgba(30, 28, 36, .8), rgba(30, 28, 36, .88)),
+      url("../images/salle-1.webp");
+  }
+  .hero.hero-floue {
+    --hero-cadrage: 70% center;
     background-image:
       linear-gradient(rgba(30, 28, 36, .8), rgba(30, 28, 36, .88)),
       url("../images/photo-floue.webp");
-    background-position: center, 70% center;
-    background-size: cover, cover;
   }
   .hero h1 {
     max-width: 13ch;
