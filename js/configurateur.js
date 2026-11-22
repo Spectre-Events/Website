@@ -87,7 +87,7 @@
 
     const aBornePhoto = opts.includes('Photobooth');
     const aBarVinyles = opts.includes('Bar à vinyles');
-    const supplementOptions = (aBornePhoto ? 500 : 0) + (aBarVinyles ? 300 : 0);
+    const supplementOptions = (aBornePhoto ? 400 : 0) + (aBarVinyles ? 300 : 0);
 
     if (aBornePhoto) optForm.push('Photobooth');
     if (aBarVinyles) optForm.push('Bar à vinyles');
@@ -167,7 +167,7 @@
       const basePrix = prixBaseType + supplementOptions;
       budget = 'À partir de ' + basePrix.toLocaleString('fr-FR') + ' € TTC';
       note = 'Comprend la prestation complète (dès ' + prixBaseType.toLocaleString('fr-FR') + ' €)'
-        + (aBornePhoto ? ' + borne photo (+500 €)' : '')
+        + (aBornePhoto ? ' + borne photo (+400 €)' : '')
         + (aBarVinyles ? ' + bar à vinyles (+300 €)' : '')
         + (optDevis.length ? ' + options sur devis.' : '. Devis précis poste par poste sous 24 h.');
 
@@ -191,7 +191,7 @@
     }
 
     if (aBornePhoto) {
-      equipements.push('Borne photo vintage (+500 €) : impressions illimitées, cadre personnalisé, galerie en ligne');
+      equipements.push('Borne photo vintage (+400 €) : impressions illimitées, cadre personnalisé, galerie en ligne');
     }
     if (aBarVinyles) {
       equipements.push('Bar à vinyles (+300 €) : +500 disques (house, jazz, rock, variété) choisis par vos invités');
