@@ -2029,3 +2029,131 @@ dialog.lightbox::backdrop {
   }
 }
 
+
+/* ==========================================================================
+   RÉFÉRENCES ENTREPRISES : noms des clients en bandeau
+   (pour afficher les logos, remplacer chaque nom par <img src="…" alt="Nom">)
+   ========================================================================== */
+.refs-titre {
+  margin: 0 0 14px;
+  color: var(--mute);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.references {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 44px;
+  margin: 0 0 44px;
+  padding: 22px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  list-style: none;
+}
+.references li {
+  color: var(--ink);
+  font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+  font-weight: 700;
+  letter-spacing: -.03em;
+  opacity: .72;
+}
+.references img {
+  display: block;
+  height: 34px;
+  width: auto;
+  filter: grayscale(1);
+}
+.refs-google a {
+  color: var(--gold-link);
+  font-weight: 700;
+}
+#avis .lead a {
+  color: var(--gold-link);
+}
+
+/* Bandeau de logos qui défile (page Entreprises) */
+.defile {
+  overflow: hidden;
+  margin-top: 36px;
+  padding: 26px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+.defile-piste {
+  display: flex;
+  width: max-content;
+  animation: defile 28s linear infinite;
+}
+.defile:hover .defile-piste {
+  animation-play-state: paused;
+}
+.defile-serie {
+  display: flex;
+  align-items: center;
+  gap: 72px;
+  margin: 0;
+  padding: 0 36px;
+  list-style: none;
+}
+.defile-serie li {
+  flex: none;
+}
+.defile-serie img {
+  display: block;
+  height: 34px;
+  width: auto;
+  filter: brightness(0);
+  opacity: .7;
+}
+.defile-nom {
+  color: var(--ink);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -.03em;
+  opacity: .7;
+  white-space: nowrap;
+}
+@keyframes defile {
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .defile-piste { animation: none; }
+}
+/* Le logo Pink est carré : un peu plus haut pour un poids visuel équivalent */
+.defile-serie img[src*="pink-mobility"] {
+  height: 46px;
+}
+
+/* Tableaux de formules sur téléphone : une fiche par formule, le tarif reste visible */
+@media (max-width: 760px) {
+  .offres-table,
+  .offres-table tbody,
+  .offres-table tr,
+  .offres-table td {
+    display: block;
+    min-width: 0;
+    width: 100%;
+  }
+  .offres-table thead {
+    display: none;
+  }
+  .offres-table tr {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .offres-table td {
+    padding: 4px 0;
+    border-bottom: 0;
+  }
+  .offres-table td strong {
+    font-size: 1.05rem;
+  }
+  .offres-table .prix-cell {
+    margin-top: 6px;
+  }
+}

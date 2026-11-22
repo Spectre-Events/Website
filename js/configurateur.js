@@ -26,15 +26,15 @@
   const libellesJauge = {
     'moins-50': 'Moins de 50',
     '50-150': '50 à 150',
-    '150-400': '150 à 300',
-    'plus-400': 'Plus de 300'
+    '150-400': '150 à 600',
+    'plus-400': 'Plus de 600'
   };
 
   const libellesJaugeTexte = {
     'moins-50': 'moins de 50 personnes',
     '50-150': '50 à 150 personnes',
-    '150-400': '150 à 400 personnes',
-    'plus-400': '400 à 5 000 personnes'
+    '150-400': '150 à 600 personnes',
+    'plus-400': 'Plus de 600 personnes'
   };
 
   const libellesLieu = {
@@ -87,7 +87,7 @@
 
     const aBornePhoto = opts.includes('Photobooth');
     const aBarVinyles = opts.includes('Bar à vinyles');
-    const supplementOptions = (aBornePhoto ? 400 : 0) + (aBarVinyles ? 300 : 0);
+    const supplementOptions = (aBornePhoto ? 500 : 0) + (aBarVinyles ? 300 : 0);
 
     if (aBornePhoto) optForm.push('Photobooth');
     if (aBarVinyles) optForm.push('Bar à vinyles');
@@ -107,11 +107,11 @@
       if (jauge === 'plus-400') {
         titre = 'Système L-Acoustics grande jauge (avec technicien)';
         budget = 'À partir de ' + (1400 + supplementOptions).toLocaleString('fr-FR') + ' € TTC (sur devis)';
-        note = 'Au-delà de 400 invités, nous dimensionnons la diffusion L-Acoustics avec installation et présence technique pour garantir une couverture homogène sans risque de coupure.';
-        equipements.push('Système L-Acoustics dimensionné de 400 à 5 000 personnes');
+        note = 'Au-delà de 600 invités, nous dimensionnons la diffusion L-Acoustics avec installation et présence technique pour garantir une couverture homogène sans risque de coupure.';
+        equipements.push('Dispositif renforcé au-delà de 600 personnes (prestataires partenaires et matériel complémentaire)');
         equipements.push('Amplification LA4, consoles et micros sans fil Shure HF');
         equipements.push('Éclairage DMX piloté et matériel de secours');
-        conseil = 'Conseil : pour un événement de plus de 400 personnes, passez sur une prestation encadrée afin d\'assurer le calage acoustique et la sécurité électrique.';
+        conseil = 'Conseil : pour un événement de plus de 600 personnes, passez sur une prestation encadrée afin d\'assurer le calage acoustique et la sécurité électrique.';
       } else {
         const estPetiteSono = (jauge === 'moins-50' && lieu === 'interieur');
         const prixSono = estPetiteSono ? 120 : 300;
@@ -156,7 +156,7 @@
       if (type === 'entreprise' || lieu === 'multi') optForm.push('Sonorisation conférence');
 
       const tarifsBasePrestation = {
-        mariage: 1400,
+        mariage: 1600,
         entreprise: 800,
         rallye: 600,
         anniversaire: 600
@@ -167,11 +167,11 @@
       const basePrix = prixBaseType + supplementOptions;
       budget = 'À partir de ' + basePrix.toLocaleString('fr-FR') + ' € TTC';
       note = 'Comprend la prestation complète (dès ' + prixBaseType.toLocaleString('fr-FR') + ' €)'
-        + (aBornePhoto ? ' + borne photo (+400 €)' : '')
+        + (aBornePhoto ? ' + borne photo (+500 €)' : '')
         + (aBarVinyles ? ' + bar à vinyles (+300 €)' : '')
         + (optDevis.length ? ' + options sur devis.' : '. Devis précis poste par poste sous 24 h.');
 
-      equipements.push('DJ (Maxime Feltin ou Andéol) et rendez-vous de préparation en amont');
+      equipements.push('DJ (Maxime ou Andéol) et rendez-vous de préparation en amont');
       if (jauge === 'plus-400' || jauge === '150-400') {
         equipements.push('Système L-Acoustics haute puissance (12XT 380 W RMS + caissons SB118 600 W RMS + ampli LA4)');
       } else {
@@ -191,7 +191,7 @@
     }
 
     if (aBornePhoto) {
-      equipements.push('Borne photo vintage (+400 €) : impressions illimitées, cadre personnalisé, galerie en ligne');
+      equipements.push('Borne photo vintage (+500 €) : impressions illimitées, cadre personnalisé, galerie en ligne');
     }
     if (aBarVinyles) {
       equipements.push('Bar à vinyles (+300 €) : +500 disques (house, jazz, rock, variété) choisis par vos invités');
