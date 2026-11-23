@@ -10,6 +10,8 @@
 // ==============================================================================
 (function () {
   var GTM_ID = 'GTM-K2ZPHMLF';
+  var ADS_ID = 'AW-18539109415';
+  var ADS_CONVERSION = 'AW-18539109415/kR_nCPGd5L0dEKe4kYhF'; // « Envoi de formulaire de lead »
   var CLE = 'spectre_cookies';
   var DUREE = 182 * 24 * 60 * 60 * 1000; // 6 mois
 
@@ -53,7 +55,31 @@
     s.async = true;
     s.src = 'https://www.googletagmanager.com/gtm.js?id=' + GTM_ID;
     document.head.appendChild(s);
+
+    // Balise Google Ads : nécessaire pour que gtag('event', 'conversion') soit transmis
+    var ads = document.createElement('script');
+    ads.async = true;
+    ads.src = 'https://www.googletagmanager.com/gtag/js?id=' + ADS_ID;
+    document.head.appendChild(ads);
+    gtag('config', ADS_ID);
   }
+
+  // Conversion Google Ads (code fourni par Google Ads). Sans accord aux cookies,
+  // la balise n'est pas chargée : l'appel reste sans effet.
+  window.gtag_report_conversion = function (url) {
+    var callback = function () {
+      if (typeof url !== 'undefined') {
+        window.location = url;
+      }
+    };
+    gtag('event', 'conversion', {
+      send_to: ADS_CONVERSION,
+      value: 1.0,
+      currency: 'EUR',
+      event_callback: callback
+    });
+    return false;
+  };
 
   function refuser() {
     gtag('consent', 'update', {
@@ -97,12 +123,17 @@
 
   function demarrer() {
     if (!choix) { afficherBandeau(); }
-    // Lien « Gérer les cookies » du pied de page
     document.addEventListener('click', function (e) {
+      // Lien « Gérer les cookies » du pied de page
       var lien = e.target.closest('[data-cookies]');
-      if (!lien) { return; }
-      e.preventDefault();
-      afficherBandeau();
+      if (lien) {
+        e.preventDefault();
+        afficherBandeau();
+        return;
+      }
+      // Clic sur un numéro de téléphone, une adresse e-mail ou WhatsApp : conversion Google Ads
+      var contact = e.target.closest('a[href^="tel:"], a[href^="mailto:"], a[href*="wa.me/"], a[href*="api.whatsapp.com"]');
+      if (contact) { window.gtag_report_conversion(); }
     });
   }
   if (document.readyState === 'loading') {

@@ -189,6 +189,10 @@ if (formulaire) {
         message.className = 'ok full succes';
         message.textContent = 'Merci ! Votre demande a bien été envoyée, nous vous répondrons sous 24 h avec un devis personnalisé.';
         formulaire.reset();
+        // Conversion Google Ads « Envoi de formulaire de lead » (voir js/consentement.js)
+        if (typeof window.gtag_report_conversion === 'function') {
+          window.gtag_report_conversion();
+        }
       } else {
         throw new Error(resultat.message || 'Erreur lors de la transmission');
       }
