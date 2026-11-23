@@ -140,9 +140,6 @@ a {
 }
 
 /* Classes utilitaires de couleur de texte */
-.beige {
-  color: var(--card);
-}
 .negro {
   color: var(--ink);
 }
@@ -330,9 +327,6 @@ header.top nav a:hover {
   border-color: var(--signal);
   background: var(--signal);
   color: var(--acc);
-  max-width: 200px;
-  min-height: 49px;
-  padding: 13px 20px;
 }
 .btn:hover {
   border-color: var(--signal-hover);
@@ -465,9 +459,6 @@ header.top nav .sub a:hover {
 .dark .opt b{color:var(--paper)}
 .dark .opt span{color:rgba(var(--paper-rgb),.68)}
 .dark .opt em{color:var(--signal)}
-.duo{background:var(--bg-alt)}
-.duo .hero-btns .btn-outline{border-color:var(--ink);color:var(--ink)}
-.duo .hero-btns .btn-outline:hover{background:var(--ink);color:var(--paper)}
 .contact-info p{margin:0 0 10px;color:var(--mute)}
 
 /* ==========================================================================
@@ -2121,14 +2112,6 @@ dialog.lightbox::backdrop {
   width: auto;
   filter: brightness(0);
   opacity: .7;
-}
-.defile-nom {
-  color: var(--ink);
-  font-size: 1.35rem;
-  font-weight: 700;
-  letter-spacing: -.03em;
-  opacity: .7;
-  white-space: nowrap;
 }
 @keyframes defile {
   to { transform: translateX(-50%); }

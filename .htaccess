@@ -48,6 +48,15 @@
 </FilesMatch>
 
 # ------------------------------------------------------------------------------
+# 3 bis) TYPES DE FICHIERS : garantit le bon type pour les formats récents
+# ------------------------------------------------------------------------------
+<IfModule mod_mime.c>
+  AddType image/webp .webp
+  AddType image/svg+xml .svg
+  AddType font/woff2 .woff2
+</IfModule>
+
+# ------------------------------------------------------------------------------
 # 4) COMPRESSION GZIP / DEFLATE
 # ------------------------------------------------------------------------------
 # Compresse le texte, le HTML, le CSS et le JavaScript pour accélérer le chargement
@@ -62,6 +71,8 @@
   AddOutputFilterByType DEFLATE text/javascript
   AddOutputFilterByType DEFLATE image/svg+xml
   AddOutputFilterByType DEFLATE application/json
+  AddOutputFilterByType DEFLATE application/ld+json
+  AddOutputFilterByType DEFLATE image/x-icon
 </IfModule>
 
 # ------------------------------------------------------------------------------
@@ -90,4 +101,16 @@
   # Polices d'écriture : 1 an
   ExpiresByType font/woff2 "access plus 1 year"
   ExpiresByType font/woff "access plus 1 year"
+</IfModule>
+
+# ------------------------------------------------------------------------------
+# 6) CACHE LONGUE DURÉE DES FICHIERS VERSIONNÉS
+# ------------------------------------------------------------------------------
+# Les feuilles de style, scripts et polices sont appelés avec un numéro de version
+# (?v=...) changé à chaque modification : le navigateur peut les garder un an
+# sans les revérifier, la nouvelle version étant téléchargée dès que le numéro change.
+<IfModule mod_headers.c>
+  <FilesMatch "\.(css|js|woff2)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
 </IfModule>
