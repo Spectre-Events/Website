@@ -2222,3 +2222,23 @@ dialog.lightbox::backdrop {
     flex: 1;
   }
 }
+
+/* Traiteur : photo floutée du barbecue en fond du haut de page.
+   Placée après .hero-braise pour la remplacer (même niveau de priorité). */
+.hero.hero-barbecue {
+  background-color: var(--acc);
+  background-image:
+    linear-gradient(90deg, rgba(30, 28, 36, .9) 0%, rgba(30, 28, 36, .76) 45%, rgba(30, 28, 36, .45) 100%),
+    url("../images/traiteur/barbecue.webp");
+  background-position: center, right center;
+  background-size: cover, cover;
+  background-repeat: no-repeat;
+}
+@media (max-width: 760px) {
+  .hero.hero-barbecue {
+    background-image:
+      linear-gradient(rgba(30, 28, 36, .8), rgba(30, 28, 36, .88)),
+      url("../images/traiteur/barbecue.webp");
+    background-position: center, 70% center;
+  }
+}
