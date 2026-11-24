@@ -16,6 +16,9 @@
   RewriteCond %{HTTPS} off [OR]
   RewriteCond %{HTTP_HOST} ^www\.spectre-events\.fr [NC]
   RewriteRule ^(.*)$ https://spectre-events.fr/$1 [L,R=301]
+
+  # Dossier de configuration de l'éditeur (.claude) : jamais servi, réponse 404
+  RewriteRule ^\.claude(/|$) - [R=404,L]
 </IfModule>
 
 # ------------------------------------------------------------------------------
