@@ -215,6 +215,8 @@
       <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
       <!-- La demande porte sur la borne photo -->
       <input type="hidden" name="opt" value="Borne photo vintage (à partir de 400 €)">
+      <!-- Indique dans l'objet du mail que la demande vient de la page borne photo -->
+      <input type="hidden" name="demande" value="Borne photo">
 
       <label>Date de l'événement
         <input name="date" type="date" required>
@@ -236,6 +238,7 @@
 
       <label>Type d'événement
         <select name="type">
+          <option value="">Choisir…</option>
           <option>Mariage</option>
           <option>Soirée d'entreprise</option>
           <option>Anniversaire</option>
@@ -277,7 +280,7 @@
 
 <!-- Scripts JavaScript natifs -->
 <script src="../js/header.js?v=20261123"></script>
-<script src="../js/script.js?v=20261123"></script>
+<script src="../js/script.js?v=20261124"></script>
 <script src="../js/sous-menu.js?v=20261123"></script>
 <script src="../js/lightbox.js?v=20261123"></script>
 </body>

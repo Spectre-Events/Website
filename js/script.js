@@ -144,14 +144,17 @@ if (formulaire) {
     // Préparation des données pour l'e-mail de notification
     const donnees = {
       access_key: '4581c5c5-a3e4-44a5-bcfe-c6339e5970b7',
-      subject: 'Nouvelle demande de devis : ' + (d.get('type') || 'Événement'),
+      // Objet : « Borne photo » pour le formulaire de la page borne, sinon le type d'événement
+      subject: d.get('demande')
+        ? 'Nouvelle demande : ' + d.get('demande') + (d.get('type') ? ' — ' + d.get('type') : '')
+        : 'Nouvelle demande de devis : ' + (d.get('type') || 'Événement'),
       from_name: 'Spectre Events — Formulaire Web',
       replyto: d.get('mail'), // Permet de répondre d'un clic au client
       'Nom': (d.get('nom') || '').trim(),
       'E-mail': (d.get('mail') || '').trim(),
       'Téléphone': (d.get('tel') || '').trim() || 'Non précisé',
       'Entreprise': (d.get('societe') || '').trim() || 'Particulier',
-      'Type d\'événement': d.get('type'),
+      'Type d\'événement': d.get('type') || 'Non précisé',
       'Nombre d\'invités': d.get('invites') || 'Non précisé',
       'Date': d.get('date') || 'Non précisée',
       'Lieu': (d.get('lieu') || '').trim() || 'Non précisé',
