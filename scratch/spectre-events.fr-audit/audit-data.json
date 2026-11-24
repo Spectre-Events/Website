@@ -1,0 +1,385 @@
+{
+  "summary": {
+    "health_score": 63,
+    "business_type": "Prestataire événementiel local sans adresse publique (DJ, sonorisation, borne photo, location, organisation clé en main) — Paris/IDF, Vendée, Pays de la Loire",
+    "audit_date": "2026-11-11",
+    "limitations": [
+      "Runtime Python du plugin non installé (/seo setup)",
+      "API PageSpeed Insights : quota épuisé ; aucune donnée CrUX",
+      "Pas d'accès Search Console ni GBP ; recherches via Bing/DuckDuckGo non géolocalisées"
+    ],
+    "top_findings": [
+      "Aucune fiche Google Business Profile, aucun annuaire ni avis vérifiable trouvés",
+      "Indexation non confirmée : aucune page sur Bing pour site:spectre-events.fr (inférence)",
+      "Mentions légales sans forme juridique, SIRET ni adresse du siège (LCEN)",
+      "Aucun title ne cible Paris ; le mariage tient dans un onglet masqué de /sonorisation/",
+      "Preuves faibles : témoignages au prénom seul, fondateurs anonymes, aucune réalisation nommée"
+    ],
+    "quick_wins": [
+      "Réparer le menu mobile de /traiteur/ (getElementById('menu') renvoie null)",
+      "Réécrire les 7 titles avec service + Paris",
+      "Ajouter un H1 sur /location/ et /contact/ ; retirer /mentions-legales/ du sitemap",
+      "Corriger les liens internes sans barre finale (301 vers :443)",
+      "Ré-encoder mariage-2.webp (1,5 Mo), borne-1/2.webp et remplacer le logo d'en-tête (155 Ko)"
+    ],
+    "domain_registered": "2026-10-10"
+  },
+  "categories": [
+    {
+      "name": "SEO technique",
+      "score": 82,
+      "what_works": [
+        "HTTPS et www unifiés en une 301",
+        "HSTS et en-têtes de sécurité",
+        "gzip + cache navigateur",
+        "robots.txt + sitemap valides",
+        "canonicals auto-référentes",
+        "HTML statique sans dépendance JS"
+      ],
+      "findings": [
+        {
+          "title": "Menu mobile de /traiteur/ inopérant",
+          "severity": "High",
+          "description": "Le script en ligne appelle getElementById('menu') alors que la nav a l'id nav-principale : TypeError au clic, menu fermé (vérifié en ligne, mobile 375 px).",
+          "recommendation": "Remplacer le script en ligne par ../js/header.js et ../js/sous-menu.js."
+        },
+        {
+          "title": "Liens du menu vers des URL sans barre finale",
+          "severity": "Medium",
+          "description": "../traiteur, ../location, ../contact renvoient une 301 vers https://spectre-events.fr:443/…/ sur toutes les pages.",
+          "recommendation": "Liens absolus avec barre finale : /traiteur/, /location/, /contact/."
+        },
+        {
+          "title": "Page noindex dans le sitemap",
+          "severity": "Low",
+          "description": "/mentions-legales/ est en noindex mais listée dans sitemap.xml.",
+          "recommendation": "La retirer du sitemap."
+        },
+        {
+          "title": "Page 404 Apache par défaut",
+          "severity": "Low",
+          "description": "404 en anglais, iso-8859-1, sans navigation.",
+          "recommendation": "404.html personnalisée + ErrorDocument 404 dans .htaccess."
+        },
+        {
+          "title": "signature-mail.html publique et indexable",
+          "severity": "Low",
+          "description": "200 sans noindex.",
+          "recommendation": "Exclure du déploiement ou ajouter noindex."
+        },
+        {
+          "title": "Indexation non confirmée",
+          "severity": "High",
+          "description": "Bing ne renvoie aucune page pour site:spectre-events.fr (inférence) ; Google non vérifiable.",
+          "recommendation": "Search Console (propriété Domaine) + Bing Webmaster Tools, soumettre le sitemap."
+        }
+      ]
+    },
+    {
+      "name": "Qualité du contenu",
+      "score": 58,
+      "what_works": [
+        "Voix propre et histoire des fondateurs",
+        "Matériel cité précisément (L-Acoustics, Shure…)",
+        "Chiffres concrets",
+        "Tarifs de location affichés",
+        "Alt text partout"
+      ],
+      "findings": [
+        {
+          "title": "Identité juridique absente des mentions légales",
+          "severity": "High",
+          "description": "Ni forme juridique, ni SIRET, ni adresse du siège.",
+          "recommendation": "Compléter selon LCEN art. 6-III ; préciser l'entité exploitante si le nom déposé diffère."
+        },
+        {
+          "title": "Mariage sans page dédiée",
+          "severity": "High",
+          "description": "~60 mots dans un onglet masqué de /sonorisation/.",
+          "recommendation": "Page /dj-mariage-paris/ ≥ 600 mots avec preuves."
+        },
+        {
+          "title": "Pages minces",
+          "severity": "Medium",
+          "description": "/location/ 135 mots sans H1 ; /photographie/ 248 mots, onglet Photographe illustré par des photos son.",
+          "recommendation": "Enrichir conditions, capacités, vraies photos."
+        },
+        {
+          "title": "Avis invérifiables",
+          "severity": "Medium",
+          "description": "Prénoms seuls, 5 étoiles codées en dur, sans source.",
+          "recommendation": "Citer des avis Google sourcés ; pas de balisage Review auto-attribué."
+        },
+        {
+          "title": "Fondateurs et réalisations non présentés",
+          "severity": "Medium",
+          "description": "Pas de noms complets, photos, lieux ni clients nommés.",
+          "recommendation": "Bloc fondateurs + page /realisations/."
+        },
+        {
+          "title": "Avis d'un particulier présenté sur /entreprises/",
+          "severity": "Medium",
+          "description": "« Astrid, Paris » sur /entreprises/ correspond à « Astrid, anniversaire à Paris » sur l'accueil.",
+          "recommendation": "Utiliser des avis de clients entreprise sur /entreprises/."
+        }
+      ]
+    },
+    {
+      "name": "SEO on-page",
+      "score": 60,
+      "what_works": [
+        "Titles uniques < 65 caractères",
+        "Meta descriptions uniques",
+        "Canonical et og: sur chaque page"
+      ],
+      "findings": [
+        {
+          "title": "Aucun title ne cible Paris ni les requêtes principales",
+          "severity": "High",
+          "description": "Marque en tête, aucune mention de Paris/IDF dans les 7 titles.",
+          "recommendation": "Service + zone en tête, marque en fin."
+        },
+        {
+          "title": "Pages sans H1",
+          "severity": "Medium",
+          "description": "/location/ et /contact/ n'ont qu'un H2.",
+          "recommendation": "Passer le titre principal en H1."
+        },
+        {
+          "title": "H1 de type slogan",
+          "severity": "Low",
+          "description": "Accueil, /photographie/, /traiteur/.",
+          "recommendation": "H1 descriptif, slogan en accroche."
+        },
+        {
+          "title": "Meta description trop longue",
+          "severity": "Low",
+          "description": "/entreprises/ : 184 caractères.",
+          "recommendation": "Ramener à ~155."
+        }
+      ]
+    },
+    {
+      "name": "Données structurées",
+      "score": 45,
+      "what_works": [
+        "EntertainmentBusiness valide sur l'accueil",
+        "FAQPage conforme au contenu visible"
+      ],
+      "findings": [
+        {
+          "title": "Entité entreprise incomplète",
+          "severity": "Medium",
+          "description": "Pas d'@id, sameAs, founder ; logo 60×40 (< 112 px) ; areaServed en chaînes.",
+          "recommendation": "Bloc enrichi fourni dans findings/schema.md."
+        },
+        {
+          "title": "Aucun Service sur les pages de prestations",
+          "severity": "Medium",
+          "description": "6 pages internes sans balisage.",
+          "recommendation": "Service par page + Offer chiffrées sur /location/."
+        },
+        {
+          "title": "FAQPage",
+          "severity": "Info",
+          "description": "Résultats enrichis FAQ retirés par Google le 7 mai 2026.",
+          "recommendation": "Conserver, ne pas en ajouter pour un gain SERP."
+        }
+      ]
+    },
+    {
+      "name": "Performance",
+      "score": 72,
+      "what_works": [
+        "LCP porté par du texte",
+        "CLS 0,000 mesuré",
+        "~15 Ko de JS, aucun script tiers",
+        "Polices auto-hébergées avec swap + preload"
+      ],
+      "findings": [
+        {
+          "title": "Images surdimensionnées",
+          "severity": "High",
+          "description": "Accueil ≈ 2,5 Mo après défilement dont 2,3 Mo d'images ; mariage-2.webp 1,5 Mo pour un affichage en 335 px.",
+          "recommendation": "WebP q75-80, max 1600 px, srcset 800/1600."
+        },
+        {
+          "title": "Logo d'en-tête de 155 Ko",
+          "severity": "Medium",
+          "description": "1536×1024 affiché en 42×28 sur chaque page.",
+          "recommendation": "Version 84×56 ou SVG."
+        }
+      ]
+    },
+    {
+      "name": "Préparation recherche IA",
+      "score": 55,
+      "what_works": [
+        "Tous les robots IA et de recherche reçoivent 200 + page complète",
+        "robots.txt ouvert",
+        "HTML statique sans dépendance JS",
+        "Tarifs et références matériel citables sur /location/"
+      ],
+      "findings": [
+        {
+          "title": "Aucune mention ni lien venant d'un autre site",
+          "severity": "High",
+          "description": "Ni le partenaire, ni un annuaire, ni Wikidata/YouTube ; domaine enregistré le 2026-10-10.",
+          "recommendation": "GBP, annuaires, LinkedIn, lien du partenaire, avis."
+        },
+        {
+          "title": "Homonymes",
+          "severity": "High",
+          "description": "spectre-events.com (agence néerlandaise) ; SPECTRE EVENTS Lille (fermée).",
+          "recommendation": "Associer systématiquement nom + service + Paris ; déclarer le nom commercial."
+        },
+        {
+          "title": "Entreprise mal définie",
+          "severity": "High",
+          "description": "Pas d'identité juridique, fondateurs au prénom seul, schema sans legalName/founder/sameAs.",
+          "recommendation": "Mentions légales complètes + paragraphe de définition + schema entreprise sur toutes les pages."
+        },
+        {
+          "title": "Peu de faits citables hors /location/",
+          "severity": "Medium",
+          "description": "Aucun prix « à partir de » sur les pages de service.",
+          "recommendation": "Prix d'appel et intertitres sous forme de questions."
+        },
+        {
+          "title": "llms.txt absent",
+          "severity": "Low",
+          "description": "Facultatif, ignoré par Google Search.",
+          "recommendation": "Pas prioritaire."
+        }
+      ]
+    },
+    {
+      "name": "Images",
+      "score": 55,
+      "what_works": [
+        "Alt text descriptif sur 100 % des images",
+        "loading=lazy hors premier écran"
+      ],
+      "findings": [
+        {
+          "title": "Poids et absence de srcset",
+          "severity": "High",
+          "description": "Voir Performance.",
+          "recommendation": "Ré-encodage + versions responsive."
+        },
+        {
+          "title": "Illustrations hors sujet",
+          "severity": "Low",
+          "description": "Onglet Photographe illustré par des installations son.",
+          "recommendation": "Vraies photos du photographe."
+        },
+        {
+          "title": "Images sans width/height",
+          "severity": "Low",
+          "description": "17 images au total.",
+          "recommendation": "Ajouter les dimensions."
+        }
+      ]
+    },
+    {
+      "name": "SEO local (hors score pondéré)",
+      "score": 24,
+      "what_works": [
+        "Nom, téléphone et e-mail cohérents sur tout le site"
+      ],
+      "findings": [
+        {
+          "title": "Aucune fiche Google Business Profile trouvée",
+          "severity": "High",
+          "description": "Recherches Bing/DuckDuckGo ; accès GBP indisponible.",
+          "recommendation": "Fiche établissement de services, catégorie Disc-jockey, zones desservies."
+        },
+        {
+          "title": "Aucun annuaire trouvé",
+          "severity": "High",
+          "description": "3 des 10 premiers résultats de « DJ mariage Paris » sont des annuaires.",
+          "recommendation": "Mariages.net, Zankyou, PagesJaunes, Bing Places, Apple, Facebook, LinkedIn."
+        },
+        {
+          "title": "Deux comptes Instagram",
+          "severity": "Medium",
+          "description": "@spectre_event (lié) et @spectre_events (existe, propriété inconnue).",
+          "recommendation": "Unifier."
+        }
+      ]
+    },
+    {
+      "name": "Expérience de recherche (SXO, hors score pondéré)",
+      "score": 42,
+      "what_works": [
+        "/entreprises/ correspond au type de page attendu"
+      ],
+      "findings": [
+        {
+          "title": "Résultats dominés par les annuaires",
+          "severity": "High",
+          "description": "80 à 100 % des premiers résultats sur les requêtes principales : Mariages.net, Bridebook, 1001salles, Lokki, Funbooker, avec prix, notes et photos.",
+          "recommendation": "S'y inscrire + afficher prix « à partir de », avis sourcés et photos sur le site."
+        },
+        {
+          "title": "Mariage, borne photo et location sans page adaptée",
+          "severity": "High",
+          "description": "Onglets masqués de ~70 mots ; /location/ sans H1 ni photos.",
+          "recommendation": "/dj-mariage/, /borne-photo/, /location/ refondue en fiches."
+        }
+      ]
+    }
+  ],
+  "action_plan": {
+    "phases": [
+      {
+        "name": "Phase 1 : Fondations",
+        "timeframe": "Semaine 1",
+        "items": [
+          "Search Console + Bing Webmaster Tools",
+          "Identité juridique dans les mentions légales",
+          "Fiche Google Business Profile",
+          "Titles, H1 et sitemap",
+          "Liens internes",
+          "Poids des images"
+        ]
+      },
+      {
+        "name": "Phase 2 : Présence et preuves",
+        "timeframe": "Semaines 2-3",
+        "items": [
+          "Collecte d'avis Google",
+          "Annuaires et réseaux",
+          "Compte Instagram unique",
+          "Données structurées"
+        ]
+      },
+      {
+        "name": "Phase 3 : Contenu",
+        "timeframe": "Mois 2",
+        "items": [
+          "Page DJ mariage Paris",
+          "Enrichir /location/",
+          "Réalisations et fondateurs",
+          "Photographie et borne",
+          "Liens partenaires",
+          "Page Vendée si preuves"
+        ]
+      },
+      {
+        "name": "Phase 4 : Suivi",
+        "timeframe": "Continu",
+        "items": [
+          "Search Console mensuel",
+          "Avis et appels GBP",
+          "Drift baseline",
+          "Nouvel audit dans 3 mois"
+        ]
+      }
+    ]
+  },
+  "artifacts": {
+    "findings_dir": "findings/",
+    "screenshots_dir": null
+  }
+}
